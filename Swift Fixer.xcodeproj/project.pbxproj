@@ -7,13 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		193E70EC297F3AA40053A733 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193E70EB297F3AA40053A733 /* Cocoa.framework */; };
+		193E70EE297F3AA40053A733 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193E70ED297F3AA40053A733 /* XcodeKit.framework */; };
+		193E70F1297F3AA40053A733 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E70F0297F3AA40053A733 /* SourceEditorExtension.swift */; };
+		193E70F3297F3AA40053A733 /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E70F2297F3AA40053A733 /* SourceEditorCommand.swift */; };
+		193E70F8297F3AA40053A733 /* Swift Fixer - Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 193E70E9297F3AA40053A733 /* Swift Fixer - Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		196BF447297F39DB00D04A4B /* Swift_FixerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196BF446297F39DB00D04A4B /* Swift_FixerApp.swift */; };
 		196BF449297F39DB00D04A4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196BF448297F39DB00D04A4B /* ContentView.swift */; };
 		196BF44B297F39DC00D04A4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44A297F39DC00D04A4B /* Assets.xcassets */; };
 		196BF44E297F39DC00D04A4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44D297F39DC00D04A4B /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		193E70F6297F3AA40053A733 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 196BF43B297F39DA00D04A4B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 193E70E8297F3AA40053A733;
+			remoteInfo = "Swift Fixer - Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		193E70F9297F3AA40053A733 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				193E70F8297F3AA40053A733 /* Swift Fixer - Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		193E70E9297F3AA40053A733 /* Swift Fixer - Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Swift Fixer - Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		193E70EB297F3AA40053A733 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		193E70ED297F3AA40053A733 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
+		193E70F0297F3AA40053A733 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
+		193E70F2297F3AA40053A733 /* SourceEditorCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorCommand.swift; sourceTree = "<group>"; };
+		193E70F4297F3AA40053A733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		193E70F5297F3AA40053A733 /* Swift_Fixer___Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Swift_Fixer___Extension.entitlements"; sourceTree = "<group>"; };
 		196BF443297F39DB00D04A4B /* Swift Fixer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift Fixer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		196BF446297F39DB00D04A4B /* Swift_FixerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_FixerApp.swift; sourceTree = "<group>"; };
 		196BF448297F39DB00D04A4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -23,6 +59,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		193E70E6297F3AA40053A733 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				193E70EC297F3AA40053A733 /* Cocoa.framework in Frameworks */,
+				193E70EE297F3AA40053A733 /* XcodeKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		196BF440297F39DB00D04A4B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -33,10 +78,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		193E70EA297F3AA40053A733 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				193E70EB297F3AA40053A733 /* Cocoa.framework */,
+				193E70ED297F3AA40053A733 /* XcodeKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		193E70EF297F3AA40053A733 /* Swift Fixer - Extension */ = {
+			isa = PBXGroup;
+			children = (
+				193E70F0297F3AA40053A733 /* SourceEditorExtension.swift */,
+				193E70F2297F3AA40053A733 /* SourceEditorCommand.swift */,
+				193E70F4297F3AA40053A733 /* Info.plist */,
+				193E70F5297F3AA40053A733 /* Swift_Fixer___Extension.entitlements */,
+			);
+			path = "Swift Fixer - Extension";
+			sourceTree = "<group>";
+		};
 		196BF43A297F39DA00D04A4B = {
 			isa = PBXGroup;
 			children = (
 				196BF445297F39DB00D04A4B /* Swift Fixer */,
+				193E70EF297F3AA40053A733 /* Swift Fixer - Extension */,
+				193E70EA297F3AA40053A733 /* Frameworks */,
 				196BF444297F39DB00D04A4B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				196BF443297F39DB00D04A4B /* Swift Fixer.app */,
+				193E70E9297F3AA40053A733 /* Swift Fixer - Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,6 +140,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		193E70E8297F3AA40053A733 /* Swift Fixer - Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 193E70FC297F3AA40053A733 /* Build configuration list for PBXNativeTarget "Swift Fixer - Extension" */;
+			buildPhases = (
+				193E70E5297F3AA40053A733 /* Sources */,
+				193E70E6297F3AA40053A733 /* Frameworks */,
+				193E70E7297F3AA40053A733 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Swift Fixer - Extension";
+			productName = "Swift Fixer - Extension";
+			productReference = 193E70E9297F3AA40053A733 /* Swift Fixer - Extension.appex */;
+			productType = "com.apple.product-type.xcode-extension";
+		};
 		196BF442297F39DB00D04A4B /* Swift Fixer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 196BF452297F39DC00D04A4B /* Build configuration list for PBXNativeTarget "Swift Fixer" */;
@@ -79,10 +164,12 @@
 				196BF43F297F39DB00D04A4B /* Sources */,
 				196BF440297F39DB00D04A4B /* Frameworks */,
 				196BF441297F39DB00D04A4B /* Resources */,
+				193E70F9297F3AA40053A733 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				193E70F7297F3AA40053A733 /* PBXTargetDependency */,
 			);
 			name = "Swift Fixer";
 			productName = "Swift Fixer";
@@ -99,6 +186,9 @@
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					193E70E8297F3AA40053A733 = {
+						CreatedOnToolsVersion = 14.0;
+					};
 					196BF442297F39DB00D04A4B = {
 						CreatedOnToolsVersion = 14.0;
 					};
@@ -118,11 +208,19 @@
 			projectRoot = "";
 			targets = (
 				196BF442297F39DB00D04A4B /* Swift Fixer */,
+				193E70E8297F3AA40053A733 /* Swift Fixer - Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		193E70E7297F3AA40053A733 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		196BF441297F39DB00D04A4B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -135,6 +233,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		193E70E5297F3AA40053A733 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				193E70F1297F3AA40053A733 /* SourceEditorExtension.swift in Sources */,
+				193E70F3297F3AA40053A733 /* SourceEditorCommand.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		196BF43F297F39DB00D04A4B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -146,7 +253,69 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		193E70F7297F3AA40053A733 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 193E70E8297F3AA40053A733 /* Swift Fixer - Extension */;
+			targetProxy = 193E70F6297F3AA40053A733 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		193E70FA297F3AA40053A733 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Swift Fixer - Extension/Swift_Fixer___Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9TVGLBSJNB;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Swift Fixer - Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Swift Fixer - Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jondayley.Swift-Fixer.Swift-Fixer---Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		193E70FB297F3AA40053A733 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Swift Fixer - Extension/Swift_Fixer___Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9TVGLBSJNB;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Swift Fixer - Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Swift Fixer - Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jondayley.Swift-Fixer.Swift-Fixer---Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		196BF450297F39DC00D04A4B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -263,6 +432,7 @@
 		196BF453297F39DC00D04A4B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Swift Fixer/Swift_Fixer.entitlements";
@@ -290,6 +460,7 @@
 		196BF454297F39DC00D04A4B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Swift Fixer/Swift_Fixer.entitlements";
@@ -317,6 +488,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		193E70FC297F3AA40053A733 /* Build configuration list for PBXNativeTarget "Swift Fixer - Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				193E70FA297F3AA40053A733 /* Debug */,
+				193E70FB297F3AA40053A733 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		196BF43E297F39DA00D04A4B /* Build configuration list for PBXProject "Swift Fixer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
