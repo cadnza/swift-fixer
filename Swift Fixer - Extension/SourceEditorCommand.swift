@@ -44,7 +44,8 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 			default:
 				completionHandler(
 					NSError(
-						domain: codeReturn.message.trimmingCharacters(in: .whitespacesAndNewlines),
+						domain: codeReturn.message
+							.trimmingCharacters(in: .whitespacesAndNewlines),
 						code: codeReturn.status
 					)
 				)
