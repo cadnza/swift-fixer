@@ -15,7 +15,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 
 		// Get current buffer lines and convert to text
 		let bufferLines: NSMutableArray = invocation.buffer.lines
-		let txt: String = bufferLines.componentsJoined(by: "\n")
+		let txt: String = bufferLines.componentsJoined(by: "") // Maybe make this not a \n //TEMP
 
 		// Get address of temporary file
 		let fTemp: URL = FileManager
@@ -28,26 +28,25 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		try? txt.write(to: fTemp, atomically: true, encoding: .utf8)
 
 		// Run command
-//		let urlSwiftFormat: URL = URL(string: "/usr/bin/env")!
-//		do {
-//			let task = try NSUserUnixTask(url: urlSwiftFormat)
-//			task.execute(
-//				withArguments: [
-//					"swift-format",
-//					"-i",
-//					urlSwiftFormat.path
-//				]
-//			)
-//		} catch {
-//			print("HERE") //TEMP
-//		}
+		do {
+			try shell(
+				command:"/usr/bin/env",
+				args:[
+					"swift-format",
+					"-i",
+					fTemp.path
+				]
+			)
+		} catch {
+			print("HERE") //TEMP
+		}
 
 		// Read in file
-//		let linesReadIn = try? String.init(contentsOfFile: fTemp.path).components(separatedBy: "\n")
+		let linesReadIn = try? String.init(contentsOfFile: fTemp.path).components(separatedBy: "\n")
 
 		// Replace buffer text
-//		bufferLines.removeAllObjects()
-//		bufferLines.addObjects(from:linesReadIn!)
+		//		bufferLines.removeAllObjects()
+		//		bufferLines.addObjects(from:linesReadIn!)
 
 		// Implement your command here, invoking the completion handler when done. Pass it nil on success, and an NSError on failure.
 
