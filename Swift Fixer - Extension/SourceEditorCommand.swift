@@ -44,7 +44,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		}
 
 		// Read in file
-		let linesReadIn = try? String.init(contentsOfFile: fTemp.path).components(separatedBy: "\n")
+		let linesReadIn = try? String.init(contentsOfFile: fTemp.path).components(separatedBy: "")
 
 		// Replace buffer text
 		bufferLines.removeAllObjects()
