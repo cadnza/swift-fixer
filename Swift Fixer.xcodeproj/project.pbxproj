@@ -18,6 +18,7 @@
 		196BF449297F39DB00D04A4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196BF448297F39DB00D04A4B /* ContentView.swift */; };
 		196BF44B297F39DC00D04A4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44A297F39DC00D04A4B /* Assets.xcassets */; };
 		196BF44E297F39DC00D04A4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44D297F39DC00D04A4B /* Preview Assets.xcassets */; };
+		19D5A3D229808ACA00DA3CCC /* swift-format in Resources */ = {isa = PBXBuildFile; fileRef = 19D5A3D129808ACA00DA3CCC /* swift-format */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		196BF44A297F39DC00D04A4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		196BF44D297F39DC00D04A4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		196BF44F297F39DC00D04A4B /* Swift_Fixer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swift_Fixer.entitlements; sourceTree = "<group>"; };
+		19D5A3D129808ACA00DA3CCC /* swift-format */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "swift-format"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 		196BF43A297F39DA00D04A4B = {
 			isa = PBXGroup;
 			children = (
+				19D5A3D129808ACA00DA3CCC /* swift-format */,
 				196BF445297F39DB00D04A4B /* Swift Fixer */,
 				193E70EF297F3AA40053A733 /* Swift Fixer - Extension */,
 				193E70EA297F3AA40053A733 /* Frameworks */,
@@ -234,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19D5A3D229808ACA00DA3CCC /* swift-format in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
