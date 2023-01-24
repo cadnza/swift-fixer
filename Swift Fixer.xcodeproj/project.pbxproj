@@ -19,6 +19,9 @@
 		196BF44B297F39DC00D04A4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44A297F39DC00D04A4B /* Assets.xcassets */; };
 		196BF44E297F39DC00D04A4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44D297F39DC00D04A4B /* Preview Assets.xcassets */; };
 		19D5A3D229808ACA00DA3CCC /* swift-format in Resources */ = {isa = PBXBuildFile; fileRef = 19D5A3D129808ACA00DA3CCC /* swift-format */; };
+		19D5A3D62980924900DA3CCC /* .swift-format in Resources */ = {isa = PBXBuildFile; fileRef = 19D5A3D52980924900DA3CCC /* .swift-format */; };
+		19D5A3D82980925100DA3CCC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 19D5A3D72980925100DA3CCC /* .swiftlint.yml */; };
+		19D5A3E02980935D00DA3CCC /* swiftlint in Resources */ = {isa = PBXBuildFile; fileRef = 19D5A3DF2980935D00DA3CCC /* swiftlint */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,9 @@
 		196BF44D297F39DC00D04A4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		196BF44F297F39DC00D04A4B /* Swift_Fixer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swift_Fixer.entitlements; sourceTree = "<group>"; };
 		19D5A3D129808ACA00DA3CCC /* swift-format */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "swift-format"; sourceTree = "<group>"; };
+		19D5A3D52980924900DA3CCC /* .swift-format */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-format"; sourceTree = "<group>"; };
+		19D5A3D72980925100DA3CCC /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		19D5A3DF2980935D00DA3CCC /* swiftlint */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = swiftlint; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +124,9 @@
 		196BF43A297F39DA00D04A4B = {
 			isa = PBXGroup;
 			children = (
+				19D5A3DF2980935D00DA3CCC /* swiftlint */,
+				19D5A3D72980925100DA3CCC /* .swiftlint.yml */,
+				19D5A3D52980924900DA3CCC /* .swift-format */,
 				19D5A3D129808ACA00DA3CCC /* swift-format */,
 				196BF445297F39DB00D04A4B /* Swift Fixer */,
 				193E70EF297F3AA40053A733 /* Swift Fixer - Extension */,
@@ -238,6 +247,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				19D5A3D229808ACA00DA3CCC /* swift-format in Resources */,
+				19D5A3D62980924900DA3CCC /* .swift-format in Resources */,
+				19D5A3D82980925100DA3CCC /* .swiftlint.yml in Resources */,
+				19D5A3E02980935D00DA3CCC /* swiftlint in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
