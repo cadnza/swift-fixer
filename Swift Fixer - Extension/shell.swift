@@ -7,7 +7,7 @@
 
 import Foundation
 
-func shell(command: String, args: [String]? = []) throws -> Void {
+func shell(command: String, args: [String]? = []) throws -> String {
 	let task = Process()
 	let pipe = Pipe()
 
@@ -18,8 +18,8 @@ func shell(command: String, args: [String]? = []) throws -> Void {
 	task.standardInput = nil
 	task.launch()
 
-	//	let data = pipe.fileHandleForReading.readDataToEndOfFile()
-	//	let output = String(data: data, encoding: .utf8)!
+	let data = pipe.fileHandleForReading.readDataToEndOfFile()
+	let output = String(data: data, encoding: .utf8)!
 
-	//	return output
+	return output
 }
