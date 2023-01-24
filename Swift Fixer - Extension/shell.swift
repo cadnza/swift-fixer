@@ -16,7 +16,11 @@ func shell(command: String, args: [String]? = []) throws -> String {
 	task.arguments = args
 	task.launchPath = command
 	task.standardInput = nil
-	task.launch()
+	do {
+		try task.run()
+	} catch {
+		throw error
+	}
 
 	let data = pipe.fileHandleForReading.readDataToEndOfFile()
 	let output = String(data: data, encoding: .utf8)!
