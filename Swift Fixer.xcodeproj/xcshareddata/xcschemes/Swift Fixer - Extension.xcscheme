@@ -6,6 +6,15 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# Set destination&#10;dest=&quot;$WORKSPACE_PATH/../..&quot;&#10;&#10;# Remove binaries&#10;rm -rf &quot;$dest/swift-format&quot;&#10;&#10;# Copy binaries&#10;cp /usr/local/bin/swift-format &quot;$dest&quot;&#10;">
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
