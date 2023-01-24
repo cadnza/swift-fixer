@@ -7,7 +7,9 @@
 
 import Foundation
 
-func shell(command: String, args: [String] = []) -> (status: Int, message: String) {
+func shell(command: String, args: [String] = []) -> (
+	status: Int, message: String
+) {
 
 	// Open process and pipe
 	let task = Process()
@@ -27,11 +29,7 @@ func shell(command: String, args: [String] = []) -> (status: Int, message: Strin
 	task.standardInput = nil
 
 	// Run task
-	do {
-		try task.run()
-	} catch {
-		return(1,"Could not run")
-	}
+	do { try task.run() } catch { return (1, "Could not run") }
 	task.waitUntilExit()
 
 	// Get exit code
@@ -42,5 +40,5 @@ func shell(command: String, args: [String] = []) -> (status: Int, message: Strin
 	let output = String(data: data, encoding: .utf8)!
 
 	// Return
-	return (code,output)
+	return (code, output)
 }

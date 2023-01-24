@@ -12,7 +12,8 @@ import XcodeKit
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 
 	func perform(
-		with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void
+		with invocation: XCSourceEditorCommandInvocation,
+		completionHandler: @escaping (Error?) -> Void
 	) {
 
 		// Get current buffer lines and convert to text
@@ -20,11 +21,10 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		let txt: String = bufferLines.componentsJoined(by: "")  // Maybe make this not a \n //TEMP
 
 		// Get address of temporary file
-		let fTemp: URL = FileManager
-			.default
-			.temporaryDirectory
-			.appendingPathComponent(UUID().uuidString)
-			.appendingPathExtension("swift")
+		let fTemp: URL = FileManager.default.temporaryDirectory
+			.appendingPathComponent(UUID().uuidString).appendingPathExtension(
+				"swift"
+			)
 
 		// Write to temporary file
 		try? txt.write(to: fTemp, atomically: true, encoding: .utf8)
@@ -33,28 +33,30 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		let codeReturn = shell(
 			command: "/usr/bin/env",
 			args: [
-				Bundle.main.url(forResource: "swift-format", withExtension: "")!.path,
-				"--configuration",
-				Bundle.main.url(forResource: ".swift-format", withExtension: "")!.path,
-				"-i",
-				fTemp.path,
+				Bundle.main.url(forResource: "swift-format", withExtension: "")!
+					.path, "--configuration",
+				Bundle.main.url(
+					forResource: ".swift-format",
+					withExtension: ""
+				)!.path, "-i", fTemp.path,
 			]
 		)
 		switch codeReturn.status {
-			case 0:
-				break
-			default:
-				completionHandler(
-					NSError(
-						domain: codeReturn.message
-							.trimmingCharacters(in: .whitespacesAndNewlines),
-						code: codeReturn.status
-					)
+		case 0: break
+		default:
+			completionHandler(
+				NSError(
+					domain: codeReturn.message.trimmingCharacters(
+						in: .whitespacesAndNewlines
+					),
+					code: codeReturn.status
 				)
+			)
 		}
 
 		// Read in file
-		let linesReadIn = try? String.init(contentsOfFile: fTemp.path).components(separatedBy: "")
+		let linesReadIn = try? String.init(contentsOfFile: fTemp.path)
+			.components(separatedBy: "")
 
 		// Replace buffer text
 		bufferLines.removeAllObjects()
