@@ -56,8 +56,6 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		bufferLines.removeAllObjects()
 		bufferLines.addObjects(from:linesReadIn!)
 
-		// Implement your command here, invoking the completion handler when done. Pass it nil on success, and an NSError on failure.
-
 		// Return
 		completionHandler(nil)
 	}
