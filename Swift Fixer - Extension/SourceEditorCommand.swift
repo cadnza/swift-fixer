@@ -30,28 +30,23 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		try? txt.write(to: fTemp, atomically: true, encoding: .utf8)
 
 		// Run command and catch error
-		var hasErrored: Bool = false
-		do {
-			let _: [Int: String] = try shell(
-				command:"/usr/bin/env",
-				args:[
-					"swift-format",
-					"-i",
-					fTemp.path
-				]
-			)
-		} catch codeError.general {
-			print("General error") //TEMP
-			hasErrored = true
-		} catch codeError.commandNotExecutable {
-			print("Could not execute") //TEMP
-			hasErrored = true
-		} catch {
-			print("Error") //TEMP
-			hasErrored = true
-		}
-		if(hasErrored){
-			completionHandler(NSError(domain: "Error", code: 1)) //TEMP
+		let codeReturn = shell(
+			command:"/usr/bin/env",
+			args:[
+				"swift-format",
+				"-i",
+				fTemp.path
+			]
+		)
+		switch(codeReturn.status){
+			case 0:
+				break
+			case 1:
+				completionHandler(NSError(domain: "GENERAL", code: 1))
+			case 126:
+				completionHandler(NSError(domain: "COULD NOT BE EXECUTED", code: 126))
+			default:
+				break
 		}
 
 		// Read in file

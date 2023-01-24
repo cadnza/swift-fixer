@@ -7,12 +7,7 @@
 
 import Foundation
 
-enum codeError: Error {
-	case general
-	case commandNotExecutable
-}
-
-func shell(command: String, args: [String] = []) throws -> [Int: String] {
+func shell(command: String, args: [String] = []) -> (status: Int, message: String) {
 
 	// Open process and pipe
 	let task = Process()
@@ -32,26 +27,20 @@ func shell(command: String, args: [String] = []) throws -> [Int: String] {
 	task.standardInput = nil
 
 	// Run task
-	try task.run()
+	do {
+		try task.run()
+	} catch {
+		return(1,"Could not run")
+	}
 	task.waitUntilExit()
 
 	// Get exit code
 	let code: Int = Int(task.terminationStatus)
-
-	// Throw error on bad exit code
-	switch code {
-		case 1:
-			throw codeError.general
-		case 126:
-			throw codeError.commandNotExecutable
-		default:
-			break
-	}
 
 	// Capture output
 	let data = pipe.fileHandleForReading.readDataToEndOfFile()
 	let output = String(data: data, encoding: .utf8)!
 
 	// Return
-	return [code: output]
+	return (code,output)
 }
