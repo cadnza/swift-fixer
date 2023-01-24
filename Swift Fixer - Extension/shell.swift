@@ -23,7 +23,7 @@ func shell(command: String, args: [String] = []) throws -> String {
 	task.standardInput = nil
 	try task.run()
 	task.waitUntilExit()
-	
+
 	let code: Int = Int(task.terminationStatus)
 
 	switch code {

@@ -29,7 +29,8 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		// Write to temporary file
 		try? txt.write(to: fTemp, atomically: true, encoding: .utf8)
 
-		// Run command
+		// Run command and catch error
+		var hasErrored: Bool = false
 		do {
 			let _: String = try shell(
 				command:"/usr/bin/env",
@@ -41,10 +42,16 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 			)
 		} catch codeError.general {
 			print("General error") //TEMP
+			hasErrored = true
 		} catch codeError.commandNotExecutable {
 			print("Could not execute") //TEMP
+			hasErrored = true
 		} catch {
 			print("Error") //TEMP
+			hasErrored = true
+		}
+		if(hasErrored){
+			completionHandler(NSError(domain: "Error", code: 1)) //TEMP
 		}
 
 		// Read in file
