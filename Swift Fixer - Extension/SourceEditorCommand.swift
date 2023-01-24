@@ -18,13 +18,13 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		let txt: String = bufferLines.componentsJoined(by: "") // Maybe make this not a \n //TEMP
 
 		// Get address of temporary file
-		//		let fTemp: URL = FileManager
-		//			.default
-		//			.temporaryDirectory
-		//			.appendingPathComponent(UUID().uuidString)
-		//			.appendingPathExtension("txt")
-		let fTemp: URL = URL(fileURLWithPath: ".")
-			.appendingPathComponent(".swift-fixer")
+		let fTemp: URL = FileManager
+			.default
+			.temporaryDirectory
+			.appendingPathComponent(UUID().uuidString)
+			.appendingPathExtension("txt")
+		//		let fTemp: URL = URL(fileURLWithPath: ".")
+		//			.appendingPathComponent(".swift-fixer")
 
 		// Write to temporary file
 		try? txt.write(to: fTemp, atomically: true, encoding: .utf8)
