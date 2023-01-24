@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum codeError: Error {
+	case general
+}
+
 func shell(command: String, args: [String]? = []) throws -> String {
 	let task = Process()
 	let pipe = Pipe()
@@ -17,6 +21,13 @@ func shell(command: String, args: [String]? = []) throws -> String {
 	task.launchPath = command
 	task.standardInput = nil
 	try task.run()
+	task.waitUntilExit()
+
+	let code: Int = Int(task.terminationStatus)
+
+	if(code != 0){
+		throw codeError.general
+	}
 
 	let data = pipe.fileHandleForReading.readDataToEndOfFile()
 	let output = String(data: data, encoding: .utf8)!
