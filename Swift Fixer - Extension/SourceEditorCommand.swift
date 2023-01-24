@@ -41,12 +41,13 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		switch(codeReturn.status){
 			case 0:
 				break
-			case 1:
-				completionHandler(NSError(domain: "GENERAL", code: 1))
-			case 126:
-				completionHandler(NSError(domain: "COULD NOT BE EXECUTED", code: 126))
 			default:
-				break
+				completionHandler(
+					NSError(
+						domain: codeReturn.message.trimmingCharacters(in: .whitespacesAndNewlines),
+						code: codeReturn.status
+					)
+				)
 		}
 
 		// Read in file
