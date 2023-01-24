@@ -12,20 +12,33 @@ enum codeError: Error {
 	case commandNotExecutable
 }
 
-func shell(command: String, args: [String] = []) throws -> String {
+func shell(command: String, args: [String] = []) throws -> [Int: String] {
+
+	// Open process and pipe
 	let task = Process()
 	let pipe = Pipe()
 
+	// Set stdin and stderr
 	task.standardOutput = pipe
 	task.standardError = pipe
+
+	// Set arguments
 	task.arguments = args
+
+	// Set launch path
 	task.launchPath = command
+
+	// Initialize stdin
 	task.standardInput = nil
+
+	// Run task
 	try task.run()
 	task.waitUntilExit()
 
+	// Get exit code
 	let code: Int = Int(task.terminationStatus)
 
+	// Throw error on bad exit code
 	switch code {
 		case 1:
 			throw codeError.general
@@ -35,8 +48,10 @@ func shell(command: String, args: [String] = []) throws -> String {
 			break
 	}
 
+	// Capture data
 	let data = pipe.fileHandleForReading.readDataToEndOfFile()
 	let output = String(data: data, encoding: .utf8)!
 
-	return output
+	// Return
+	return [code: output]
 }

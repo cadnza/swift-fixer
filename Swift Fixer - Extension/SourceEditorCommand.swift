@@ -32,7 +32,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		// Run command and catch error
 		var hasErrored: Bool = false
 		do {
-			let _: String = try shell(
+			let _: [Int: String] = try shell(
 				command:"/usr/bin/env",
 				args:[
 					"swift-format",
