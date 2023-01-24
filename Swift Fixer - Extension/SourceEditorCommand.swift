@@ -16,6 +16,18 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		completionHandler: @escaping (Error?) -> Void
 	) {
 
+		// Make sure buffer is type Swift
+		let uti: String = invocation.buffer.contentUTI
+		let utiSwift: String = "public.swift-source"
+		if uti != utiSwift {
+			completionHandler(
+				NSError(
+					domain: "This is not Swift code.",
+					code: 0
+				)
+			)
+		}
+
 		// Get current buffer lines and convert to text
 		let bufferLines: NSMutableArray = invocation.buffer.lines
 		let txt: String = bufferLines.componentsJoined(by: "")  // Maybe make this not a \n //TEMP
@@ -32,8 +44,13 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		let codeReturn = shell(
 			command: "/usr/bin/env",
 			args: [
-				Bundle.main.url(forResource: "swift-format", withExtension: "")!.path, "--configuration",
-				Bundle.main.url(forResource: ".swift-format",withExtension: "")!.path,
+				Bundle.main.url(forResource: "swift-format", withExtension: "")!
+					.path, "--configuration",
+				Bundle.main.url(
+					forResource: ".swift-format",
+					withExtension: ""
+				)!
+				.path,
 				"-i",
 				fTemp.path,
 			]
