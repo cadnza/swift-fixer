@@ -39,8 +39,12 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 					fTemp.path
 				]
 			)
+		} catch codeError.general {
+			print("General error") //TEMP
+		} catch codeError.commandNotExecutable {
+			print("Could not execute") //TEMP
 		} catch {
-			print("HERE") //TEMP
+			print("Error") //TEMP
 		}
 
 		// Read in file

@@ -9,6 +9,7 @@ import Foundation
 
 enum codeError: Error {
 	case general
+	case commandNotExecutable
 }
 
 func shell(command: String, args: [String] = []) throws -> String {
@@ -22,11 +23,16 @@ func shell(command: String, args: [String] = []) throws -> String {
 	task.standardInput = nil
 	try task.run()
 	task.waitUntilExit()
-
+	
 	let code: Int = Int(task.terminationStatus)
 
-	if(code != 0){
-		throw codeError.general
+	switch code {
+		case 1:
+			throw codeError.general
+		case 126:
+			throw codeError.commandNotExecutable
+		default:
+			break
 	}
 
 	let data = pipe.fileHandleForReading.readDataToEndOfFile()
