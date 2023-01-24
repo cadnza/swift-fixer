@@ -24,9 +24,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 			.default
 			.temporaryDirectory
 			.appendingPathComponent(UUID().uuidString)
-			.appendingPathExtension("txt")
-		//		let fTemp: URL = URL(fileURLWithPath: ".")
-		//			.appendingPathComponent(".swift-fixer")
+			.appendingPathExtension("swift")
 
 		// Write to temporary file
 		try? txt.write(to: fTemp, atomically: true, encoding: .utf8)
@@ -36,6 +34,8 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 			command: "/usr/bin/env",
 			args: [
 				Bundle.main.url(forResource: "swift-format", withExtension: "")!.path,
+				"--configuration",
+				Bundle.main.url(forResource: ".swift-format", withExtension: "")!.path,
 				"-i",
 				fTemp.path,
 			]
