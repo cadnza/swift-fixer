@@ -6,16 +6,18 @@
 //
 
 import Foundation
-import XcodeKit
 import System
+import XcodeKit
 
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 
-	func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
+	func perform(
+		with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void
+	) {
 
 		// Get current buffer lines and convert to text
 		let bufferLines: NSMutableArray = invocation.buffer.lines
-		let txt: String = bufferLines.componentsJoined(by: "") // Maybe make this not a \n //TEMP
+		let txt: String = bufferLines.componentsJoined(by: "")  // Maybe make this not a \n //TEMP
 
 		// Get address of temporary file
 		let fTemp: URL = FileManager
@@ -31,14 +33,14 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 
 		// Run command and catch error
 		let codeReturn = shell(
-			command:"/usr/bin/env",
-			args:[
-				"swift-format",
+			command: "/usr/bin/env",
+			args: [
+				Bundle.main.url(forResource: "swift-format", withExtension: "")!.path,
 				"-i",
-				fTemp.path
+				fTemp.path,
 			]
 		)
-		switch(codeReturn.status){
+		switch codeReturn.status {
 			case 0:
 				break
 			default:
@@ -56,7 +58,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 
 		// Replace buffer text
 		bufferLines.removeAllObjects()
-		bufferLines.addObjects(from:linesReadIn!)
+		bufferLines.addObjects(from: linesReadIn!)
 
 		// Return
 		completionHandler(nil)
