@@ -32,13 +32,10 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		let codeReturn = shell(
 			command: "/usr/bin/env",
 			args: [
-				Bundle.main.url(forResource: "swift-format", withExtension: "")!
-					.path, "--configuration",
-				Bundle.main.url(
-					forResource: ".swift-format",
-					withExtension: ""
-				)!
-				.path, "-i", fTemp.path,
+				Bundle.main.url(forResource: "swift-format", withExtension: "")!.path, "--configuration",
+				Bundle.main.url(forResource: ".swift-format",withExtension: "")!.path,
+				"-i",
+				fTemp.path,
 			]
 		)
 		switch codeReturn.status { case 0: break default:
