@@ -48,7 +48,7 @@ func shell(command: String, args: [String] = []) throws -> [Int: String] {
 			break
 	}
 
-	// Capture data
+	// Capture output
 	let data = pipe.fileHandleForReading.readDataToEndOfFile()
 	let output = String(data: data, encoding: .utf8)!
 
