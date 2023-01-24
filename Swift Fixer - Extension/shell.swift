@@ -11,7 +11,7 @@ enum codeError: Error {
 	case general
 }
 
-func shell(command: String, args: [String]? = []) throws -> String {
+func shell(command: String, args: [String] = []) throws -> String {
 	let task = Process()
 	let pipe = Pipe()
 
