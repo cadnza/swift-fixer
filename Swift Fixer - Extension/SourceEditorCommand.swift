@@ -18,18 +18,15 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		let txt: String = bufferLines.componentsJoined(by: "") // Maybe make this not a \n //TEMP
 
 		// Get address of temporary file
-		let fTemp: URL = FileManager
-			.default
-			.temporaryDirectory
-			.appendingPathComponent(UUID().uuidString)
-			.appendingPathExtension("txt")
+		let fTemp: URL = URL(fileURLWithPath: ".")
+			.appendingPathComponent(".swift-fixer")
 
 		// Write to temporary file
 		try? txt.write(to: fTemp, atomically: true, encoding: .utf8)
 
 		// Run command
 		do {
-			try shell(
+			let _: String = try shell(
 				command:"/usr/bin/env",
 				args:[
 					"swift-format",
@@ -45,8 +42,8 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		let linesReadIn = try? String.init(contentsOfFile: fTemp.path).components(separatedBy: "\n")
 
 		// Replace buffer text
-		//		bufferLines.removeAllObjects()
-		//		bufferLines.addObjects(from:linesReadIn!)
+		bufferLines.removeAllObjects()
+		bufferLines.addObjects(from:linesReadIn!)
 
 		// Implement your command here, invoking the completion handler when done. Pass it nil on success, and an NSError on failure.
 
