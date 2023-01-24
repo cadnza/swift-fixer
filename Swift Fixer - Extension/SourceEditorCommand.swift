@@ -22,9 +22,8 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 
 		// Get address of temporary file
 		let fTemp: URL = FileManager.default.temporaryDirectory
-			.appendingPathComponent(UUID().uuidString).appendingPathExtension(
-				"swift"
-			)
+			.appendingPathComponent(UUID().uuidString)
+			.appendingPathExtension("swift")
 
 		// Write to temporary file
 		try? txt.write(to: fTemp, atomically: true, encoding: .utf8)
@@ -38,12 +37,11 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 				Bundle.main.url(
 					forResource: ".swift-format",
 					withExtension: ""
-				)!.path, "-i", fTemp.path,
+				)!
+				.path, "-i", fTemp.path,
 			]
 		)
-		switch codeReturn.status {
-		case 0: break
-		default:
+		switch codeReturn.status { case 0: break default:
 			completionHandler(
 				NSError(
 					domain: codeReturn.message.trimmingCharacters(
