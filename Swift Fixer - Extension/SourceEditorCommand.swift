@@ -126,6 +126,9 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		// Needs work //TEMP
 		bfr.selections[0] = currentSelFirst
 
+		// Delete temp file
+		try? FileManager.default.removeItem(at: fTemp)
+
 		// Return
 		completionHandler(nil)
 	}
