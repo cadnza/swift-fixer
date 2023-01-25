@@ -15,13 +15,13 @@
 		193E70FD297F3AC90053A733 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193E70ED297F3AA40053A733 /* XcodeKit.framework */; };
 		193E70FE297F3AC90053A733 /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 193E70ED297F3AA40053A733 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		196BF447297F39DB00D04A4B /* Swift_FixerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196BF446297F39DB00D04A4B /* Swift_FixerApp.swift */; };
-		196BF449297F39DB00D04A4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196BF448297F39DB00D04A4B /* ContentView.swift */; };
 		196BF44B297F39DC00D04A4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44A297F39DC00D04A4B /* Assets.xcassets */; };
 		196BF44E297F39DC00D04A4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44D297F39DC00D04A4B /* Preview Assets.xcassets */; };
 		19D5A3D229808ACA00DA3CCC /* swift-format in Resources */ = {isa = PBXBuildFile; fileRef = 19D5A3D129808ACA00DA3CCC /* swift-format */; };
 		19D5A3D62980924900DA3CCC /* .swift-format in Resources */ = {isa = PBXBuildFile; fileRef = 19D5A3D52980924900DA3CCC /* .swift-format */; };
 		19D5A3D82980925100DA3CCC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 19D5A3D72980925100DA3CCC /* .swiftlint.yml */; };
 		19D5A3E02980935D00DA3CCC /* swiftlint in Resources */ = {isa = PBXBuildFile; fileRef = 19D5A3DF2980935D00DA3CCC /* swiftlint */; };
+		19EC2F632981B5510083BA1A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196BF448297F39DB00D04A4B /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,8 +147,8 @@
 		196BF445297F39DB00D04A4B /* Swift Fixer */ = {
 			isa = PBXGroup;
 			children = (
+				19EC2F622981B5150083BA1A /* Views */,
 				196BF446297F39DB00D04A4B /* Swift_FixerApp.swift */,
-				196BF448297F39DB00D04A4B /* ContentView.swift */,
 				196BF44A297F39DC00D04A4B /* Assets.xcassets */,
 				196BF44F297F39DC00D04A4B /* Swift_Fixer.entitlements */,
 				196BF44C297F39DC00D04A4B /* Preview Content */,
@@ -162,6 +162,14 @@
 				196BF44D297F39DC00D04A4B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		19EC2F622981B5150083BA1A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				196BF448297F39DB00D04A4B /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,7 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				196BF449297F39DB00D04A4B /* ContentView.swift in Sources */,
+				19EC2F632981B5510083BA1A /* ContentView.swift in Sources */,
 				196BF447297F39DB00D04A4B /* Swift_FixerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
