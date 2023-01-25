@@ -18,12 +18,15 @@ struct ConfigRow: View {
 				Text(verbatim: "Enable")
 			}
 			TextField("Time", text: $fPath)
+				.scaledToFill()
+				.disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
 			Button(action: {() in
 				fPath = "Here" //TEMP
 			}, label: {() in
 				Text(verbatim: "Choose")
 			}
 			)
+			.disabled(!isChecked)
 
 
 		}
