@@ -58,12 +58,14 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 				Bundle.main.url(
 					forResource: "swift-format",
 					withExtension: nil
-				)!.path,
+				)!
+				.path,
 				"--configuration",
 				Bundle.main.url(
 					forResource: ".swift-format",
 					withExtension: nil
-				)!.path,
+				)!
+				.path,
 				"-i",
 				fTemp.path,
 			]
@@ -84,12 +86,14 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 				Bundle.main.url(
 					forResource: "swiftlint",
 					withExtension: nil
-				)!.path,
+				)!
+				.path,
 				"--config",
 				Bundle.main.url(
 					forResource: ".swiftlint",
 					withExtension: "yml"
-				)!.path,
+				)!
+				.path,
 				"--fix",
 				fTemp.path,
 			]
