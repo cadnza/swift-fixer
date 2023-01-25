@@ -25,7 +25,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "193E70E8297F3AA40053A733"
-               BuildableName = "Swift Fixer - Extension.appex"
+               BuildableName = "Swift Fixer .appex"
                BlueprintName = "Swift Fixer - Extension"
                ReferencedContainer = "container:Swift Fixer.xcodeproj">
             </BuildableReference>

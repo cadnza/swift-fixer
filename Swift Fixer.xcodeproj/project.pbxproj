@@ -11,7 +11,7 @@
 		193E70EC297F3AA40053A733 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193E70EB297F3AA40053A733 /* Cocoa.framework */; };
 		193E70F1297F3AA40053A733 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E70F0297F3AA40053A733 /* SourceEditorExtension.swift */; };
 		193E70F3297F3AA40053A733 /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E70F2297F3AA40053A733 /* SourceEditorCommand.swift */; };
-		193E70F8297F3AA40053A733 /* Swift Fixer - Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 193E70E9297F3AA40053A733 /* Swift Fixer - Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		193E70F8297F3AA40053A733 /* Swift Fixer .appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 193E70E9297F3AA40053A733 /* Swift Fixer .appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		193E70FD297F3AC90053A733 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193E70ED297F3AA40053A733 /* XcodeKit.framework */; };
 		193E70FE297F3AC90053A733 /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 193E70ED297F3AA40053A733 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		196BF447297F39DB00D04A4B /* Swift_FixerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196BF446297F39DB00D04A4B /* Swift_FixerApp.swift */; };
@@ -41,7 +41,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				193E70F8297F3AA40053A733 /* Swift Fixer - Extension.appex in Embed Foundation Extensions */,
+				193E70F8297F3AA40053A733 /* Swift Fixer .appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,7 +61,7 @@
 
 /* Begin PBXFileReference section */
 		190EB85C2980350700479AB1 /* shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shell.swift; sourceTree = "<group>"; };
-		193E70E9297F3AA40053A733 /* Swift Fixer - Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Swift Fixer - Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		193E70E9297F3AA40053A733 /* Swift Fixer .appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Swift Fixer .appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		193E70EB297F3AA40053A733 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		193E70ED297F3AA40053A733 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
 		193E70F0297F3AA40053A733 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				196BF443297F39DB00D04A4B /* Swift Fixer.app */,
-				193E70E9297F3AA40053A733 /* Swift Fixer - Extension.appex */,
+				193E70E9297F3AA40053A733 /* Swift Fixer .appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,7 +182,7 @@
 			);
 			name = "Swift Fixer - Extension";
 			productName = "Swift Fixer - Extension";
-			productReference = 193E70E9297F3AA40053A733 /* Swift Fixer - Extension.appex */;
+			productReference = 193E70E9297F3AA40053A733 /* Swift Fixer .appex */;
 			productType = "com.apple.product-type.xcode-extension";
 		};
 		196BF442297F39DB00D04A4B /* Swift Fixer */ = {
@@ -315,7 +315,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jondayley.Swift-Fixer.Swift-Fixer---Extension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Swift Fixer ";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -342,7 +342,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jondayley.Swift-Fixer.Swift-Fixer---Extension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Swift Fixer ";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
