@@ -68,11 +68,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		// Run commands and catch errors
 		var codeReturn: (status: Int, message: String)
 		codeReturn = shell(
-			command: Bundle.main.url(
-				forResource: "swift-format",
-				withExtension: nil
-			)!
-			.path,
+			execName: "swift-format",
 			args: [
 				"--configuration",
 				Bundle.main.url(
@@ -93,11 +89,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 			)
 		}
 		codeReturn = shell(
-			command: Bundle.main.url(
-				forResource: "swiftlint",
-				withExtension: nil
-			)!
-			.path,
+			execName: "swiftlint",
 			args: [
 				"--config",
 				Bundle.main.url(

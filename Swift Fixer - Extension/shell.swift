@@ -7,7 +7,7 @@
 
 import Foundation
 
-func shell(command: String, args: [String] = []) -> (
+func shell(execName: String, args: [String] = []) -> (
 	status: Int, message: String
 ) {
 
@@ -23,7 +23,12 @@ func shell(command: String, args: [String] = []) -> (
 	task.arguments = args
 
 	// Set launch path
-	task.launchPath = command
+	task.launchPath =
+		Bundle.main.url(
+			forResource: execName,
+			withExtension: nil
+		)!
+		.path
 
 	// Initialize stdin
 	task.standardInput = nil
