@@ -47,6 +47,21 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 			.appendingPathComponent(UUID().uuidString)
 			.appendingPathExtension("swift")
 
+		// Define file removal function
+		func removeTempFile() {
+			try? FileManager.default.removeItem(at: fTemp)
+		}
+
+		// Define erroring function
+		func completeErr(domain: String, code: Int, removeFile: Bool = true) {
+			if removeFile {
+				removeTempFile()
+			}
+			completionHandler(
+				NSError(domain: domain, code: code)
+			)
+		}
+
 		// Write to temporary file
 		try? txt.write(to: fTemp, atomically: true, encoding: .utf8)
 
@@ -71,13 +86,11 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 			]
 		)
 		switch codeReturn.status { case 0: break default:
-			completionHandler(
-				NSError(
-					domain: codeReturn.message.trimmingCharacters(
-						in: .whitespacesAndNewlines
-					),
-					code: codeReturn.status
-				)
+			completeErr(
+				domain: codeReturn.message.trimmingCharacters(
+					in: .whitespacesAndNewlines
+				),
+				code: codeReturn.status
 			)
 		}
 		codeReturn = shell(
@@ -104,13 +117,11 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 			case 4:
 				break
 			default:
-				completionHandler(
-					NSError(
-						domain: codeReturn.message.trimmingCharacters(
-							in: .whitespacesAndNewlines
-						),
-						code: codeReturn.status
-					)
+				completeErr(
+					domain: codeReturn.message.trimmingCharacters(
+						in: .whitespacesAndNewlines
+					),
+					code: codeReturn.status
 				)
 		}
 
@@ -127,7 +138,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		bfr.selections[0] = currentSelFirst
 
 		// Delete temp file
-		try? FileManager.default.removeItem(at: fTemp)
+		removeTempFile()
 
 		// Return
 		completionHandler(nil)
