@@ -134,7 +134,6 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		bufferLines.addObjects(from: linesReadIn!)
 
 		// Restore selection
-		// Needs work //TEMP
 		bfr.selections[0] = currentSelFirst
 
 		// Delete temp file
