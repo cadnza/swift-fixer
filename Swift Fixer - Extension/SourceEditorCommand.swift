@@ -32,7 +32,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		let bufferLines: NSMutableArray = invocation.buffer.lines
 
 		// Get text version
-		let txt: String = bufferLines.componentsJoined(by: "")
+		let txt: String = bufferLines.componentsJoined(by: "")
 
 		// Get address of temporary file
 		let fTemp: URL = FileManager
