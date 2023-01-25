@@ -17,7 +17,7 @@
 		1947901F2981B5BB0059EA5E /* ConfigRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1947901E2981B5BB0059EA5E /* ConfigRow.swift */; };
 		194790222981CF260059EA5E /* commands.json in Resources */ = {isa = PBXBuildFile; fileRef = 194790212981CF260059EA5E /* commands.json */; };
 		194790232981CF260059EA5E /* commands.json in Resources */ = {isa = PBXBuildFile; fileRef = 194790212981CF260059EA5E /* commands.json */; };
-		194790262981D8FD0059EA5E /* ExecItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194790252981D8FD0059EA5E /* ExecItem.swift */; };
+		194790262981D8FD0059EA5E /* ExecutableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194790252981D8FD0059EA5E /* ExecutableStep.swift */; };
 		196BF447297F39DB00D04A4B /* Swift_FixerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196BF446297F39DB00D04A4B /* Swift_FixerApp.swift */; };
 		196BF44B297F39DC00D04A4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44A297F39DC00D04A4B /* Assets.xcassets */; };
 		196BF44E297F39DC00D04A4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44D297F39DC00D04A4B /* Preview Assets.xcassets */; };
@@ -74,7 +74,7 @@
 		193E70F5297F3AA40053A733 /* Swift_Fixer___Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Swift_Fixer___Extension.entitlements"; sourceTree = "<group>"; };
 		1947901E2981B5BB0059EA5E /* ConfigRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRow.swift; sourceTree = "<group>"; };
 		194790212981CF260059EA5E /* commands.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = commands.json; sourceTree = "<group>"; };
-		194790252981D8FD0059EA5E /* ExecItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecItem.swift; sourceTree = "<group>"; };
+		194790252981D8FD0059EA5E /* ExecutableStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutableStep.swift; sourceTree = "<group>"; };
 		196BF443297F39DB00D04A4B /* Swift Fixer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift Fixer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		196BF446297F39DB00D04A4B /* Swift_FixerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_FixerApp.swift; sourceTree = "<group>"; };
 		196BF448297F39DB00D04A4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		194790242981D8E70059EA5E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				194790252981D8FD0059EA5E /* ExecItem.swift */,
+				194790252981D8FD0059EA5E /* ExecutableStep.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -316,7 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19EC2F632981B5510083BA1A /* ContentView.swift in Sources */,
-				194790262981D8FD0059EA5E /* ExecItem.swift in Sources */,
+				194790262981D8FD0059EA5E /* ExecutableStep.swift in Sources */,
 				196BF447297F39DB00D04A4B /* Swift_FixerApp.swift in Sources */,
 				1947901F2981B5BB0059EA5E /* ConfigRow.swift in Sources */,
 			);

@@ -9,24 +9,23 @@ import SwiftUI
 
 struct ConfigRow: View {
 
-	@State var fPath: String
-	@State var isChecked: Bool
+	@State var item: ExecutableStep
 
 	var body: some View {
 		HStack {
-			Toggle(isOn: $isChecked) {
+			Toggle(isOn: $item.isActive) {
 				Text(verbatim: "Enable")
 			}
-			TextField("configfile", text: $fPath)
+			TextField("", text: $item.configFile)
 				.scaledToFill()
 				.disabled(true)
 			Button(action: {() in
-				fPath = "Here" //TEMP
+				item.configFile = "HERE" //TEMP
 			}, label: {() in
 				Text(verbatim: "Choose...")
 			}
 			)
-			.disabled(!isChecked)
+			.disabled(!item.isActive)
 
 
 		}
@@ -35,6 +34,6 @@ struct ConfigRow: View {
 
 struct ConfigRow_Previews: PreviewProvider {
     static var previews: some View {
-		ConfigRow(fPath: "/usr/local/bin/swift-format", isChecked: true)
+		ConfigRow(item: ExecutableStep(name: "swift-format"))
     }
 }
