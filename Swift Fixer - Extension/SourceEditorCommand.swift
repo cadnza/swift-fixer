@@ -16,8 +16,11 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		completionHandler: @escaping (Error?) -> Void
 	) {
 
+		// Get current buffer
+		let bfr = invocation.buffer
+
 		// Make sure buffer is type Swift
-		let uti: String = invocation.buffer.contentUTI
+		let uti: String = bfr.contentUTI
 		let utiSwift: String = "public.swift-source"
 		if uti != utiSwift {
 			completionHandler(
@@ -28,10 +31,11 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 			)
 		}
 
-		// Get current buffer lines and convert to text
-		let bufferLines: NSMutableArray = invocation.buffer.lines
+		// Get current selection
+		let currentSel = bfr.selections
 
-		// Get text version
+		// Convert lines to text
+		let bufferLines = bfr.lines
 		let txt: String = bufferLines.componentsJoined(by: "")
 
 		// Get address of temporary file
@@ -111,6 +115,9 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		// Replace buffer text
 		bufferLines.removeAllObjects()
 		bufferLines.addObjects(from: linesReadIn!)
+
+		// Restore selection
+		//bfr.selections = currentSel //TEMP
 
 		// Return
 		completionHandler(nil)
