@@ -33,24 +33,29 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		let txt: String = bufferLines.componentsJoined(by: "")  // Maybe make this not a \n //TEMP
 
 		// Get address of temporary file
-		let fTemp: URL = FileManager.default.temporaryDirectory
+		let fTemp: URL = FileManager
+			.default
+			.temporaryDirectory
 			.appendingPathComponent(UUID().uuidString)
 			.appendingPathExtension("swift")
 
 		// Write to temporary file
 		try? txt.write(to: fTemp, atomically: true, encoding: .utf8)
 
-		// Run command and catch error
-		let codeReturn = shell(
+		// Run commands and catch errors
+		var codeReturn: (status: Int, message: String)
+		codeReturn = shell(
 			command: "/usr/bin/env",
 			args: [
-				Bundle.main.url(forResource: "swift-format", withExtension: "")!
-					.path, "--configuration",
+				Bundle.main.url(
+					forResource: "swift-format",
+					withExtension: nil
+				)!.path,
+				"--configuration",
 				Bundle.main.url(
 					forResource: ".swift-format",
-					withExtension: ""
-				)!
-				.path,
+					withExtension: nil
+				)!.path,
 				"-i",
 				fTemp.path,
 			]
@@ -65,9 +70,40 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 				)
 			)
 		}
+		codeReturn = shell(
+			command: "/usr/bin/env",
+			args: [
+				Bundle.main.url(
+					forResource: "swiftlint",
+					withExtension: nil
+				)!.path,
+				"--config",
+				Bundle.main.url(
+					forResource: ".swiftlint",
+					withExtension: "yml"
+				)!.path,
+				"--fix",
+				fTemp.path,
+			]
+		)
+		switch codeReturn.status {
+			case 0:
+				break
+			case 4:
+				break
+			default:
+				completionHandler(
+					NSError(
+						domain: codeReturn.message.trimmingCharacters(
+							in: .whitespacesAndNewlines
+						),
+						code: codeReturn.status
+					)
+				)
+		}
 
 		// Read in file
-		let linesReadIn = try? String.init(contentsOfFile: fTemp.path)
+		let linesReadIn = try? String(contentsOfFile: fTemp.path)
 			.components(separatedBy: "")
 
 		// Replace buffer text
