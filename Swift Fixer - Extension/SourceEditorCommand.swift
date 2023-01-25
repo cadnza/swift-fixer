@@ -36,10 +36,6 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 			(bfr.selections[0] as! XCSourceTextRange).copy()
 			as! XCSourceTextRange
 
-		// Convert lines to text
-		let bufferLines = bfr.lines
-		let txt: String = bufferLines.componentsJoined(by: "")
-
 		// Get address of temporary file
 		let fTemp: URL = FileManager
 			.default
@@ -63,7 +59,11 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		}
 
 		// Write to temporary file
-		try? txt.write(to: fTemp, atomically: true, encoding: .utf8)
+		try? bfr.completeBuffer.write(
+			to: fTemp,
+			atomically: true,
+			encoding: .utf8
+		)
 
 		// Run commands and catch errors
 		var codeReturn: (status: Int, message: String)
@@ -120,8 +120,8 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 			.components(separatedBy: "")
 
 		// Replace buffer text
-		bufferLines.removeAllObjects()
-		bufferLines.addObjects(from: linesReadIn!)
+		bfr.lines.removeAllObjects()
+		bfr.lines.addObjects(from: linesReadIn!)
 
 		// Restore selection
 		bfr.selections[0] = currentSelFirst
