@@ -32,7 +32,9 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		}
 
 		// Get current selection
-		let currentSel = bfr.selections
+		let currentSelFirst: XCSourceTextRange =
+			(bfr.selections[0] as! XCSourceTextRange).copy()
+			as! XCSourceTextRange
 
 		// Convert lines to text
 		let bufferLines = bfr.lines
@@ -118,7 +120,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 
 		// Restore selection
 		// Needs work //TEMP
-		bfr.selections[0] = currentSel[0]
+		bfr.selections[0] = currentSelFirst
 
 		// Return
 		completionHandler(nil)
