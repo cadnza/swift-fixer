@@ -116,9 +116,6 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		bufferLines.removeAllObjects()
 		bufferLines.addObjects(from: linesReadIn!)
 
-		// Restore selection
-		//bfr.selections = currentSel //TEMP
-
 		// Return
 		completionHandler(nil)
 	}
