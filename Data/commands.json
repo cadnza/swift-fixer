@@ -1,0 +1,10 @@
+[
+	{
+		"exec": "swift-format",
+		"args": ["--configuration", "CONFIG", "-i", "FILE"]
+	},
+	{
+		"exec": "swiftlint",
+		"args": ["--config", "CONFIG", "--fix", "FILE"]
+	}
+]

@@ -15,6 +15,9 @@
 		193E70FD297F3AC90053A733 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193E70ED297F3AA40053A733 /* XcodeKit.framework */; };
 		193E70FE297F3AC90053A733 /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 193E70ED297F3AA40053A733 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1947901F2981B5BB0059EA5E /* ConfigRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1947901E2981B5BB0059EA5E /* ConfigRow.swift */; };
+		194790222981CF260059EA5E /* commands.json in Resources */ = {isa = PBXBuildFile; fileRef = 194790212981CF260059EA5E /* commands.json */; };
+		194790232981CF260059EA5E /* commands.json in Resources */ = {isa = PBXBuildFile; fileRef = 194790212981CF260059EA5E /* commands.json */; };
+		194790262981D8FD0059EA5E /* ExecItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194790252981D8FD0059EA5E /* ExecItem.swift */; };
 		196BF447297F39DB00D04A4B /* Swift_FixerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196BF446297F39DB00D04A4B /* Swift_FixerApp.swift */; };
 		196BF44B297F39DC00D04A4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44A297F39DC00D04A4B /* Assets.xcassets */; };
 		196BF44E297F39DC00D04A4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44D297F39DC00D04A4B /* Preview Assets.xcassets */; };
@@ -70,6 +73,8 @@
 		193E70F4297F3AA40053A733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		193E70F5297F3AA40053A733 /* Swift_Fixer___Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Swift_Fixer___Extension.entitlements"; sourceTree = "<group>"; };
 		1947901E2981B5BB0059EA5E /* ConfigRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRow.swift; sourceTree = "<group>"; };
+		194790212981CF260059EA5E /* commands.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = commands.json; sourceTree = "<group>"; };
+		194790252981D8FD0059EA5E /* ExecItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecItem.swift; sourceTree = "<group>"; };
 		196BF443297F39DB00D04A4B /* Swift Fixer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift Fixer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		196BF446297F39DB00D04A4B /* Swift_FixerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_FixerApp.swift; sourceTree = "<group>"; };
 		196BF448297F39DB00D04A4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -123,9 +128,26 @@
 			path = "Swift Fixer - Extension";
 			sourceTree = "<group>";
 		};
+		194790202981CF0E0059EA5E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				194790212981CF260059EA5E /* commands.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		194790242981D8E70059EA5E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				194790252981D8FD0059EA5E /* ExecItem.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		196BF43A297F39DA00D04A4B = {
 			isa = PBXGroup;
 			children = (
+				194790202981CF0E0059EA5E /* Data */,
 				19D5A3DF2980935D00DA3CCC /* swiftlint */,
 				19D5A3D72980925100DA3CCC /* .swiftlint.yml */,
 				19D5A3D52980924900DA3CCC /* .swift-format */,
@@ -149,6 +171,7 @@
 		196BF445297F39DB00D04A4B /* Swift Fixer */ = {
 			isa = PBXGroup;
 			children = (
+				194790242981D8E70059EA5E /* Classes */,
 				19EC2F622981B5150083BA1A /* Views */,
 				196BF446297F39DB00D04A4B /* Swift_FixerApp.swift */,
 				196BF44A297F39DC00D04A4B /* Assets.xcassets */,
@@ -258,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19D5A3D229808ACA00DA3CCC /* swift-format in Resources */,
+				194790232981CF260059EA5E /* commands.json in Resources */,
 				19D5A3D62980924900DA3CCC /* .swift-format in Resources */,
 				19D5A3D82980925100DA3CCC /* .swiftlint.yml in Resources */,
 				19D5A3E02980935D00DA3CCC /* swiftlint in Resources */,
@@ -268,6 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				194790222981CF260059EA5E /* commands.json in Resources */,
 				196BF44E297F39DC00D04A4B /* Preview Assets.xcassets in Resources */,
 				196BF44B297F39DC00D04A4B /* Assets.xcassets in Resources */,
 			);
@@ -291,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19EC2F632981B5510083BA1A /* ContentView.swift in Sources */,
+				194790262981D8FD0059EA5E /* ExecItem.swift in Sources */,
 				196BF447297F39DB00D04A4B /* Swift_FixerApp.swift in Sources */,
 				1947901F2981B5BB0059EA5E /* ConfigRow.swift in Sources */,
 			);
