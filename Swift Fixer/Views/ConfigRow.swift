@@ -17,13 +17,13 @@ struct ConfigRow: View {
 			Toggle(isOn: $isChecked) {
 				Text(verbatim: "Enable")
 			}
-			TextField("Time", text: $fPath)
+			TextField("configfile", text: $fPath)
 				.scaledToFill()
-				.disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+				.disabled(true)
 			Button(action: {() in
 				fPath = "Here" //TEMP
 			}, label: {() in
-				Text(verbatim: "Choose")
+				Text(verbatim: "Choose...")
 			}
 			)
 			.disabled(!isChecked)
