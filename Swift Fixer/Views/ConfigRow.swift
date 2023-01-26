@@ -26,6 +26,9 @@ struct ConfigRow: View {
 
 	var body: some View {
 		HStack {
+			Text(verbatim: currentData.title)
+				.fontWeight(.bold)
+				.frame(width: 82.0)
 			Toggle(isOn: $currentData.isActive) {
 				Text(verbatim: "Enable")
 			}
@@ -35,12 +38,10 @@ struct ConfigRow: View {
 			Button(action: {() in
 				currentData.setConfig()
 			}, label: {() in
-				Text(verbatim: "Choose...")
+				Text(verbatim: "Config...")
 			}
 			)
 			.disabled(!currentData.isActive)
-
-
 		}
 	}
 }
