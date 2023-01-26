@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-	let dataSource = DataSource()
+	private let dataSource = DataSource()
 
     var body: some View {
         VStack {
