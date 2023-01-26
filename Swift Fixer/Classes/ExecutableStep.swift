@@ -64,7 +64,7 @@ struct ExecutableStep: Decodable {
 		panel.canChooseFiles = true
 		panel.canCreateDirectories = false
 		panel.resolvesAliases = true
-		panel.message = "ORANGES" //TEMP
+		panel.message = "Please select a config file for \(title)."
 		panel.runModal()
 		if(panel.url != nil){
 			settings.setValue(panel.url!.path, forKeyPath: configKeyPath)
