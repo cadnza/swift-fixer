@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ConfigRow: View {
 
-	let exec: String
-	let ds: DataSource
+	private let exec: String
+	private let ds: DataSource
 
 	@State private var currentData: ExecutableStep
 
