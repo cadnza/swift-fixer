@@ -1,10 +1,12 @@
 [
 	{
+		"title": "swift-format",
 		"exec": "swift-format",
 		"args": ["--configuration", "CONFIG", "-i", "FILE"],
 		"acceptableConfigs": []
 	},
 	{
+		"title": "SwiftLint",
 		"exec": "swiftlint",
 		"args": ["--config", "CONFIG", "--fix", "FILE"],
 		"acceptableConfigs": []
