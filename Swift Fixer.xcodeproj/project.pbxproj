@@ -18,6 +18,7 @@
 		194790222981CF260059EA5E /* commands.json in Resources */ = {isa = PBXBuildFile; fileRef = 194790212981CF260059EA5E /* commands.json */; };
 		194790232981CF260059EA5E /* commands.json in Resources */ = {isa = PBXBuildFile; fileRef = 194790212981CF260059EA5E /* commands.json */; };
 		194790262981D8FD0059EA5E /* ExecutableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194790252981D8FD0059EA5E /* ExecutableStep.swift */; };
+		194790282982B56B0059EA5E /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194790272982B56B0059EA5E /* DataSource.swift */; };
 		196BF447297F39DB00D04A4B /* Swift_FixerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196BF446297F39DB00D04A4B /* Swift_FixerApp.swift */; };
 		196BF44B297F39DC00D04A4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44A297F39DC00D04A4B /* Assets.xcassets */; };
 		196BF44E297F39DC00D04A4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44D297F39DC00D04A4B /* Preview Assets.xcassets */; };
@@ -75,6 +76,7 @@
 		1947901E2981B5BB0059EA5E /* ConfigRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRow.swift; sourceTree = "<group>"; };
 		194790212981CF260059EA5E /* commands.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = commands.json; sourceTree = "<group>"; };
 		194790252981D8FD0059EA5E /* ExecutableStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutableStep.swift; sourceTree = "<group>"; };
+		194790272982B56B0059EA5E /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		196BF443297F39DB00D04A4B /* Swift Fixer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift Fixer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		196BF446297F39DB00D04A4B /* Swift_FixerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_FixerApp.swift; sourceTree = "<group>"; };
 		196BF448297F39DB00D04A4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				194790252981D8FD0059EA5E /* ExecutableStep.swift */,
+				194790272982B56B0059EA5E /* DataSource.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				19EC2F632981B5510083BA1A /* ContentView.swift in Sources */,
 				194790262981D8FD0059EA5E /* ExecutableStep.swift in Sources */,
 				196BF447297F39DB00D04A4B /* Swift_FixerApp.swift in Sources */,
+				194790282982B56B0059EA5E /* DataSource.swift in Sources */,
 				1947901F2981B5BB0059EA5E /* ConfigRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

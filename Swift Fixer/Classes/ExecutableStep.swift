@@ -8,11 +8,23 @@
 import AppKit
 import Foundation
 
-struct ExecutableStep {
+struct ExecutableStep: Decodable {
 
-	let name: String
+	private enum Keys : String, CodingKey { case
+		title,
+		website,
+		description,
+		exec,
+		args
+	}
 
-	var configFile: String
+	let title: String
+	let website: String
+	let description: String
+	let exec: String
+	let args: [String]
+
+	var config: String
 	var isActive: Bool
 
 	private let activeSettingName: String = "ACTIVE"
@@ -23,12 +35,20 @@ struct ExecutableStep {
 
 	private var settings = UserDefaults()
 
-	init(name: String) {
-		self.name = name
-		self.activeKeyPath = "\(name).\(activeSettingName)"
-		self.configKeyPath = "\(name).\(configSettingName)"
+	init(from decoder: Decoder) {
+
+		let container = try! decoder.container(keyedBy: Keys.self)
+		
+		self.title = try! container.decode(String.self, forKey: .title)
+		self.website = try! container.decode(String.self, forKey: .website)
+		self.description = try! container.decode(String.self, forKey: .description)
+		self.exec = try! container.decode(String.self, forKey: .exec)
+		self.args = try! container.decode([String].self, forKey: .args)
+
+		self.activeKeyPath = "\(self.exec).\(activeSettingName)"
+		self.configKeyPath = "\(self.exec).\(configSettingName)"
 		self.isActive = (settings.value(forKeyPath: activeKeyPath) as? Bool) ?? false
-		self.configFile = (settings.value(forKeyPath: configKeyPath) as? String) ?? ""
+		self.config = (settings.value(forKeyPath: configKeyPath) as? String) ?? ""
 	}
 
 	mutating func setActive(value: Bool) {
@@ -48,7 +68,7 @@ struct ExecutableStep {
 		panel.runModal()
 		if(panel.url != nil){
 			settings.setValue(panel.url!.path, forKeyPath: configKeyPath)
-			self.configFile = panel.url!.path
+			self.config = panel.url!.path
 		}
 	}
 

@@ -5,15 +5,20 @@
 //  Created by Jonathan Dayley on 1/23/23.
 //
 
+import Foundation
 import SwiftUI
 
 struct ContentView: View {
+
+	let dataSource = DataSource()
+
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
+			ConfigRow(exec: "swift-format", ds: dataSource)
         }
         .padding()
     }

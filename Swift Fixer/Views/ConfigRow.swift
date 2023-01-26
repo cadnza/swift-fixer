@@ -9,23 +9,36 @@ import SwiftUI
 
 struct ConfigRow: View {
 
-	@State var item: ExecutableStep
+	let exec: String
+	let ds: DataSource
+
+	@State private var currentData: ExecutableStep
+
+	init(exec: String, ds: DataSource){
+		self.exec = exec
+		self.ds = ds
+		self.currentData = ds.contents.first(
+			where: {x in
+				return x.exec == exec
+			}
+		)!
+	}
 
 	var body: some View {
 		HStack {
-			Toggle(isOn: $item.isActive) {
+			Toggle(isOn: $currentData.isActive) {
 				Text(verbatim: "Enable")
 			}
-			TextField("", text: $item.configFile)
+			TextField("", text: $currentData.config)
 				.scaledToFill()
 				.disabled(true)
 			Button(action: {() in
-				item.setConfig()
+				currentData.setConfig()
 			}, label: {() in
 				Text(verbatim: "Choose...")
 			}
 			)
-			.disabled(!item.isActive)
+			.disabled(!currentData.isActive)
 
 
 		}
@@ -34,6 +47,6 @@ struct ConfigRow: View {
 
 struct ConfigRow_Previews: PreviewProvider {
 	static var previews: some View {
-		ConfigRow(item: ExecutableStep(name: "swift-format"))
+		ConfigRow(exec: "swift-format", ds: DataSource())
 	}
 }
