@@ -18,8 +18,10 @@ struct ContentView: View {
 				.imageScale(.large)
 				.foregroundColor(.accentColor)
 			Text("Hello, world!")
-			List(ds.contents) {x in
-				ConfigRow(exec: x.exec, ds: ds)
+			List {
+				ForEach(ds.contents, id: \.exec) {x in
+					ConfigRow(exec: x.exec, ds: ds)
+				}
 			}
 		}
 		.padding()
