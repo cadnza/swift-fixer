@@ -20,7 +20,7 @@ struct ConfigRow: View {
 				.scaledToFill()
 				.disabled(true)
 			Button(action: {() in
-				item.configFile = "HERE" //TEMP
+				item.setConfig()
 			}, label: {() in
 				Text(verbatim: "Choose...")
 			}
@@ -29,11 +29,11 @@ struct ConfigRow: View {
 
 
 		}
-    }
+	}
 }
 
 struct ConfigRow_Previews: PreviewProvider {
-    static var previews: some View {
+	static var previews: some View {
 		ConfigRow(item: ExecutableStep(name: "swift-format"))
-    }
+	}
 }

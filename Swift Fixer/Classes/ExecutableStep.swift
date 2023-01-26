@@ -5,6 +5,7 @@
 //  Created by Jonathan Dayley on 1/25/23.
 //
 
+import AppKit
 import Foundation
 
 struct ExecutableStep {
@@ -35,9 +36,20 @@ struct ExecutableStep {
 		self.isActive = value
 	}
 
-	mutating func setConfig(value: String) {
-		settings.setValue(value, forKeyPath: configKeyPath)
-		self.configFile = value
+	mutating func setConfig() {
+		let panel = NSOpenPanel()
+		panel.prompt = "Select"
+		panel.allowsMultipleSelection = false
+		panel.canChooseDirectories = false
+		panel.canChooseFiles = true
+		panel.canCreateDirectories = false
+		panel.resolvesAliases = true
+		panel.message = "ORANGES" //TEMP
+		panel.runModal()
+		if(panel.url != nil){
+			settings.setValue(panel.url!.path, forKeyPath: configKeyPath)
+			self.configFile = panel.url!.path
+		}
 	}
 
 }
