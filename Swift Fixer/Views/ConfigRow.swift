@@ -34,9 +34,9 @@ struct ConfigRow: View {
 			}
 			TextField("", text: $currentData.config)
 				.disabled(true)
-			Button(action: {() in
+			Button(action: {
 				currentData.setConfig()
-			}, label: {() in
+			}, label: {
 				Text(verbatim: "Config...")
 			}
 			)
