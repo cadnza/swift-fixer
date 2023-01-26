@@ -25,11 +25,17 @@ struct ConfigRow: View {
 	}
 
 	var body: some View {
+		let bndIsActive = Binding {
+			currentData.isActive
+		}
+		set: {x in
+			currentData.setActive(value: x)
+		}
 		HStack {
 			Text(verbatim: currentData.title)
 				.fontWeight(.bold)
 				.frame(width: 82.0)
-			Toggle(isOn: $currentData.isActive) {
+			Toggle(isOn: bndIsActive) {
 				Text(verbatim: "Enable")
 			}
 			TextField("", text: $currentData.config)
