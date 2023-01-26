@@ -33,7 +33,6 @@ struct ConfigRow: View {
 				Text(verbatim: "Enable")
 			}
 			TextField("", text: $currentData.config)
-				.scaledToFill()
 				.disabled(true)
 			Button(action: {() in
 				currentData.setConfig()
