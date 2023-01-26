@@ -23,5 +23,6 @@ struct Swift_FixerApp: App {
 					maxHeight: height
 				)
         }
+		.windowStyle(HiddenTitleBarWindowStyle())
     }
 }
