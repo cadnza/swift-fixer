@@ -41,6 +41,12 @@ struct ConfigRow: View {
 			}
 			)
 			.disabled(!currentData.isActive)
+			Button(action: {
+				currentData.openWebsite()
+			}, label: {
+				Text(verbatim: "?")
+			}
+			)
 		}
 	}
 }

@@ -72,4 +72,8 @@ struct ExecutableStep: Decodable {
 		}
 	}
 
+	func openWebsite() {
+		NSWorkspace.shared.open(URL(string: website)!)
+	}
+
 }
