@@ -12,20 +12,22 @@ struct ContentView: View {
 
 	private let dataSource = DataSource()
 
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-			ConfigRow(exec: "swift-format", ds: dataSource)
-        }
-        .padding()
-    }
+	var body: some View {
+		VStack {
+			Image(systemName: "globe")
+				.imageScale(.large)
+				.foregroundColor(.accentColor)
+			Text("Hello, world!")
+			List(dataSource.contents) {x in
+				ConfigRow(exec: x.exec, ds: dataSource)
+			}
+		}
+		.padding()
+	}
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+	static var previews: some View {
+		ContentView()
+	}
 }

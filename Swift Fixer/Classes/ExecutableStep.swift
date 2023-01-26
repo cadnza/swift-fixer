@@ -8,7 +8,9 @@
 import AppKit
 import Foundation
 
-struct ExecutableStep: Decodable {
+struct ExecutableStep: Decodable, Identifiable {
+
+	var id: ObjectIdentifier
 
 	private enum Keys : String, CodingKey { case
 		title,
@@ -38,6 +40,8 @@ struct ExecutableStep: Decodable {
 	init(from decoder: Decoder) {
 
 		let container = try! decoder.container(keyedBy: Keys.self)
+
+		self.id = ObjectIdentifier(UUID.self)
 		
 		self.title = try! container.decode(String.self, forKey: .title)
 		self.website = try! container.decode(String.self, forKey: .website)
