@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-	private let dataSource = DataSource()
+	private let ds = DataSource()
 
 	var body: some View {
 		VStack {
@@ -18,8 +18,8 @@ struct ContentView: View {
 				.imageScale(.large)
 				.foregroundColor(.accentColor)
 			Text("Hello, world!")
-			List(dataSource.contents) {x in
-				ConfigRow(exec: x.exec, ds: dataSource)
+			List(ds.contents) {x in
+				ConfigRow(exec: x.exec, ds: ds)
 			}
 		}
 		.padding()
