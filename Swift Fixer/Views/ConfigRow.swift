@@ -34,18 +34,20 @@ struct ConfigRow: View {
 			}
 			TextField("", text: $currentData.config)
 				.disabled(true)
-			Button(action: {
-				currentData.setConfig()
-			}, label: {
-				Text(verbatim: "Config...")
-			}
+			Button(
+				action: {
+					currentData.setConfig()
+				}, label: {
+					Text(verbatim: "Config...")
+				}
 			)
 			.disabled(!currentData.isActive)
-			Button(action: {
-				currentData.openWebsite()
-			}, label: {
-				Text(verbatim: "?")
-			}
+			Button(
+				action: {
+					currentData.openWebsite()
+				}, label: {
+					Text(verbatim: "?")
+				}
 			)
 		}
 	}
