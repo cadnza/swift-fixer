@@ -8,7 +8,7 @@
 import AppKit
 import Foundation
 
-struct ExecutableStep: Decodable {
+class ExecutableStep: Decodable, ObservableObject {
 
 	private enum Keys : String, CodingKey { case
 		title,
@@ -24,8 +24,8 @@ struct ExecutableStep: Decodable {
 	let exec: String
 	let args: [String]
 
-	var config: URL?
-	var isActive: Bool
+	@Published var config: URL?
+	@Published var isActive: Bool
 
 	private let activeSettingName: String = "ACTIVE"
 	private let configSettingName: String = "CONFIG"
@@ -35,7 +35,7 @@ struct ExecutableStep: Decodable {
 
 	private var settings = UserDefaults()
 
-	init(from decoder: Decoder) {
+	required init(from decoder: Decoder) {
 
 		let container = try! decoder.container(keyedBy: Keys.self)
 		
@@ -51,18 +51,18 @@ struct ExecutableStep: Decodable {
 		self.config = settings.value(forKeyPath: configKeyPath) as? URL
 	}
 
-	mutating func setActive(value: Bool) {
-		//		if(value && config == nil) {
-		//			setConfig()
-		//			if(config == nil){
-		//				return
-		//			}
-		//		}
+	func setActive(value: Bool) {
+		if(value && config == nil) {
+			setConfig()
+			if(config == nil){
+				return
+			}
+		}
 		settings.setValue(value, forKeyPath: activeKeyPath)
 		self.isActive = value
 	}
-
-	mutating func setConfig() {
+	
+	func setConfig() {
 		let panel = NSOpenPanel()
 		panel.prompt = "Select"
 		panel.allowsMultipleSelection = false

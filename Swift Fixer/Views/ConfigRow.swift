@@ -12,18 +12,16 @@ struct ConfigRow: View {
 	private let exec: String
 	private let ds: DataSource
 
-	@State private var currentData: ExecutableStep
+	@ObservedObject private var currentData: ExecutableStep
 
 	init(exec: String, ds: DataSource){
 		self.exec = exec
 		self.ds = ds
-		_currentData = State(
-			initialValue: ds.contents.first(
-				where: {x in
-					return x.exec == exec
-				}
-			)!
-		)
+		self.currentData = ds.contents.first(
+			where: {x in
+				return x.exec == exec
+			}
+		)!
 	}
 
 	var body: some View {
