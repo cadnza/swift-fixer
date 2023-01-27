@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DataSource: Decodable {
+struct DataSource {
 
 	let contents: [ExecutableStep]
 
