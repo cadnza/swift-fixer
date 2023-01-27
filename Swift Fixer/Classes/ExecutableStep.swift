@@ -52,6 +52,12 @@ struct ExecutableStep: Decodable {
 	}
 
 	mutating func setActive(value: Bool) {
+		//		if(value && config == nil) {
+		//			setConfig()
+		//			if(config == nil){
+		//				return
+		//			}
+		//		}
 		settings.setValue(value, forKeyPath: activeKeyPath)
 		self.isActive = value
 	}
