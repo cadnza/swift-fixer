@@ -17,11 +17,13 @@ struct ConfigRow: View {
 	init(exec: String, ds: DataSource){
 		self.exec = exec
 		self.ds = ds
-		self.currentData = ds.contents.first(
-			where: {x in
-				return x.exec == exec
-			}
-		)!
+		_currentData = State(
+			initialValue: ds.contents.first(
+				where: {x in
+					return x.exec == exec
+				}
+			)!
+		)
 	}
 
 	var body: some View {
@@ -40,7 +42,7 @@ struct ConfigRow: View {
 			}
 			TextField(
 				"",
-				text: Binding($currentData.config) ?? Binding(get:{""}){_,_ in}
+				text: Binding(get:{currentData.config?.path ?? ""}){_,_ in}
 			)
 			.disabled(true)
 			Button(

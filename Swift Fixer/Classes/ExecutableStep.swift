@@ -24,7 +24,7 @@ struct ExecutableStep: Decodable {
 	let exec: String
 	let args: [String]
 
-	var config: String?
+	var config: URL?
 	var isActive: Bool
 
 	private let activeSettingName: String = "ACTIVE"
@@ -48,7 +48,7 @@ struct ExecutableStep: Decodable {
 		self.activeKeyPath = "\(self.exec).\(activeSettingName)"
 		self.configKeyPath = "\(self.exec).\(configSettingName)"
 		self.isActive = (settings.value(forKeyPath: activeKeyPath) as? Bool) ?? false
-		self.config = settings.value(forKeyPath: configKeyPath) as? String
+		self.config = settings.value(forKeyPath: configKeyPath) as? URL
 	}
 
 	mutating func setActive(value: Bool) {
@@ -68,7 +68,7 @@ struct ExecutableStep: Decodable {
 		panel.runModal()
 		if(panel.url != nil){
 			settings.setValue(panel.url!.path, forKeyPath: configKeyPath)
-			self.config = panel.url!.path
+			self.config = panel.url!
 		}
 	}
 
