@@ -59,7 +59,7 @@ class ExecutableStep: Decodable, ObservableObject {
 			}
 		}
 		settings.setValue(value, forKeyPath: activeKeyPath)
-		self.isActive = value
+		isActive = value
 	}
 	
 	func setConfig() {
