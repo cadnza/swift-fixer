@@ -38,8 +38,11 @@ struct ConfigRow: View {
 			Toggle(isOn: bndIsActive) {
 				Text(verbatim: "Enable")
 			}
-			TextField("", text: $currentData.config)
-				.disabled(true)
+			TextField(
+				"",
+				text: Binding($currentData.config) ?? Binding(get:{""}){_,_ in}
+			)
+			.disabled(true)
 			Button(
 				action: {
 					currentData.setConfig()
@@ -62,6 +65,6 @@ struct ConfigRow: View {
 struct ConfigRow_Previews: PreviewProvider {
 	static var previews: some View {
 		ContentView() //TEMP
-//		ConfigRow(exec: "swift-format", ds: DataSource())
+					  //		ConfigRow(exec: "swift-format", ds: DataSource())
 	}
 }
