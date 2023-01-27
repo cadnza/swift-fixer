@@ -74,7 +74,7 @@ class ExecutableStep: Decodable, ObservableObject {
 		panel.runModal()
 		if(panel.url != nil){
 			settings.setValue(panel.url!.path, forKeyPath: configKeyPath)
-			self.config = panel.url!
+			config = panel.url!
 		}
 	}
 
