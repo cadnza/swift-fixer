@@ -42,7 +42,11 @@ struct ConfigRow: View {
 			}
 			TextField(
 				"",
-				text: Binding(get:{currentData.config?.path ?? ""}){_,_ in}
+				text: Binding(
+					get:{
+						currentData.config?.path ?? ""
+					}
+				){_,_ in}
 			)
 			.disabled(true)
 			Button(
