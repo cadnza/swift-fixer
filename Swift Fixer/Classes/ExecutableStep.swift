@@ -48,7 +48,7 @@ struct ExecutableStep: Decodable {
 		self.activeKeyPath = "\(self.exec).\(activeSettingName)"
 		self.configKeyPath = "\(self.exec).\(configSettingName)"
 		self.isActive = (settings.value(forKeyPath: activeKeyPath) as? Bool) ?? false
-		self.config = (settings.value(forKeyPath: configKeyPath) as? String)
+		self.config = settings.value(forKeyPath: configKeyPath) as? String
 	}
 
 	mutating func setActive(value: Bool) {
