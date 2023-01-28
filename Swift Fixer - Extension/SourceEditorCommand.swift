@@ -33,8 +33,11 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 
 		// Get current selection
 		let currentSelFirst: XCSourceTextRange =
-			(bfr.selections[0] as! XCSourceTextRange).copy()
-			as! XCSourceTextRange
+		(bfr.selections[0] as! XCSourceTextRange).copy()
+		as! XCSourceTextRange
+
+		// Open data source
+		let ds = DataSource()
 
 		// Get address of temporary file
 		let fTemp: URL = FileManager
@@ -66,53 +69,24 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		)
 
 		// Run commands and catch errors
-		var codeReturn: (status: Int, message: String)
-		codeReturn = shell(
-			execName: "swift-format",
-			args: [
-				"--configuration",
-				Bundle.main.url(
-					forResource: ".swift-format",
-					withExtension: nil
-				)!
-				.path,
-				"-i",
-				fTemp.path,
-			]
-		)
-		switch codeReturn.status { case 0: break default:
+		let cmds = ds.contents.filter{$0.isActive}
+		if(cmds.count == 0) {
 			completeErr(
-				domain: codeReturn.message.trimmingCharacters(
-					in: .whitespacesAndNewlines
-				),
-				code: codeReturn.status
+				domain: "No commands active.",
+				code: 0
 			)
+			return //TEMP
 		}
-		codeReturn = shell(
-			execName: "swiftlint",
-			args: [
-				"--config",
-				Bundle.main.url(
-					forResource: ".swiftlint",
-					withExtension: "yml"
-				)!
-				.path,
-				"--fix",
-				fTemp.path,
-			]
-		)
-		switch codeReturn.status {
-			case 0:
-				break
-			case 4:
-				break
-			default:
+		cmds.forEach {
+			let codeReturn = $0.execute(on: fTemp)
+			if(!codeReturn.success){
 				completeErr(
 					domain: codeReturn.message.trimmingCharacters(
 						in: .whitespacesAndNewlines
 					),
 					code: codeReturn.status
 				)
+			}
 		}
 
 		// Read in file
