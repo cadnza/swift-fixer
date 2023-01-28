@@ -11,7 +11,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "# Set destination&#10;dest=&quot;$WORKSPACE_PATH/../..&quot;&#10;&#10;# Remove binaries and files&#10;rm -rf &quot;$dest/swift-format&quot;&#10;rm -rf &quot;$dest/swiftlint&quot;&#10;rm &quot;$dest/.swift-format&quot;&#10;rm &quot;$dest/.swiftlint.yml&quot;&#10;&#10;# Copy binaries and files&#10;cp /usr/local/bin/swift-format &quot;$dest&quot;&#10;cp /usr/local/bin/swiftlint &quot;$dest&quot;&#10;cp /Users/cadnza/Repos/shDotFiles/.swift-format &quot;$dest&quot;&#10;cp /Users/cadnza/Repos/shDotFiles/.swiftlint.yml &quot;$dest&quot;&#10;">
+               scriptText = "&quot;$WORKSPACE_PATH/../../reset.sh&quot;&#10;">
             </ActionContent>
          </ExecutionAction>
       </PreActions>

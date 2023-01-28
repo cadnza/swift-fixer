@@ -68,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		190EB85C2980350700479AB1 /* shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shell.swift; sourceTree = "<group>"; };
+		191C1E322985DF57003C8BFE /* reset.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = reset.sh; sourceTree = "<group>"; };
 		193E70E9297F3AA40053A733 /* Swift Fixer .appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Swift Fixer .appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		193E70EB297F3AA40053A733 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		193E70ED297F3AA40053A733 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -152,6 +153,7 @@
 		196BF43A297F39DA00D04A4B = {
 			isa = PBXGroup;
 			children = (
+				191C1E322985DF57003C8BFE /* reset.sh */,
 				194790202981CF0E0059EA5E /* Data */,
 				19D5A3DF2980935D00DA3CCC /* swiftlint */,
 				19D5A3D72980925100DA3CCC /* .swiftlint.yml */,

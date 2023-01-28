@@ -5,6 +5,15 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "&quot;$WORKSPACE_PATH/../../reset.sh&quot;&#10;">
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -17,6 +26,20 @@
                BlueprintIdentifier = "196BF442297F39DB00D04A4B"
                BuildableName = "Swift Fixer.app"
                BlueprintName = "Swift Fixer"
+               ReferencedContainer = "container:Swift Fixer.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "193E70E8297F3AA40053A733"
+               BuildableName = "Swift Fixer .appex"
+               BlueprintName = "Swift Fixer - Extension"
                ReferencedContainer = "container:Swift Fixer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
