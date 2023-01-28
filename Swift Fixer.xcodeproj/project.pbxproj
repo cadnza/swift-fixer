@@ -12,6 +12,8 @@
 		191C1E362985E892003C8BFE /* swiftlint in Resources */ = {isa = PBXBuildFile; fileRef = 191C1E342985E892003C8BFE /* swiftlint */; };
 		191C1E382985E8CE003C8BFE /* swift-format in Resources */ = {isa = PBXBuildFile; fileRef = 191C1E372985E8CE003C8BFE /* swift-format */; };
 		191C1E392985E8CE003C8BFE /* swift-format in Resources */ = {isa = PBXBuildFile; fileRef = 191C1E372985E8CE003C8BFE /* swift-format */; };
+		191C1E3B2985E99A003C8BFE /* swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = 191C1E3A2985E99A003C8BFE /* swiftformat */; };
+		191C1E3C2985E99A003C8BFE /* swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = 191C1E3A2985E99A003C8BFE /* swiftformat */; };
 		193E70EC297F3AA40053A733 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193E70EB297F3AA40053A733 /* Cocoa.framework */; };
 		193E70F1297F3AA40053A733 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E70F0297F3AA40053A733 /* SourceEditorExtension.swift */; };
 		193E70F3297F3AA40053A733 /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E70F2297F3AA40053A733 /* SourceEditorCommand.swift */; };
@@ -73,6 +75,7 @@
 		191C1E322985DF57003C8BFE /* reset.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = reset.sh; sourceTree = "<group>"; };
 		191C1E342985E892003C8BFE /* swiftlint */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = swiftlint; sourceTree = "<group>"; };
 		191C1E372985E8CE003C8BFE /* swift-format */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "swift-format"; sourceTree = "<group>"; };
+		191C1E3A2985E99A003C8BFE /* swiftformat */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = swiftformat; sourceTree = "<group>"; };
 		193E70E9297F3AA40053A733 /* Swift Fixer .appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Swift Fixer .appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		193E70EB297F3AA40053A733 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		193E70ED297F3AA40053A733 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -117,6 +120,7 @@
 		191C1E332985E73E003C8BFE /* Imported */ = {
 			isa = PBXGroup;
 			children = (
+				191C1E3A2985E99A003C8BFE /* swiftformat */,
 				191C1E372985E8CE003C8BFE /* swift-format */,
 				191C1E342985E892003C8BFE /* swiftlint */,
 			);
@@ -298,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				194790232981CF260059EA5E /* commands.json in Resources */,
+				191C1E3C2985E99A003C8BFE /* swiftformat in Resources */,
 				191C1E392985E8CE003C8BFE /* swift-format in Resources */,
 				191C1E362985E892003C8BFE /* swiftlint in Resources */,
 				19D5A3D62980924900DA3CCC /* .swift-format in Resources */,
@@ -310,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				194790222981CF260059EA5E /* commands.json in Resources */,
+				191C1E3B2985E99A003C8BFE /* swiftformat in Resources */,
 				191C1E382985E8CE003C8BFE /* swift-format in Resources */,
 				191C1E352985E892003C8BFE /* swiftlint in Resources */,
 				196BF44E297F39DC00D04A4B /* Preview Assets.xcassets in Resources */,

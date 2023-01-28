@@ -16,5 +16,14 @@
 		"exec": "swiftlint",
 		"args": ["--config", "CONFIG", "--fix", "FILE"],
 		"okayCodes": [4]
+	},
+	{
+		"title": "SwiftFormat",
+		"location": "/usr/local/bin",
+		"website": "https://github.com/nicklockwood/SwiftFormat",
+		"description": "",
+		"exec": "swiftformat",
+		"args": ["--config", "CONFIG", "FILE"],
+		"okayCodes": []
 	}
 ]
