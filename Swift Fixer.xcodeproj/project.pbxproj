@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		190EB85D2980350700479AB1 /* shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190EB85C2980350700479AB1 /* shell.swift */; };
+		191C1E352985E892003C8BFE /* swiftlint in Resources */ = {isa = PBXBuildFile; fileRef = 191C1E342985E892003C8BFE /* swiftlint */; };
+		191C1E362985E892003C8BFE /* swiftlint in Resources */ = {isa = PBXBuildFile; fileRef = 191C1E342985E892003C8BFE /* swiftlint */; };
+		191C1E382985E8CE003C8BFE /* swift-format in Resources */ = {isa = PBXBuildFile; fileRef = 191C1E372985E8CE003C8BFE /* swift-format */; };
+		191C1E392985E8CE003C8BFE /* swift-format in Resources */ = {isa = PBXBuildFile; fileRef = 191C1E372985E8CE003C8BFE /* swift-format */; };
 		193E70EC297F3AA40053A733 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193E70EB297F3AA40053A733 /* Cocoa.framework */; };
 		193E70F1297F3AA40053A733 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E70F0297F3AA40053A733 /* SourceEditorExtension.swift */; };
 		193E70F3297F3AA40053A733 /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E70F2297F3AA40053A733 /* SourceEditorCommand.swift */; };
@@ -24,10 +28,8 @@
 		196BF44E297F39DC00D04A4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44D297F39DC00D04A4B /* Preview Assets.xcassets */; };
 		19BC1A292985978F00BAFD63 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194790272982B56B0059EA5E /* DataSource.swift */; };
 		19BC1A2A2985978F00BAFD63 /* ExecutableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194790252981D8FD0059EA5E /* ExecutableStep.swift */; };
-		19D5A3D229808ACA00DA3CCC /* swift-format in Resources */ = {isa = PBXBuildFile; fileRef = 19D5A3D129808ACA00DA3CCC /* swift-format */; };
 		19D5A3D62980924900DA3CCC /* .swift-format in Resources */ = {isa = PBXBuildFile; fileRef = 19D5A3D52980924900DA3CCC /* .swift-format */; };
 		19D5A3D82980925100DA3CCC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 19D5A3D72980925100DA3CCC /* .swiftlint.yml */; };
-		19D5A3E02980935D00DA3CCC /* swiftlint in Resources */ = {isa = PBXBuildFile; fileRef = 19D5A3DF2980935D00DA3CCC /* swiftlint */; };
 		19EC2F632981B5510083BA1A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196BF448297F39DB00D04A4B /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,8 @@
 /* Begin PBXFileReference section */
 		190EB85C2980350700479AB1 /* shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shell.swift; sourceTree = "<group>"; };
 		191C1E322985DF57003C8BFE /* reset.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = reset.sh; sourceTree = "<group>"; };
+		191C1E342985E892003C8BFE /* swiftlint */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = swiftlint; sourceTree = "<group>"; };
+		191C1E372985E8CE003C8BFE /* swift-format */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "swift-format"; sourceTree = "<group>"; };
 		193E70E9297F3AA40053A733 /* Swift Fixer .appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Swift Fixer .appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		193E70EB297F3AA40053A733 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		193E70ED297F3AA40053A733 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -86,10 +90,8 @@
 		196BF44A297F39DC00D04A4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		196BF44D297F39DC00D04A4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		196BF44F297F39DC00D04A4B /* Swift_Fixer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swift_Fixer.entitlements; sourceTree = "<group>"; };
-		19D5A3D129808ACA00DA3CCC /* swift-format */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "swift-format"; sourceTree = "<group>"; };
 		19D5A3D52980924900DA3CCC /* .swift-format */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-format"; sourceTree = "<group>"; };
 		19D5A3D72980925100DA3CCC /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		19D5A3DF2980935D00DA3CCC /* swiftlint */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = swiftlint; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		191C1E332985E73E003C8BFE /* Imported */ = {
+			isa = PBXGroup;
+			children = (
+				191C1E372985E8CE003C8BFE /* swift-format */,
+				191C1E342985E892003C8BFE /* swiftlint */,
+			);
+			path = Imported;
+			sourceTree = "<group>";
+		};
 		193E70EA297F3AA40053A733 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,12 +164,11 @@
 		196BF43A297F39DA00D04A4B = {
 			isa = PBXGroup;
 			children = (
+				191C1E332985E73E003C8BFE /* Imported */,
 				191C1E322985DF57003C8BFE /* reset.sh */,
 				194790202981CF0E0059EA5E /* Data */,
-				19D5A3DF2980935D00DA3CCC /* swiftlint */,
 				19D5A3D72980925100DA3CCC /* .swiftlint.yml */,
 				19D5A3D52980924900DA3CCC /* .swift-format */,
-				19D5A3D129808ACA00DA3CCC /* swift-format */,
 				194790242981D8E70059EA5E /* Classes */,
 				196BF445297F39DB00D04A4B /* Swift Fixer */,
 				193E70EF297F3AA40053A733 /* Swift Fixer - Extension */,
@@ -287,11 +297,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19D5A3D229808ACA00DA3CCC /* swift-format in Resources */,
 				194790232981CF260059EA5E /* commands.json in Resources */,
+				191C1E392985E8CE003C8BFE /* swift-format in Resources */,
+				191C1E362985E892003C8BFE /* swiftlint in Resources */,
 				19D5A3D62980924900DA3CCC /* .swift-format in Resources */,
 				19D5A3D82980925100DA3CCC /* .swiftlint.yml in Resources */,
-				19D5A3E02980935D00DA3CCC /* swiftlint in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +310,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				194790222981CF260059EA5E /* commands.json in Resources */,
+				191C1E382985E8CE003C8BFE /* swift-format in Resources */,
+				191C1E352985E892003C8BFE /* swiftlint in Resources */,
 				196BF44E297F39DC00D04A4B /* Preview Assets.xcassets in Resources */,
 				196BF44B297F39DC00D04A4B /* Assets.xcassets in Resources */,
 			);

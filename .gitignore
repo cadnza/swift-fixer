@@ -1,8 +1,7 @@
 .DS_Store
 **/xcuserdata/*
 
-swift-format
-swiftlint
+Imported/*
 
 .swift-format
 .swiftlint.yml

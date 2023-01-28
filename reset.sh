@@ -3,14 +3,15 @@
 # Set destination
 dest="$WORKSPACE_PATH/../.."
 
-# Remove binaries and files
-rm -rf "$dest/swift-format"
-rm -rf "$dest/swiftlint"
-rm "$dest/.swift-format"
-rm "$dest/.swiftlint.yml"
+# Set imported binaries directory
+imported="$dest/Imported"
 
-# Copy binaries and files
-cp /usr/local/bin/swift-format "$dest"
-cp /usr/local/bin/swiftlint "$dest"
-cp /Users/cadnza/Repos/shDotFiles/.swift-format "$dest"
-cp /Users/cadnza/Repos/shDotFiles/.swiftlint.yml "$dest"
+# Reset imported binaries
+rm -rf "$imported"
+mkdir "$imported"
+
+# Copy binaries
+cat "$dest/Data/commands.json" | jq -r '.[] | .location+"/"+.title' | while read -r src
+do
+	cp "$src" "$imported"
+done
