@@ -41,15 +41,15 @@
             filePath = "Swift Fixer/Classes/ExecutableStep.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "setConfig()"
             landmarkType = "7">
             <Actions>
                <BreakpointActionProxy
                   ActionExtensionID = "Xcode.BreakpointAction.Log">
                   <ActionContent
-                     message = "UPDATED CONFIG"
+                     message = "CALLED setConfig"
                      conveyanceType = "0">
                   </ActionContent>
                </BreakpointActionProxy>
