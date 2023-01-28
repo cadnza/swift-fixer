@@ -89,7 +89,9 @@ class ExecutableStep: Decodable, ObservableObject {
 	}
 
 	func execute(on file: URL) -> (
-		status: Int, message: String
+		success: Bool,
+		status: Int,
+		message: String
 	) {
 		// Open process and pipe
 		let task = Process()
@@ -118,15 +120,17 @@ class ExecutableStep: Decodable, ObservableObject {
 		// Initialize stdin
 		task.standardInput = nil
 		// Run task
-		do { try task.run() } catch { return (1, "Could not run") }
+		do { try task.run() } catch { return (false, 1, "Could not run") }
 		task.waitUntilExit()
 		// Get exit code
 		let code: Int = Int(task.terminationStatus)
+		// Decide whether execution was successful
+		let success: Bool = okayCodes.contains(code)
 		// Capture output
 		let data = pipe.fileHandleForReading.readDataToEndOfFile()
 		let output = String(data: data, encoding: .utf8)!
 		// Return
-		return (code, output)
+		return (success, code, output)
 	}
 
 }
