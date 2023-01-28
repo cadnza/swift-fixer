@@ -10,7 +10,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "&quot;$WORKSPACE_PATH/../../reset.sh&quot;&#10;">
+               scriptText = "&quot;$WORKSPACE_PATH/../../Scripts/reset.sh&quot;&#10;">
             </ActionContent>
          </ExecutionAction>
       </PreActions>
