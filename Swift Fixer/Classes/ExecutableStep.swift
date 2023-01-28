@@ -30,6 +30,9 @@ class ExecutableStep: Decodable, ObservableObject {
 	private let activeSettingName: String = "ACTIVE"
 	private let configSettingName: String = "CONFIG"
 
+	private let filepathPlaceholder: String = "FILE"
+	private let configPlaceholder: String = "CONFIG"
+
 	private let activeKeyPath: String
 	private let configKeyPath: String
 
@@ -82,7 +85,7 @@ class ExecutableStep: Decodable, ObservableObject {
 		NSWorkspace.shared.open(URL(string: website)!)
 	}
 
-	func execute() -> (
+	func execute(on file: URL) -> (
 		status: Int, message: String
 	) {
 		// Open process and pipe
@@ -91,8 +94,17 @@ class ExecutableStep: Decodable, ObservableObject {
 		// Set stdin and stderr
 		task.standardOutput = pipe
 		task.standardError = pipe
-		// Set arguments
-		task.arguments = args
+		// Parse and set arguments
+		task.arguments = args.map {
+			switch $0 {
+				case filepathPlaceholder:
+					return file.path
+				case configPlaceholder:
+					return config!.path
+				default:
+					return $0
+			}
+		}
 		// Set launch path
 		task.launchPath =
 		Bundle.main.url(
