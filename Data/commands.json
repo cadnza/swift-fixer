@@ -1,6 +1,7 @@
 [
 	{
 		"title": "swift-format",
+		"location": "/usr/local/bin",
 		"website": "https://github.com/apple/swift-format",
 		"description": "",
 		"exec": "swift-format",
@@ -8,6 +9,7 @@
 	},
 	{
 		"title": "SwiftLint",
+		"location": "/usr/local/bin",
 		"website": "https://realm.github.io/SwiftLint/",
 		"description": "",
 		"exec": "swiftlint",
