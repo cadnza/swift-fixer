@@ -43,8 +43,9 @@ struct ConfigRow: View {
 				text: Binding(
 					get:{
 						currentData.config?.path ?? ""
-					}
-				){_,_ in}
+					},
+					set:{_,_ in}
+				)
 			)
 			.disabled(true)
 			Button(
