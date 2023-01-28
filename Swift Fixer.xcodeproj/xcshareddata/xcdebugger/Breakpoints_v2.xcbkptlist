@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3A1B3A10-59D0-43C5-9271-5F32EEEA5BD2"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             nameForDebugger = "NewConfigValue"
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
@@ -34,7 +34,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B54C546D-669E-414D-9D5B-DFBCB578543B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             nameForDebugger = "UpdatedConfig"
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
@@ -50,6 +50,32 @@
                   ActionExtensionID = "Xcode.BreakpointAction.Log">
                   <ActionContent
                      message = "CALLED setConfig"
+                     conveyanceType = "0">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9543E37E-CF41-4BE9-8B65-471B0F6FDFF1"
+            shouldBeEnabled = "No"
+            nameForDebugger = "DidUpdateConfig"
+            ignoreCount = "0"
+            continueAfterRunningActions = "Yes"
+            filePath = "Swift Fixer/Classes/ExecutableStep.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "setConfig()"
+            landmarkType = "7">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.Log">
+                  <ActionContent
+                     message = "SUCCESSFULLY UPDATED CONFIG"
                      conveyanceType = "0">
                   </ActionContent>
                </BreakpointActionProxy>
