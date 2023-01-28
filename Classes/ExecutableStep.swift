@@ -15,7 +15,8 @@ class ExecutableStep: Decodable, ObservableObject {
 		website,
 		description,
 		exec,
-		args
+		args,
+		okayCodes
 	}
 
 	let title: String
@@ -23,6 +24,7 @@ class ExecutableStep: Decodable, ObservableObject {
 	let description: String
 	let exec: String
 	let args: [String]
+	let okayCodes: [Int]
 
 	@Published var config: URL?
 	@Published var isActive: Bool
@@ -47,6 +49,7 @@ class ExecutableStep: Decodable, ObservableObject {
 		self.description = try! container.decode(String.self, forKey: .description)
 		self.exec = try! container.decode(String.self, forKey: .exec)
 		self.args = try! container.decode([String].self, forKey: .args)
+		self.okayCodes = try! container.decode([Int].self, forKey: .okayCodes)
 
 		self.activeKeyPath = "\(self.exec).\(activeSettingName)"
 		self.configKeyPath = "\(self.exec).\(configSettingName)"

@@ -5,7 +5,8 @@
 		"website": "https://github.com/apple/swift-format",
 		"description": "",
 		"exec": "swift-format",
-		"args": ["--configuration", "CONFIG", "-i", "FILE"]
+		"args": ["--configuration", "CONFIG", "-i", "FILE"],
+		"okayCodes": []
 	},
 	{
 		"title": "SwiftLint",
@@ -13,6 +14,7 @@
 		"website": "https://realm.github.io/SwiftLint/",
 		"description": "",
 		"exec": "swiftlint",
-		"args": ["--config", "CONFIG", "--fix", "FILE"]
+		"args": ["--config", "CONFIG", "--fix", "FILE"],
+		"okayCodes": [4]
 	}
 ]
