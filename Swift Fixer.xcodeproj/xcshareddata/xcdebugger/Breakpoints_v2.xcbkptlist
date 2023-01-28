@@ -3,4 +3,58 @@
    uuid = "FDC0F137-5637-4B68-9A3A-44B3D9168D60"
    type = "4"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3A1B3A10-59D0-43C5-9271-5F32EEEA5BD2"
+            shouldBeEnabled = "Yes"
+            nameForDebugger = "NewConfigValue"
+            ignoreCount = "0"
+            continueAfterRunningActions = "Yes"
+            filePath = "Swift Fixer/Views/ConfigRow.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.Log">
+                  <ActionContent
+                     message = "VAL: @_0@"
+                     conveyanceType = "0">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B54C546D-669E-414D-9D5B-DFBCB578543B"
+            shouldBeEnabled = "Yes"
+            nameForDebugger = "UpdatedConfig"
+            ignoreCount = "0"
+            continueAfterRunningActions = "Yes"
+            filePath = "Swift Fixer/Classes/ExecutableStep.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "setConfig()"
+            landmarkType = "7">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.Log">
+                  <ActionContent
+                     message = "UPDATED CONFIG"
+                     conveyanceType = "0">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

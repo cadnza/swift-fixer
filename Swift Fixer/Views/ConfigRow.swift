@@ -44,7 +44,8 @@ struct ConfigRow: View {
 					get:{
 						currentData.config?.path ?? ""
 					},
-					set:{_,_ in}
+					set:{_,_ in
+					}
 				)
 			)
 			.disabled(true)
