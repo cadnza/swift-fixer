@@ -23,12 +23,14 @@ struct ConfigRow: View {
 	}
 
 	var body: some View {
-		let bndIsActive = Binding {
-			currentData.isActive
-		}
-		set: {
-			currentData.setActive(value: $0)
-		}
+		let bndIsActive = Binding(
+			get: {
+				currentData.isActive
+			},
+			set: {
+				currentData.setActive(value: $0)
+			}
+		)
 		HStack {
 			Text(verbatim: currentData.title)
 				.fontWeight(.bold)
