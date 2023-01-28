@@ -111,8 +111,7 @@ class ExecutableStep: Decodable, ObservableObject {
 			}
 		}
 		// Set launch path
-		task.launchPath =
-		Bundle.main.url(
+		task.launchPath = Bundle.main.url(
 			forResource: exec,
 			withExtension: nil
 		)!
