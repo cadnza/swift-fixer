@@ -48,6 +48,7 @@ struct ConfigRow: View {
 					}
 				)
 			)
+			.textFieldStyle(.plain)
 			.disabled(true)
 			Button(
 				action: {
