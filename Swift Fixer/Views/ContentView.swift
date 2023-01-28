@@ -19,8 +19,8 @@ struct ContentView: View {
 				.foregroundColor(.accentColor)
 			Text("Hello, world!")
 			List {
-				ForEach(ds.contents, id: \.exec) {x in
-					ConfigRow(exec: x.exec, ds: ds)
+				ForEach(ds.contents, id: \.exec) {
+					ConfigRow(exec: $0.exec, ds: ds)
 				}
 			}
 		}

@@ -18,9 +18,7 @@ struct ConfigRow: View {
 		self.exec = exec
 		self.ds = ds
 		self.currentData = ds.contents.first(
-			where: {x in
-				return x.exec == exec
-			}
+			where: {$0.exec == exec}
 		)!
 	}
 
@@ -28,8 +26,8 @@ struct ConfigRow: View {
 		let bndIsActive = Binding {
 			currentData.isActive
 		}
-		set: {x in
-			currentData.setActive(value: x)
+		set: {
+			currentData.setActive(value: $0)
 		}
 		HStack {
 			Text(verbatim: currentData.title)
