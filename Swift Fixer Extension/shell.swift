@@ -1,6 +1,6 @@
 //
 //  shell.swift
-//  Swift Fixer - Extension
+//  Swift Fixer Extension
 //
 //  Created by Jonathan Dayley on 1/24/23.
 //
