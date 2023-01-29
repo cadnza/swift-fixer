@@ -10,13 +10,13 @@ import Foundation
 
 class ExecutableStep: Decodable, ObservableObject {
 
-	private enum Keys : String, CodingKey { case
-		title,
-		website,
-		description,
-		exec,
-		args,
-		okayCodes
+	private enum Keys: CodingKey {
+		case title
+		case website
+		case description
+		case exec
+		case args
+		case okayCodes
 	}
 
 	let title: String

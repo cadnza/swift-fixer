@@ -14,16 +14,14 @@ struct ConfigRow: View {
 
 	@ObservedObject private var currentData: ExecutableStep
 
-	init(exec: String, ds: DataSource){
+	init(exec: String, ds: DataSource) {
 		self.exec = exec
 		self.ds = ds
-		self.currentData = ds.contents.first(
-			where: {$0.exec == exec}
-		)!
+		self.currentData = ds.contents.first { $0.exec == exec }!
 	}
 
 	var body: some View {
-		let bndIsActive = Binding(
+		let bndIsActive: Binding<Bool> = Binding(
 			get: {
 				currentData.isActive
 			},
@@ -41,10 +39,10 @@ struct ConfigRow: View {
 			TextField(
 				"",
 				text: Binding(
-					get:{
+					get: {
 						currentData.config?.path ?? ""
 					},
-					set:{_,_ in
+					set: {_, _ in
 					}
 				)
 			)
@@ -71,7 +69,7 @@ struct ConfigRow: View {
 
 struct ConfigRow_Previews: PreviewProvider {
 	static var previews: some View {
-		ContentView() //TEMP
-					  //		ConfigRow(exec: "swift-format", ds: DataSource())
+		ContentView() // TEMP
+		//		ConfigRow(exec: "swift-format", ds: DataSource())
 	}
 }

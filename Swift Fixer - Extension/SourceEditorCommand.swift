@@ -70,7 +70,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 
 		// Run commands and catch errors
 		let cmds = ds.contents.filter{$0.isActive}
-		if(cmds.count == 0) {
+		if(cmds.isEmpty) {
 			completeErr(
 				domain: "No commands active.",
 				code: 0
