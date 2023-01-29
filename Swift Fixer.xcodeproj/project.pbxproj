@@ -236,7 +236,6 @@
 				193E70E6297F3AA40053A733 /* Frameworks */,
 				193E70E7297F3AA40053A733 /* Resources */,
 				193E70FF297F3AC90053A733 /* Embed Frameworks */,
-				191C1E422985EDFE003C8BFE /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -334,25 +333,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		191C1E422985EDFE003C8BFE /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$SRCROOT/Scripts/swiftlint.sh\"\n";
-		};
 		191C1E432985EECA003C8BFE /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
