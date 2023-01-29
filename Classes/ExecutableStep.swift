@@ -53,8 +53,10 @@ class ExecutableStep: Decodable, ObservableObject {
 
 		self.activeKeyPath = "\(self.exec).\(activeSettingName)"
 		self.configKeyPath = "\(self.exec).\(configSettingName)"
-		self.isActive = (settings.value(forKeyPath: activeKeyPath) as? Bool) ?? false
-		self.config = settings.value(forKeyPath: configKeyPath) as? URL
+		self.isActive = (settings.value(forKey: activeKeyPath) as? Bool) ?? false
+		self.config = settings.value(forKey: configKeyPath) == nil
+			? nil
+			: URL(fileURLWithPath: settings.value(forKey: configKeyPath) as! String)
 	}
 
 	func setActive(value: Bool) {
@@ -64,7 +66,7 @@ class ExecutableStep: Decodable, ObservableObject {
 				return
 			}
 		}
-		settings.setValue(value, forKeyPath: activeKeyPath)
+		settings.setValue(value, forKey: activeKeyPath)
 		isActive = value
 	}
 
@@ -79,7 +81,7 @@ class ExecutableStep: Decodable, ObservableObject {
 		panel.message = "Please select a config file for \(title)."
 		panel.runModal()
 		if panel.url != nil {
-			settings.setValue(panel.url!.path, forKeyPath: configKeyPath)
+			settings.setValue(panel.url!.path, forKey: configKeyPath)
 			config = panel.url!
 		}
 	}
