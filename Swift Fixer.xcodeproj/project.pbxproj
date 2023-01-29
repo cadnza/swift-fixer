@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		190EB85D2980350700479AB1 /* shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190EB85C2980350700479AB1 /* shell.swift */; };
 		191C1E352985E892003C8BFE /* swiftlint in Resources */ = {isa = PBXBuildFile; fileRef = 191C1E342985E892003C8BFE /* swiftlint */; };
 		191C1E362985E892003C8BFE /* swiftlint in Resources */ = {isa = PBXBuildFile; fileRef = 191C1E342985E892003C8BFE /* swiftlint */; };
 		191C1E382985E8CE003C8BFE /* swift-format in Resources */ = {isa = PBXBuildFile; fileRef = 191C1E372985E8CE003C8BFE /* swift-format */; };
@@ -71,13 +70,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		190EB85C2980350700479AB1 /* shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shell.swift; sourceTree = "<group>"; };
 		191C1E322985DF57003C8BFE /* reset.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = reset.sh; sourceTree = "<group>"; };
 		191C1E342985E892003C8BFE /* swiftlint */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = swiftlint; sourceTree = "<group>"; };
 		191C1E372985E8CE003C8BFE /* swift-format */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "swift-format"; sourceTree = "<group>"; };
 		191C1E3A2985E99A003C8BFE /* swiftformat */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = swiftformat; sourceTree = "<group>"; };
 		191C1E3E2985EC5D003C8BFE /* swiftlint.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = swiftlint.sh; sourceTree = "<group>"; };
-		193E70E9297F3AA40053A733 /* Swift Fixer.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Swift Fixer.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		193E70E9297F3AA40053A733 /* Swift Fixer.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; name = "Swift Fixer.appex"; path = "Swift Fixer .appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		193E70EB297F3AA40053A733 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		193E70ED297F3AA40053A733 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
 		193E70F0297F3AA40053A733 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 		193E70EF297F3AA40053A733 /* Swift Fixer Extension */ = {
 			isa = PBXGroup;
 			children = (
-				190EB85C2980350700479AB1 /* shell.swift */,
 				193E70F0297F3AA40053A733 /* SourceEditorExtension.swift */,
 				193E70F2297F3AA40053A733 /* SourceEditorCommand.swift */,
 				193E70F4297F3AA40053A733 /* Info.plist */,
@@ -360,7 +357,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				19BC1A2A2985978F00BAFD63 /* ExecutableStep.swift in Sources */,
-				190EB85D2980350700479AB1 /* shell.swift in Sources */,
 				193E70F1297F3AA40053A733 /* SourceEditorExtension.swift in Sources */,
 				19BC1A292985978F00BAFD63 /* DataSource.swift in Sources */,
 				193E70F3297F3AA40053A733 /* SourceEditorCommand.swift in Sources */,
