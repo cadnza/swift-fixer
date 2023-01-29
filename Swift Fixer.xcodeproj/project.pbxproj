@@ -83,7 +83,7 @@
 		193E70F0297F3AA40053A733 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
 		193E70F2297F3AA40053A733 /* SourceEditorCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorCommand.swift; sourceTree = "<group>"; };
 		193E70F4297F3AA40053A733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		193E70F5297F3AA40053A733 /* Swift_Fixer_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Swift_Fixer_Extension.entitlements"; sourceTree = "<group>"; };
+		193E70F5297F3AA40053A733 /* Swift_Fixer_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swift_Fixer_Extension.entitlements; sourceTree = "<group>"; };
 		1947901E2981B5BB0059EA5E /* ConfigRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRow.swift; sourceTree = "<group>"; };
 		194790212981CF260059EA5E /* commands.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = commands.json; sourceTree = "<group>"; };
 		194790252981D8FD0059EA5E /* ExecutableStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutableStep.swift; sourceTree = "<group>"; };
