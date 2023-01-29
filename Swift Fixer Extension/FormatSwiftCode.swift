@@ -9,7 +9,7 @@ import Foundation
 import System
 import XcodeKit
 
-class SourceEditorCommand: NSObject, XCSourceEditorCommand {
+class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 
 	func perform(
 		with invocation: XCSourceEditorCommandInvocation,

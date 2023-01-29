@@ -17,7 +17,7 @@
 		191C1E402985EC5D003C8BFE /* swiftlint.sh in Resources */ = {isa = PBXBuildFile; fileRef = 191C1E3E2985EC5D003C8BFE /* swiftlint.sh */; };
 		193E70EC297F3AA40053A733 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193E70EB297F3AA40053A733 /* Cocoa.framework */; };
 		193E70F1297F3AA40053A733 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E70F0297F3AA40053A733 /* SourceEditorExtension.swift */; };
-		193E70F3297F3AA40053A733 /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E70F2297F3AA40053A733 /* SourceEditorCommand.swift */; };
+		193E70F3297F3AA40053A733 /* FormatSwiftCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E70F2297F3AA40053A733 /* FormatSwiftCode.swift */; };
 		193E70F8297F3AA40053A733 /* Swift Fixer.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 193E70E9297F3AA40053A733 /* Swift Fixer.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		193E70FD297F3AC90053A733 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 193E70ED297F3AA40053A733 /* XcodeKit.framework */; };
 		193E70FE297F3AC90053A733 /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 193E70ED297F3AA40053A733 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -79,7 +79,7 @@
 		193E70EB297F3AA40053A733 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		193E70ED297F3AA40053A733 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
 		193E70F0297F3AA40053A733 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
-		193E70F2297F3AA40053A733 /* SourceEditorCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorCommand.swift; sourceTree = "<group>"; };
+		193E70F2297F3AA40053A733 /* FormatSwiftCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatSwiftCode.swift; sourceTree = "<group>"; };
 		193E70F4297F3AA40053A733 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		193E70F5297F3AA40053A733 /* Swift_Fixer_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swift_Fixer_Extension.entitlements; sourceTree = "<group>"; };
 		1947901E2981B5BB0059EA5E /* ConfigRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRow.swift; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				193E70F0297F3AA40053A733 /* SourceEditorExtension.swift */,
-				193E70F2297F3AA40053A733 /* SourceEditorCommand.swift */,
+				193E70F2297F3AA40053A733 /* FormatSwiftCode.swift */,
 				193E70F4297F3AA40053A733 /* Info.plist */,
 				193E70F5297F3AA40053A733 /* Swift_Fixer_Extension.entitlements */,
 			);
@@ -359,7 +359,7 @@
 				19BC1A2A2985978F00BAFD63 /* ExecutableStep.swift in Sources */,
 				193E70F1297F3AA40053A733 /* SourceEditorExtension.swift in Sources */,
 				19BC1A292985978F00BAFD63 /* DataSource.swift in Sources */,
-				193E70F3297F3AA40053A733 /* SourceEditorCommand.swift in Sources */,
+				193E70F3297F3AA40053A733 /* FormatSwiftCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
