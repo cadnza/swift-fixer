@@ -69,7 +69,7 @@ struct ConfigRow: View {
 
 struct ConfigRow_Previews: PreviewProvider {
 	static var previews: some View {
-		ContentView() // TEMP
+		ContentView() // TODO: Reset view
 		//		ConfigRow(exec: "swift-format", ds: DataSource())
 	}
 }

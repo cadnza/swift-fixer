@@ -38,12 +38,12 @@ class ExecutableStep: Decodable, ObservableObject {
 	private let activeKeyPath: String
 	private let configKeyPath: String
 
-	private var settings = UserDefaults()
+	private var settings: UserDefaults = UserDefaults()
 
 	required init(from decoder: Decoder) {
 
 		let container = try! decoder.container(keyedBy: Keys.self)
-		
+
 		self.title = try! container.decode(String.self, forKey: .title)
 		self.website = try! container.decode(String.self, forKey: .website)
 		self.description = try! container.decode(String.self, forKey: .description)
@@ -58,16 +58,16 @@ class ExecutableStep: Decodable, ObservableObject {
 	}
 
 	func setActive(value: Bool) {
-		if(value && config == nil) {
+		if value && config == nil {
 			setConfig()
-			if(config == nil){
+			if config == nil {
 				return
 			}
 		}
 		settings.setValue(value, forKeyPath: activeKeyPath)
 		isActive = value
 	}
-	
+
 	func setConfig() {
 		let panel = NSOpenPanel()
 		panel.prompt = "Select"
@@ -78,7 +78,7 @@ class ExecutableStep: Decodable, ObservableObject {
 		panel.resolvesAliases = true
 		panel.message = "Please select a config file for \(title)."
 		panel.runModal()
-		if(panel.url != nil){
+		if panel.url != nil {
 			settings.setValue(panel.url!.path, forKeyPath: configKeyPath)
 			config = panel.url!
 		}
