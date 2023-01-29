@@ -52,13 +52,15 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		}
 
 		// Define erroring function
-		func completeErr(domain: String, code: Int, removeFile: Bool = true) {
+		func completeErr(
+			domain: String,
+			code: Int,
+			removeFile: Bool = true
+		) {
 			if removeFile {
 				removeTempFile()
 			}
-			completionHandler(
-				NSError(domain: domain, code: code)
-			)
+			completionHandler(NSError(domain: domain, code: code))
 		}
 
 		// Write to temporary file
@@ -69,23 +71,22 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 		)
 
 		// Run commands and catch errors
-		let cmds = ds.contents.filter{$0.isActive}
-		if(cmds.isEmpty) {
+		let cmds = ds.contents.filter { $0.isActive }
+		if cmds.isEmpty {
 			completeErr(
 				domain: "No commands active.",
 				code: 0
 			)
-			return //TEMP
+			return
 		}
-		cmds.forEach {
-			let codeReturn = $0.execute(on: fTemp)
-			if(!codeReturn.success){
+		for cmd in cmds {
+			let codeReturn = cmd.execute(on: fTemp)
+			if !codeReturn.success {
 				completeErr(
-					domain: codeReturn.message.trimmingCharacters(
-						in: .whitespacesAndNewlines
-					),
+					domain: codeReturn.message,
 					code: codeReturn.status
 				)
+				break
 			}
 		}
 

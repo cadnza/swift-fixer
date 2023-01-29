@@ -127,7 +127,9 @@ class ExecutableStep: Decodable, ObservableObject {
 		let success: Bool = okayCodes.contains(code)
 		// Capture output
 		let data = pipe.fileHandleForReading.readDataToEndOfFile()
-		let output = String(data: data, encoding: .utf8)!
+		let output = String(data: data, encoding: .utf8)!.trimmingCharacters(
+			in: .whitespacesAndNewlines
+		)
 		// Return
 		return (success, code, output)
 	}
