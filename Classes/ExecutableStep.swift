@@ -38,7 +38,7 @@ class ExecutableStep: Decodable, ObservableObject {
 	private let activeKeyPath: String
 	private let configKeyPath: String
 
-	private var settings: UserDefaults = UserDefaults()
+	private var settings: UserDefaults = UserDefaults(suiteName: "9TVGLBSJNB.swift-fixer")!
 
 	required init(from decoder: Decoder) {
 
