@@ -11,7 +11,7 @@ rm -rf "$imported"
 mkdir "$imported"
 
 # Copy binaries
-cat "$dest/Data/commands.json" | jq -r '.[] | .location+"/"+.title' | while read -r src
+cat "$dest/Data/commands.json" | /usr/local/bin/jq -r '.[] | .location+"/"+.title' | while read -r src
 do
 	cp "$src" "$imported"
 done
