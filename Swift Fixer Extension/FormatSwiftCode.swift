@@ -86,7 +86,7 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 					domain: codeReturn.message,
 					code: codeReturn.status
 				)
-				break
+				return
 			}
 		}
 
