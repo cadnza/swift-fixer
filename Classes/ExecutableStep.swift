@@ -28,7 +28,7 @@ class ExecutableStep: Decodable, ObservableObject {
 
 	@Published var isActive: Bool
 	@Published var configReal: URL?
-	@Published var configLinked: URL?
+	var configLinked: URL?
 
 	private let activeSettingName: String = "ACTIVE"
 	private let configOriginalSettingName: String = "CONFIGORIGINAL"
