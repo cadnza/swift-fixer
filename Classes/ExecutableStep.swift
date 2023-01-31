@@ -42,21 +42,34 @@ class ExecutableStep: Decodable, ObservableObject {
 
 	private var settings: UserDefaults
 
+	private var linksDirectory: URL
+
+	private var fm: FileManager
+
 	required init(from decoder: Decoder) {
-
 		let container = try! decoder.container(keyedBy: Keys.self)
-
+		// Initialize settings
 		self.settings = UserDefaults(suiteName: appGroupId)!
-
+		// Initilize file manager
+		self.fm = FileManager.default
+		// Create links directory
+		self.linksDirectory = fm
+			.containerURL(forSecurityApplicationGroupIdentifier: appGroupId)!
+			.appendingPathComponent("Links")
+		if !fm.fileExists(atPath: linksDirectory.path) {
+			try! fm.createDirectory(at: linksDirectory, withIntermediateDirectories: true)
+		}
+		// Read properties
 		self.title = try! container.decode(String.self, forKey: .title)
 		self.website = try! container.decode(String.self, forKey: .website)
 		self.description = try! container.decode(String.self, forKey: .description)
 		self.exec = try! container.decode(String.self, forKey: .exec)
 		self.args = try! container.decode([String].self, forKey: .args)
 		self.okayCodes = try! container.decode([Int].self, forKey: .okayCodes)
-
+		// Set key paths
 		self.activeKeyPath = "\(self.exec).\(activeSettingName)"
 		self.configKeyPath = "\(self.exec).\(configSettingName)"
+		// Read or initialize data
 		self.isActive = (settings.value(forKey: activeKeyPath) as? Bool) ?? false
 		self.config = settings.value(forKey: configKeyPath) == nil
 			? nil
@@ -106,19 +119,18 @@ class ExecutableStep: Decodable, ObservableObject {
 		task.standardOutput = pipe
 		task.standardError = pipe
 		// Make sure config file still exists
-		if !FileManager.default.fileExists(atPath: config!.path) {
+		if !fm.fileExists(atPath: config!.path) {
 			return (false, 1, "Could not find \(config!.path)")
 		}
 		// Open temporary file and copy in configuration
 		// TODO: Do we need to copy the file? If we can figure out the files thing, maybe that'll be that.
 		let configOriginal: URL = URL(fileURLWithPath: config!.path)
-		let configTemp: URL = FileManager
-			.default
+		let configTemp: URL = fm
 			.temporaryDirectory
 			.appendingPathComponent(UUID().uuidString)
 			.appendingPathExtension("txt")
 		do {
-			try FileManager.default.copyItem(at: configOriginal, to: configTemp)
+			try fm.copyItem(at: configOriginal, to: configTemp)
 		} catch {
 			return (false, 1, "Could not access \(configOriginal.path)")
 		}
