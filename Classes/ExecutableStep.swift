@@ -26,8 +26,9 @@ class ExecutableStep: Decodable, ObservableObject {
 	let args: [String]
 	let okayCodes: [Int]
 
-	@Published var config: URL?
 	@Published var isActive: Bool
+	@Published var configReal: URL?
+	@Published var configLinked: URL?
 
 	private let activeSettingName: String = "ACTIVE"
 	private let configOriginalSettingName: String = "CONFIGORIGINAL"
@@ -74,15 +75,15 @@ class ExecutableStep: Decodable, ObservableObject {
 		self.keyConfigLinked = "\(self.exec).\(configLinkedSettingName)"
 		// Read or initialize data
 		self.isActive = (settings.value(forKey: keyActive) as? Bool) ?? false
-		self.config = settings.value(forKey: keyConfigOriginal) == nil
+		self.configReal = settings.value(forKey: keyConfigOriginal) == nil
 			? nil
 			: URL(fileURLWithPath: settings.value(forKey: keyConfigOriginal) as! String)
 	}
 
 	func setActive(value: Bool) {
-		if value && config == nil {
+		if value && configReal == nil {
 			setConfig()
-			if config == nil {
+			if configReal == nil {
 				return
 			}
 		}
@@ -108,7 +109,7 @@ class ExecutableStep: Decodable, ObservableObject {
 		// Update settings
 		settings.setValue(panel.url!.path, forKey: keyConfigOriginal)
 		// Update variable in class
-		config = panel.url!
+		configReal = panel.url!
 	}
 
 	func openWebsite() {
@@ -127,12 +128,12 @@ class ExecutableStep: Decodable, ObservableObject {
 		task.standardOutput = pipe
 		task.standardError = pipe
 		// Make sure config file still exists
-		if !fm.fileExists(atPath: config!.path) {
-			return (false, 1, "Could not find \(config!.path)")
+		if !fm.fileExists(atPath: configReal!.path) {
+			return (false, 1, "Could not find \(configReal!.path)")
 		}
 		// Open temporary file and copy in configuration
 		// TODO: Do we need to copy the file? If we can figure out the files thing, maybe that'll be that.
-		let configOriginal: URL = URL(fileURLWithPath: config!.path)
+		let configOriginal: URL = URL(fileURLWithPath: configReal!.path)
 		let configTemp: URL = fm
 			.temporaryDirectory
 			.appendingPathComponent(UUID().uuidString)
