@@ -78,6 +78,16 @@ class ExecutableStep: Decodable, ObservableObject {
 		self.configOriginal = settings.value(forKey: keyConfigOriginal) == nil
 			? nil
 			: URL(fileURLWithPath: settings.value(forKey: keyConfigOriginal) as! String)
+		self.configLinked = settings.value(forKey: keyConfigLinked) == nil
+			? nil
+			: URL(fileURLWithPath: settings.value(forKey: keyConfigLinked) as! String)
+		// Make sure either both or neither config settings are nil
+		if configOriginal == nil || configLinked == nil {
+			configOriginal = nil
+			configLinked = nil
+			settings.setValue(nil, forKey: keyConfigOriginal)
+			settings.setValue(nil, forKey: keyConfigLinked)
+		}
 	}
 
 	func setActive(value: Bool) {
