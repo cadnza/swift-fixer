@@ -119,7 +119,7 @@ class ExecutableStep: Decodable, ObservableObject {
 		// Update variables
 		configOriginal = panel.url!
 		configLinked = URL(fileURLWithPath: linksDirectory.path)
-			.appendingPathComponent(title)
+			.appendingPathComponent(exec)
 			.appendingPathExtension("txt")
 		// Relink config
 		if fm.fileExists(atPath: configLinked!.path) {
