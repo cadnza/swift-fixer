@@ -88,6 +88,7 @@ class ExecutableStep: Decodable, ObservableObject {
 	}
 
 	func setConfig() {
+		// Get user input from panel
 		let panel = NSOpenPanel()
 		panel.prompt = "Select"
 		panel.allowsMultipleSelection = false
@@ -97,10 +98,14 @@ class ExecutableStep: Decodable, ObservableObject {
 		panel.resolvesAliases = true
 		panel.message = "Please select a config file for \(title)."
 		panel.runModal()
-		if panel.url != nil {
-			settings.setValue(panel.url!.path, forKey: configKeyPath)
-			config = panel.url!
+		// Return on no input
+		if panel.url == nil {
+			return
 		}
+		// Update settings
+		settings.setValue(panel.url!.path, forKey: configKeyPath)
+		// Update variable in class
+		config = panel.url!
 	}
 
 	func openWebsite() {
