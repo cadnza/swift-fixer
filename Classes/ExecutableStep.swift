@@ -38,11 +38,15 @@ class ExecutableStep: Decodable, ObservableObject {
 	private let activeKeyPath: String
 	private let configKeyPath: String
 
-	private var settings: UserDefaults = UserDefaults(suiteName: "9TVGLBSJNB.swift-fixer")!
+	private let appGroupId: String = "9TVGLBSJNB.swift-fixer"
+
+	private var settings: UserDefaults
 
 	required init(from decoder: Decoder) {
 
 		let container = try! decoder.container(keyedBy: Keys.self)
+
+		self.settings = UserDefaults(suiteName: appGroupId)!
 
 		self.title = try! container.decode(String.self, forKey: .title)
 		self.website = try! container.decode(String.self, forKey: .website)
