@@ -23,8 +23,9 @@ class ExecutableStep: Decodable, ObservableObject {
 	let website: String
 	let description: String
 	let exec: String
-	let args: [String]
-	let okayCodes: [Int]
+
+	private let args: [String]
+	private let okayCodes: [Int]
 
 	@Published var isActive: Bool
 	@Published var configOriginal: URL?
