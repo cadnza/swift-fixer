@@ -30,13 +30,15 @@ class ExecutableStep: Decodable, ObservableObject {
 	@Published var isActive: Bool
 
 	private let activeSettingName: String = "ACTIVE"
-	private let configSettingName: String = "CONFIG"
+	private let configOriginalSettingName: String = "CONFIGORIGINAL"
+	private let configLinkedSettingName: String = "CONFIGLINKED"
 
 	private let filepathPlaceholder: String = "FILE"
 	private let configPlaceholder: String = "CONFIG"
 
-	private let activeKeyPath: String
-	private let configKeyPath: String
+	private let keyActive: String
+	private let keyConfigOriginal: String
+	private let keyConfigLinked: String // TODO: Use this
 
 	private let appGroupId: String = "9TVGLBSJNB.swift-fixer"
 
@@ -67,13 +69,14 @@ class ExecutableStep: Decodable, ObservableObject {
 		self.args = try! container.decode([String].self, forKey: .args)
 		self.okayCodes = try! container.decode([Int].self, forKey: .okayCodes)
 		// Set key paths
-		self.activeKeyPath = "\(self.exec).\(activeSettingName)"
-		self.configKeyPath = "\(self.exec).\(configSettingName)"
+		self.keyActive = "\(self.exec).\(activeSettingName)"
+		self.keyConfigOriginal = "\(self.exec).\(configOriginalSettingName)"
+		self.keyConfigLinked = "\(self.exec).\(configLinkedSettingName)"
 		// Read or initialize data
-		self.isActive = (settings.value(forKey: activeKeyPath) as? Bool) ?? false
-		self.config = settings.value(forKey: configKeyPath) == nil
+		self.isActive = (settings.value(forKey: keyActive) as? Bool) ?? false
+		self.config = settings.value(forKey: keyConfigOriginal) == nil
 			? nil
-			: URL(fileURLWithPath: settings.value(forKey: configKeyPath) as! String)
+			: URL(fileURLWithPath: settings.value(forKey: keyConfigOriginal) as! String)
 	}
 
 	func setActive(value: Bool) {
@@ -83,7 +86,7 @@ class ExecutableStep: Decodable, ObservableObject {
 				return
 			}
 		}
-		settings.setValue(value, forKey: activeKeyPath)
+		settings.setValue(value, forKey: keyActive)
 		isActive = value
 	}
 
@@ -103,7 +106,7 @@ class ExecutableStep: Decodable, ObservableObject {
 			return
 		}
 		// Update settings
-		settings.setValue(panel.url!.path, forKey: configKeyPath)
+		settings.setValue(panel.url!.path, forKey: keyConfigOriginal)
 		// Update variable in class
 		config = panel.url!
 	}
