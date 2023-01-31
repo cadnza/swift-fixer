@@ -101,13 +101,26 @@ class ExecutableStep: Decodable, ObservableObject {
 		// Set stdin and stderr
 		task.standardOutput = pipe
 		task.standardError = pipe
+		// Open temporary file and copy in configuration
+		// TODO: Do we need to copy the file? If we can figure out the files thing, maybe that'll be that.
+		let configOriginal: URL = URL(fileURLWithPath: config!.path)
+		let configTemp: URL = FileManager
+			.default
+			.temporaryDirectory
+			.appendingPathComponent(UUID().uuidString)
+			.appendingPathExtension("txt")
+		do {
+			try FileManager.default.copyItem(at: configOriginal, to: configTemp)
+		} catch {
+			return (false, 1, "Could not access \(configOriginal.path)")
+		}
 		// Parse and set arguments
 		task.arguments = args.map {
 			switch $0 {
 				case filepathPlaceholder:
 					return file.path
 				case configPlaceholder:
-					return config!.path
+					return configTemp.path
 				default:
 					return $0
 			}
