@@ -116,10 +116,19 @@ class ExecutableStep: Decodable, ObservableObject {
 		if panel.url == nil {
 			return
 		}
+		// Update variables
+		configOriginal = panel.url!
+		configLinked = URL(fileURLWithPath: linksDirectory.path)
+			.appendingPathComponent(title)
+			.appendingPathExtension("txt")
+		// Relink config
+		if fm.fileExists(atPath: configLinked!.path) {
+			try! fm.removeItem(at: configLinked!)
+		}
+		try! fm.linkItem(at: panel.url!, to: configLinked!)
 		// Update settings
 		settings.setValue(panel.url!.path, forKey: keyConfigOriginal)
-		// Update variable in class
-		configOriginal = panel.url!
+		settings.setValue(configLinked!.path, forKey: keyConfigLinked)
 	}
 
 	func openWebsite() {
