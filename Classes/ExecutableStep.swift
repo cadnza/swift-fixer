@@ -32,7 +32,7 @@ class ExecutableStep: Decodable, ObservableObject {
 
 	private let activeSettingName: String = "ACTIVE"
 	private let configOriginalSettingName: String = "CONFIGORIGINAL"
-	private let configLinkedSettingName: String = "CONFIGLINKED"
+	private let configLinkedSettingName: String = "CONFIGLINKED" // TODO: This shouldn't be a setting.
 
 	private let filepathPlaceholder: String = "FILE"
 	private let configPlaceholder: String = "CONFIG"
