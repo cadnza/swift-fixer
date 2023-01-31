@@ -28,18 +28,17 @@ class ExecutableStep: Decodable, ObservableObject {
 
 	@Published var isActive: Bool
 	@Published var configOriginal: URL?
-	var configLinked: URL?
+
+	let configLinked: URL
 
 	private let activeSettingName: String = "ACTIVE"
-	private let configOriginalSettingName: String = "CONFIGORIGINAL"
-	private let configLinkedSettingName: String = "CONFIGLINKED" // TODO: This shouldn't be a setting.
+	private let configSettingName: String = "CONFIG"
 
 	private let filepathPlaceholder: String = "FILE"
 	private let configPlaceholder: String = "CONFIG"
 
 	private let keyActive: String
-	private let keyConfigOriginal: String
-	private let keyConfigLinked: String // TODO: Use this
+	private let keyConfig: String
 
 	private let appGroupId: String = "9TVGLBSJNB.swift-fixer"
 
@@ -69,24 +68,23 @@ class ExecutableStep: Decodable, ObservableObject {
 		self.exec = try! container.decode(String.self, forKey: .exec)
 		self.args = try! container.decode([String].self, forKey: .args)
 		self.okayCodes = try! container.decode([Int].self, forKey: .okayCodes)
+		// Assign linked config path
+		self.configLinked = linksDirectory
+			.appendingPathComponent(exec)
 		// Set key paths
 		self.keyActive = "\(self.exec).\(activeSettingName)"
-		self.keyConfigOriginal = "\(self.exec).\(configOriginalSettingName)"
-		self.keyConfigLinked = "\(self.exec).\(configLinkedSettingName)"
+		self.keyConfig = "\(self.exec).\(configSettingName)"
 		// Read or initialize data
 		self.isActive = (settings.value(forKey: keyActive) as? Bool) ?? false
-		self.configOriginal = settings.value(forKey: keyConfigOriginal) == nil
+		self.configOriginal = settings.value(forKey: keyConfig) == nil
 			? nil
-			: URL(fileURLWithPath: settings.value(forKey: keyConfigOriginal) as! String)
-		self.configLinked = settings.value(forKey: keyConfigLinked) == nil
-			? nil
-			: URL(fileURLWithPath: settings.value(forKey: keyConfigLinked) as! String)
+			: URL(fileURLWithPath: settings.value(forKey: keyConfig) as! String)
 		// Make sure either both or neither config settings are nil
-		if configOriginal == nil || configLinked == nil {
+		if !fm.fileExists(atPath: configLinked.path) {
 			configOriginal = nil
-			configLinked = nil
-			settings.setValue(nil, forKey: keyConfigOriginal)
-			settings.setValue(nil, forKey: keyConfigLinked)
+			settings.setValue(configOriginal, forKey: keyConfig)
+			isActive = false
+			settings.setValue(isActive, forKey: keyActive)
 		}
 	}
 
@@ -116,19 +114,15 @@ class ExecutableStep: Decodable, ObservableObject {
 		if panel.url == nil {
 			return
 		}
-		// Update variables
+		// Update variable
 		configOriginal = panel.url!
-		configLinked = linksDirectory
-			.appendingPathComponent(exec)
-			.appendingPathExtension("txt")
 		// Relink config
-		if fm.fileExists(atPath: configLinked!.path) {
-			try! fm.removeItem(at: configLinked!)
+		if fm.fileExists(atPath: configLinked.path) {
+			try! fm.removeItem(at: configLinked)
 		}
-		try! fm.linkItem(at: panel.url!, to: configLinked!)
+		try! fm.linkItem(at: panel.url!, to: configLinked)
 		// Update settings
-		settings.setValue(panel.url!.path, forKey: keyConfigOriginal)
-		settings.setValue(configLinked!.path, forKey: keyConfigLinked)
+		settings.setValue(panel.url!.path, forKey: keyConfig)
 	}
 
 	func openWebsite() {
@@ -150,25 +144,13 @@ class ExecutableStep: Decodable, ObservableObject {
 		if !fm.fileExists(atPath: configOriginal!.path) {
 			return (false, 1, "Could not find \(configOriginal!.path)")
 		}
-		// Open temporary file and copy in configuration
-		// TODO: Do we need to copy the file? If we can figure out the files thing, maybe that'll be that.
-		let configOriginal: URL = URL(fileURLWithPath: configOriginal!.path)
-		let configTemp: URL = fm
-			.temporaryDirectory
-			.appendingPathComponent(UUID().uuidString)
-			.appendingPathExtension("txt")
-		do {
-			try fm.copyItem(at: configOriginal, to: configTemp)
-		} catch {
-			return (false, 1, "Could not access \(configOriginal.path)")
-		}
 		// Parse and set arguments
 		task.arguments = args.map {
 			switch $0 {
 				case filepathPlaceholder:
 					return file.path
 				case configPlaceholder:
-					return configTemp.path
+					return configLinked.path
 				default:
 					return $0
 			}
