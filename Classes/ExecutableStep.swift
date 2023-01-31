@@ -101,6 +101,10 @@ class ExecutableStep: Decodable, ObservableObject {
 		// Set stdin and stderr
 		task.standardOutput = pipe
 		task.standardError = pipe
+		// Make sure config file still exists
+		if !FileManager.default.fileExists(atPath: config!.path) {
+			return (false, 1, "Could not find \(config!.path)")
+		}
 		// Open temporary file and copy in configuration
 		// TODO: Do we need to copy the file? If we can figure out the files thing, maybe that'll be that.
 		let configOriginal: URL = URL(fileURLWithPath: config!.path)
