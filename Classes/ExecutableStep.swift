@@ -27,7 +27,7 @@ class ExecutableStep: Decodable, ObservableObject {
 	let okayCodes: [Int]
 
 	@Published var isActive: Bool
-	@Published var configReal: URL?
+	@Published var configOriginal: URL?
 	var configLinked: URL?
 
 	private let activeSettingName: String = "ACTIVE"
@@ -75,15 +75,15 @@ class ExecutableStep: Decodable, ObservableObject {
 		self.keyConfigLinked = "\(self.exec).\(configLinkedSettingName)"
 		// Read or initialize data
 		self.isActive = (settings.value(forKey: keyActive) as? Bool) ?? false
-		self.configReal = settings.value(forKey: keyConfigOriginal) == nil
+		self.configOriginal = settings.value(forKey: keyConfigOriginal) == nil
 			? nil
 			: URL(fileURLWithPath: settings.value(forKey: keyConfigOriginal) as! String)
 	}
 
 	func setActive(value: Bool) {
-		if value && configReal == nil {
+		if value && configOriginal == nil {
 			setConfig()
-			if configReal == nil {
+			if configOriginal == nil {
 				return
 			}
 		}
@@ -109,7 +109,7 @@ class ExecutableStep: Decodable, ObservableObject {
 		// Update settings
 		settings.setValue(panel.url!.path, forKey: keyConfigOriginal)
 		// Update variable in class
-		configReal = panel.url!
+		configOriginal = panel.url!
 	}
 
 	func openWebsite() {
@@ -128,12 +128,12 @@ class ExecutableStep: Decodable, ObservableObject {
 		task.standardOutput = pipe
 		task.standardError = pipe
 		// Make sure config file still exists
-		if !fm.fileExists(atPath: configReal!.path) {
-			return (false, 1, "Could not find \(configReal!.path)")
+		if !fm.fileExists(atPath: configOriginal!.path) {
+			return (false, 1, "Could not find \(configOriginal!.path)")
 		}
 		// Open temporary file and copy in configuration
 		// TODO: Do we need to copy the file? If we can figure out the files thing, maybe that'll be that.
-		let configOriginal: URL = URL(fileURLWithPath: configReal!.path)
+		let configOriginal: URL = URL(fileURLWithPath: configOriginal!.path)
 		let configTemp: URL = fm
 			.temporaryDirectory
 			.appendingPathComponent(UUID().uuidString)

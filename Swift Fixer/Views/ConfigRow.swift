@@ -40,7 +40,7 @@ struct ConfigRow: View {
 				"",
 				text: Binding(
 					get: {
-						currentData.configReal?.path ?? ""
+						currentData.configOriginal?.path ?? ""
 					},
 					set: {_, _ in
 					}
