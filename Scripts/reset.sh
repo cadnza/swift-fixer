@@ -15,7 +15,7 @@ fVersions="$imported/versions.json"
 versions="[]"
 
 # Copy binaries and note versions
-cat "$dest/Data/commands.json" | /usr/local/bin/jq -r '.[] | .location+"/"+.title' | while read -r src
+cat "$dest/Data/commands.json" | /usr/local/bin/jq -r '.[] | .location+"/"+.exec' | while read -r src
 do
 	cp "$src" "$imported"
 	version=$($src --version)
