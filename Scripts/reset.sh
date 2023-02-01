@@ -15,7 +15,9 @@ fVersions="$imported/versions.json"
 versions="[]"
 
 # Copy binaries and note versions
-cat "$dest/Swift Fixer/Assets.xcassets/Commands.dataset/commands.json" | /usr/local/bin/jq -r '.[] | .location+"/"+.exec' | while read -r src
+cat "$dest/Swift Fixer/Assets.xcassets/Commands.dataset/commands.json" \
+	| /usr/local/bin/jq -r '.[] | .location+"/"+.exec' \
+	| while read -r src
 do
 	cp "$src" "$imported"
 	version=$($src --version)
