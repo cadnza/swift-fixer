@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppKit
 
 struct DataSource {
 
@@ -13,9 +14,7 @@ struct DataSource {
 
 	init() {
 		// Parse commands
-		let jsonCommands = "commands"
-		let urlCommands = Bundle.main.url(forResource: jsonCommands, withExtension: "json")
-		let dataCommands = try! Data(contentsOf: urlCommands!)
+		let dataCommands = NSDataAsset(name: "Commands")!.data
 		// Parse versions
 		let jsonVersions = "versions"
 		let urlVersions = Bundle.main.url(forResource: jsonVersions, withExtension: "json")
