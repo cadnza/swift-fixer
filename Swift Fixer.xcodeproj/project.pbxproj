@@ -32,6 +32,8 @@
 		196BF447297F39DB00D04A4B /* SwiftFixerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196BF446297F39DB00D04A4B /* SwiftFixerApp.swift */; };
 		196BF44B297F39DC00D04A4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44A297F39DC00D04A4B /* Assets.xcassets */; };
 		196BF44E297F39DC00D04A4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44D297F39DC00D04A4B /* Preview Assets.xcassets */; };
+		1972388E298B18F9003DAC36 /* NSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1972388D298B18F9003DAC36 /* NSTableView.swift */; };
+		1972388F298B18F9003DAC36 /* NSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1972388D298B18F9003DAC36 /* NSTableView.swift */; };
 		19BC1A292985978F00BAFD63 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194790272982B56B0059EA5E /* DataSource.swift */; };
 		19BC1A2A2985978F00BAFD63 /* ExecutableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194790252981D8FD0059EA5E /* ExecutableStep.swift */; };
 		19EC2F632981B5510083BA1A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196BF448297F39DB00D04A4B /* ContentView.swift */; };
@@ -97,6 +99,7 @@
 		196BF44A297F39DC00D04A4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		196BF44D297F39DC00D04A4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		196BF44F297F39DC00D04A4B /* Swift_Fixer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swift_Fixer.entitlements; sourceTree = "<group>"; };
+		1972388D298B18F9003DAC36 /* NSTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +182,7 @@
 		196BF43A297F39DA00D04A4B = {
 			isa = PBXGroup;
 			children = (
+				1972388C298B18EA003DAC36 /* Extensions */,
 				191C1E3D2985EC01003C8BFE /* Scripts */,
 				191C1E332985E73E003C8BFE /* Imported */,
 				194790202981CF0E0059EA5E /* Data */,
@@ -217,6 +221,14 @@
 				196BF44D297F39DC00D04A4B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1972388C298B18EA003DAC36 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1972388D298B18F9003DAC36 /* NSTableView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		19EC2F622981B5150083BA1A /* Views */ = {
@@ -364,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1972388F298B18F9003DAC36 /* NSTableView.swift in Sources */,
 				19BC1A2A2985978F00BAFD63 /* ExecutableStep.swift in Sources */,
 				193E70F1297F3AA40053A733 /* SourceEditorExtension.swift in Sources */,
 				19BC1A292985978F00BAFD63 /* DataSource.swift in Sources */,
@@ -376,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1972388E298B18F9003DAC36 /* NSTableView.swift in Sources */,
 				19EC2F632981B5510083BA1A /* ContentView.swift in Sources */,
 				194790262981D8FD0059EA5E /* ExecutableStep.swift in Sources */,
 				196BF447297F39DB00D04A4B /* SwiftFixerApp.swift in Sources */,

@@ -13,18 +13,21 @@ struct ContentView: View {
 	private let ds = DataSource()
 
 	var body: some View {
-		VStack {
-			Image(systemName: "globe")
-				.imageScale(.large)
-				.foregroundColor(.accentColor)
-			Text("Hello, world!")
-			List {
-				ForEach(ds.contents, id: \.exec) {
-					ConfigRow(exec: $0.exec, ds: ds)
+		ZStack {
+			Color("BackgroundColor").ignoresSafeArea()
+			VStack {
+				Image(systemName: "globe")
+					.imageScale(.large)
+					.foregroundColor(.accentColor)
+				Text("Hello, world!")
+				List {
+					ForEach(ds.contents, id: \.exec) {
+						ConfigRow(exec: $0.exec, ds: ds)
+					}
 				}
 			}
+			.padding()
 		}
-		.padding()
 	}
 }
 
