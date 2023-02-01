@@ -22,7 +22,7 @@ do
 	versions=$(
 		echo $versions | /usr/local/bin/jq -rc \
 			--arg exec $(basename $src) \
-			--arg version $(basename $version) \
+			--arg version $version \
 			'. += [{"exec": $exec, "version": $version}]'
 	)
 	echo $versions > $fVersions
