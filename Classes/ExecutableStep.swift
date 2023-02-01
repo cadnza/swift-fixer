@@ -24,6 +24,8 @@ class ExecutableStep: Decodable, ObservableObject {
 	let description: String
 	let exec: String
 
+	var version: String?
+
 	private let args: [String]
 	private let okayCodes: [Int]
 

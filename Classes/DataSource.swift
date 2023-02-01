@@ -12,10 +12,23 @@ struct DataSource {
 	let contents: [ExecutableStep]
 
 	init() {
-		let jsonfile = "commands"
-		let url = Bundle.main.url(forResource: jsonfile, withExtension: "json")
-		let data = try! Data(contentsOf: url!)
-		self.contents = try! JSONDecoder().decode([ExecutableStep].self, from: data)
+		// Parse commands
+		let jsonCommands = "commands"
+		let urlCommands = Bundle.main.url(forResource: jsonCommands, withExtension: "json")
+		let dataCommands = try! Data(contentsOf: urlCommands!)
+		// Parse versions
+		let jsonVersions = "versions"
+		let urlVersions = Bundle.main.url(forResource: jsonVersions, withExtension: "json")
+		let dataVersions = try! Data(contentsOf: urlVersions!)
+		// Assemble contents
+		self.contents = try! JSONDecoder().decode([ExecutableStep].self, from: dataCommands)
+		// Add versions
+		let versions = try! JSONDecoder().decode([Version].self, from: dataVersions)
+		self.contents.forEach { e in
+			e.version = versions.first { v in
+				v.exec == e.exec
+			}?.version
+		}
 	}
 
 }

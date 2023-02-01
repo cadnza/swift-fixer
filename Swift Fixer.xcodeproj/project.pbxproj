@@ -17,6 +17,8 @@
 		191C1E402985EC5D003C8BFE /* swiftlint.sh in Resources */ = {isa = PBXBuildFile; fileRef = 191C1E3E2985EC5D003C8BFE /* swiftlint.sh */; };
 		193D9F5D298AC1C300194638 /* versions.json in Resources */ = {isa = PBXBuildFile; fileRef = 193D9F5C298AC02300194638 /* versions.json */; };
 		193D9F5E298AC1C400194638 /* versions.json in Resources */ = {isa = PBXBuildFile; fileRef = 193D9F5C298AC02300194638 /* versions.json */; };
+		193D9F60298ADE5700194638 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D9F5F298ADE5700194638 /* Version.swift */; };
+		193D9F61298ADE5700194638 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D9F5F298ADE5700194638 /* Version.swift */; };
 		193E70F1297F3AA40053A733 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E70F0297F3AA40053A733 /* SourceEditorExtension.swift */; };
 		193E70F3297F3AA40053A733 /* FormatSwiftCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E70F2297F3AA40053A733 /* FormatSwiftCode.swift */; };
 		193E70F8297F3AA40053A733 /* Swift Fixer.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 193E70E9297F3AA40053A733 /* Swift Fixer.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -77,6 +79,7 @@
 		191C1E3A2985E99A003C8BFE /* swiftformat */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = swiftformat; sourceTree = "<group>"; };
 		191C1E3E2985EC5D003C8BFE /* swiftlint.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = swiftlint.sh; sourceTree = "<group>"; };
 		193D9F5C298AC02300194638 /* versions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = versions.json; sourceTree = "<group>"; };
+		193D9F5F298ADE5700194638 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		193E70E9297F3AA40053A733 /* Swift Fixer.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; name = "Swift Fixer.appex"; path = "Swift Fixer .appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		193E70EB297F3AA40053A733 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		193E70ED297F3AA40053A733 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -168,6 +171,7 @@
 			children = (
 				194790252981D8FD0059EA5E /* ExecutableStep.swift */,
 				194790272982B56B0059EA5E /* DataSource.swift */,
+				193D9F5F298ADE5700194638 /* Version.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -363,6 +367,7 @@
 				19BC1A2A2985978F00BAFD63 /* ExecutableStep.swift in Sources */,
 				193E70F1297F3AA40053A733 /* SourceEditorExtension.swift in Sources */,
 				19BC1A292985978F00BAFD63 /* DataSource.swift in Sources */,
+				193D9F61298ADE5700194638 /* Version.swift in Sources */,
 				193E70F3297F3AA40053A733 /* FormatSwiftCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +380,7 @@
 				194790262981D8FD0059EA5E /* ExecutableStep.swift in Sources */,
 				196BF447297F39DB00D04A4B /* SwiftFixerApp.swift in Sources */,
 				194790282982B56B0059EA5E /* DataSource.swift in Sources */,
+				193D9F60298ADE5700194638 /* Version.swift in Sources */,
 				1947901F2981B5BB0059EA5E /* ConfigRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
