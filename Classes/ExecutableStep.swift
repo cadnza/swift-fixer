@@ -128,10 +128,6 @@ class ExecutableStep: Decodable, ObservableObject {
 		settings.setValue(panel.url!.path, forKey: keyConfig)
 	}
 
-	func openWebsite() {
-		NSWorkspace.shared.open(URL(string: website)!)
-	}
-
 	func execute(on file: URL) -> (
 		success: Bool,
 		status: Int,

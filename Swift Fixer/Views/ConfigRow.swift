@@ -30,9 +30,10 @@ struct ConfigRow: View {
 			}
 		)
 		HStack {
-			Text(verbatim: currentData.title)
-				.fontWeight(.bold)
+			Link(currentData.title, destination: URL(string: currentData.website)!)
 				.frame(width: 82.0)
+				.font(.body)
+				.foregroundColor(/*@START_MENU_TOKEN@*/Color("AccentColor")/*@END_MENU_TOKEN@*/)
 			Toggle(isOn: bndIsActive) {
 				Text(verbatim: "Enable")
 			}
@@ -56,13 +57,6 @@ struct ConfigRow: View {
 				}
 			)
 			.disabled(!currentData.isActive)
-			Button(
-				action: {
-					currentData.openWebsite()
-				}, label: {
-					Text(verbatim: "?")
-				}
-			)
 		}
 	}
 }
