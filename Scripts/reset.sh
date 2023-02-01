@@ -4,11 +4,11 @@
 dest="$WORKSPACE_PATH/../.."
 
 # Set imported binaries directory
-imported="$dest/Imported"
+binaries="$dest/Binaries"
 
 # Reset imported binaries
-rm -rf "$imported"
-mkdir "$imported"
+rm -rf "$binaries"
+mkdir "$binaries"
 
 # Open versions file
 fVersions="$dest/Swift Fixer/Assets.xcassets/Versions.dataset/versions.json"
@@ -20,7 +20,7 @@ cat "$dest/Swift Fixer/Assets.xcassets/Commands.dataset/commands.json" \
 	| /usr/local/bin/jq -r '.[] | .location+"/"+.exec' \
 	| while read -r src
 do
-	cp "$src" "$imported"
+	cp "$src" "$binaries"
 	version=$($src --version)
 	versions=$(
 		echo $versions | /usr/local/bin/jq -rc \
