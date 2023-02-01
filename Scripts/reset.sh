@@ -11,7 +11,8 @@ rm -rf "$imported"
 mkdir "$imported"
 
 # Open versions file
-fVersions="$imported/versions.json"
+fVersions="$dest/Swift Fixer/Assets.xcassets/Versions.dataset/versions.json"
+[ -f $fVersions ] rm $fVersions
 versions="[]"
 
 # Copy binaries and note versions

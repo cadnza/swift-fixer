@@ -16,9 +16,7 @@ struct DataSource {
 		// Parse commands
 		let dataCommands = NSDataAsset(name: "Commands")!.data
 		// Parse versions
-		let jsonVersions = "versions"
-		let urlVersions = Bundle.main.url(forResource: jsonVersions, withExtension: "json")
-		let dataVersions = try! Data(contentsOf: urlVersions!)
+		let dataVersions = NSDataAsset(name: "Versions")!.data
 		// Assemble contents
 		self.contents = try! JSONDecoder().decode([ExecutableStep].self, from: dataCommands)
 		// Add versions
