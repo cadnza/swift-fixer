@@ -15,6 +15,7 @@
 		191C1E3C2985E99A003C8BFE /* swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = 191C1E3A2985E99A003C8BFE /* swiftformat */; };
 		191C1E3F2985EC5D003C8BFE /* swiftlint.sh in Resources */ = {isa = PBXBuildFile; fileRef = 191C1E3E2985EC5D003C8BFE /* swiftlint.sh */; };
 		191C1E402985EC5D003C8BFE /* swiftlint.sh in Resources */ = {isa = PBXBuildFile; fileRef = 191C1E3E2985EC5D003C8BFE /* swiftlint.sh */; };
+		19216378298C475E0000C6C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44A297F39DC00D04A4B /* Assets.xcassets */; };
 		193D9F60298ADE5700194638 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D9F5F298ADE5700194638 /* Version.swift */; };
 		193D9F61298ADE5700194638 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193D9F5F298ADE5700194638 /* Version.swift */; };
 		193E70F1297F3AA40053A733 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E70F0297F3AA40053A733 /* SourceEditorExtension.swift */; };
@@ -311,6 +312,7 @@
 				191C1E3C2985E99A003C8BFE /* swiftformat in Resources */,
 				191C1E392985E8CE003C8BFE /* swift-format in Resources */,
 				191C1E362985E892003C8BFE /* swiftlint in Resources */,
+				19216378298C475E0000C6C4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
