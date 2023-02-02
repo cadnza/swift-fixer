@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 extension NSTableView {
-	open override func viewDidMoveToWindow() {
+	override open func viewDidMoveToWindow() {
 		super.viewDidMoveToWindow()
 
 		backgroundColor = NSColor.clear
