@@ -16,9 +16,10 @@ struct ContentView: View {
 		ZStack {
 			Color("BackgroundColor").ignoresSafeArea()
 			VStack {
-				Image(systemName: "globe")
-					.imageScale(.large)
-					.foregroundColor(.accentColor)
+				Image("Logo")
+					.resizable()
+					.aspectRatio(contentMode: .fit)
+					.frame(height: 45.0)
 				Text("Hello, world!")
 				List {
 					ForEach(ds.contents, id: \.exec) {
