@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	viewBox="200 200 1648 1648">
+	<g id="Icon">
+		<linearGradient id="linearGradient1" x1="1024" y1="1848" x2="1024" y2="200"
+			gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#000000" stop-opacity="1" />
+			<stop offset="1" stop-color="#2d2d2d" stop-opacity="1" />
+		</linearGradient>
+		<path id="Rectangle" fill="url(#linearGradient1)" fill-rule="evenodd" stroke="none"
+			visibility="hidden"
+			d="M 200 1488 C 200 1686.82251 361.17749 1848 560 1848 L 1488 1848 C 1686.82251 1848 1848 1686.82251 1848 1488 L 1848 560 C 1848 361.17749 1686.82251 200 1488 200 L 560 200 C 361.17749 200 200 361.17749 200 560 Z" />
+		<linearGradient id="linearGradient2" x1="1167.020359" y1="481.732961" x2="893.444118"
+			y2="1564.863208" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#007cff" stop-opacity="1" />
+			<stop offset="1" stop-color="#00bcff" stop-opacity="1" />
+		</linearGradient>
+		<path id="Swift" fill="url(#linearGradient2)" stroke="none" visibility="hidden"
+			d="M 1168.858521 468.765625 C 1715.863403 840.94397 1538.477173 1249.981934 1538.477173 1249.981934 C 1538.477173 1249.981934 1693.85022 1425.320435 1631.393921 1578.901611 C 1631.393921 1578.901611 1566.889771 1471.650757 1459.894897 1471.650757 C 1356.483643 1471.650757 1295.307007 1578.901611 1086.436646 1578.901611 C 622.109558 1578.901611 401.976563 1190.853149 401.976563 1190.853149 C 820.485291 1466.787354 1106.402222 1271.227295 1106.402222 1271.227295 C 917.497375 1161.928711 516.650513 638.72876 516.650513 638.72876 C 866.047668 936.164307 1016.813171 1014.234741 1016.813171 1014.234741 C 926.200317 940.003906 673.559265 576.272461 673.559265 576.272461 C 875.774475 780.791382 1277.645264 1065.94043 1277.645264 1065.94043 C 1392.831055 750.84314 1168.858521 468.765625 1168.858521 468.765625 Z" />
+		<linearGradient id="linearGradient3" x1="1365.613524" y1="1048.537893" x2="1261.369591"
+			y2="1511.104703" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ff0000" stop-opacity="1" />
+			<stop offset="1" stop-color="#bb0000" stop-opacity="1" />
+		</linearGradient>
+		<filter id="filter1" x="0" y="0" width="2048" height="2048" filterUnits="userSpaceOnUse"
+			primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feGaussianBlur stdDeviation="40" />
+			<feOffset dx="-0" dy="0" result="offsetblur" />
+			<feFlood flood-color="#000000" flood-opacity="0.85" />
+			<feComposite in2="offsetblur" operator="in" />
+			<feMerge>
+				<feMergeNode />
+				<feMergeNode in="SourceGraphic" />
+			</feMerge>
+		</filter>
+		<path id="Cross" fill="url(#linearGradient3)" fill-rule="evenodd" stroke="none"
+			visibility="hidden" filter="url(#filter1)"
+			d="M 1231.884033 1517.099976 L 1231.884033 1359.315918 L 1074.099976 1359.315918 L 1074.099976 1200.784058 L 1231.884033 1200.784058 L 1231.884033 1043 L 1390.415894 1043 L 1390.415894 1200.784058 L 1548.199951 1200.784058 L 1548.199951 1359.315918 L 1390.415894 1359.315918 L 1390.415894 1517.099976 L 1231.884033 1517.099976 Z" />
+	</g>
+	<g id="Logo">
+		<linearGradient id="linearGradient4" x1="1194.233103" y1="378.177602" x2="868.380219"
+			y2="1668.279083" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#007cff" stop-opacity="1" />
+			<stop offset="1" stop-color="#00bcff" stop-opacity="1" />
+		</linearGradient>
+		<filter id="filter2" x="0" y="0" width="2048" height="2048" filterUnits="userSpaceOnUse"
+			primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feGaussianBlur stdDeviation="47.643448" />
+			<feOffset dx="-0" dy="0" result="offsetblur" />
+			<feFlood flood-color="#000000" flood-opacity="0.85" />
+			<feComposite in2="offsetblur" operator="in" />
+			<feMerge>
+				<feMergeNode />
+				<feMergeNode in="SourceGraphic" />
+			</feMerge>
+		</filter>
+		<path id="path1" fill="url(#linearGradient4)" stroke="none" filter="url(#filter2)"
+			d="M 1196.422485 362.732422 C 1847.952515 806.028931 1636.670288 1293.228271 1636.670288 1293.228271 C 1636.670288 1293.228271 1821.73291 1502.071533 1747.342041 1685 C 1747.342041 1685 1670.512085 1557.255005 1543.071899 1557.255005 C 1419.900146 1557.255005 1347.033569 1685 1098.250977 1685 C 545.197388 1685 283 1222.800781 283 1222.800781 C 781.479919 1551.462158 1122.031616 1318.533447 1122.031616 1318.533447 C 897.029724 1188.349365 419.586548 565.173096 419.586548 565.173096 C 835.748718 919.44458 1015.323425 1012.433228 1015.323425 1012.433228 C 907.395691 924.017822 606.478394 490.782227 606.478394 490.782227 C 847.334167 734.381958 1325.996826 1074.019043 1325.996826 1074.019043 C 1463.193115 698.710938 1196.422485 362.732422 1196.422485 362.732422 Z" />
+		<linearGradient id="linearGradient5" x1="1430.774679" y1="1053.29113" x2="1306.61117"
+			y2="1604.248071" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ff0000" stop-opacity="1" />
+			<stop offset="1" stop-color="#bb0000" stop-opacity="1" />
+		</linearGradient>
+		<filter id="filter3" x="0" y="0" width="2048" height="2048" filterUnits="userSpaceOnUse"
+			primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feGaussianBlur stdDeviation="47.643448" />
+			<feOffset dx="-0" dy="0" result="offsetblur" />
+			<feFlood flood-color="#000000" flood-opacity="0.85" />
+			<feComposite in2="offsetblur" operator="in" />
+			<feMerge>
+				<feMergeNode />
+				<feMergeNode in="SourceGraphic" />
+			</feMerge>
+		</filter>
+		<path id="path2" fill="url(#linearGradient5)" fill-rule="evenodd" stroke="none"
+			filter="url(#filter3)"
+			d="M 1271.491333 1611.388916 L 1271.491333 1423.45459 L 1083.556885 1423.45459 L 1083.556885 1234.629395 L 1271.491333 1234.629395 L 1271.491333 1046.695068 L 1460.316528 1046.695068 L 1460.316528 1234.629395 L 1648.250854 1234.629395 L 1648.250854 1423.45459 L 1460.316528 1423.45459 L 1460.316528 1611.388916 L 1271.491333 1611.388916 Z" />
+	</g>
+</svg>
