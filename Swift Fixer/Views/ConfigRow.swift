@@ -26,7 +26,7 @@ struct ConfigRow: View {
 				currentData.isActive
 			},
 			set: {
-				currentData.setActive(value: $0)
+				currentData.setActive($0)
 			}
 		)
 		HStack {

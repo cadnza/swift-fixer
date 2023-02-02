@@ -91,7 +91,7 @@ class ExecutableStep: Decodable, ObservableObject {
 		}
 	}
 
-	func setActive(value: Bool) {
+	func setActive(_ value: Bool) {
 		if value && configOriginal == nil {
 			setConfig()
 			if configOriginal == nil {
