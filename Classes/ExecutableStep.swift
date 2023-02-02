@@ -31,10 +31,10 @@ class ExecutableStep: Decodable, ObservableObject {
 	private let okayCodes: [Int]
 	private let defaultOrder: Int
 
-	var order: Int
-
 	@Published var isActive: Bool
 	@Published var configOriginal: URL?
+
+	var order: Int
 
 	let configLinked: URL
 
