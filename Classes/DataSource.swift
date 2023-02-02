@@ -39,14 +39,16 @@ struct DataSource {
 		if new < old {
 			contents.filter {
 				$0.order >= new && $0.order < old
-			}.forEach {
+			}
+			.forEach {
 				$0.order += 1
 			}
 		}
 		if new > old {
 			contents.filter {
 				$0.order > old && $0.order <= new
-			}.forEach {
+			}
+			.forEach {
 				$0.order -= 1
 			}
 		}
