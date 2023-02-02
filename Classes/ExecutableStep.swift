@@ -17,6 +17,7 @@ class ExecutableStep: Decodable, ObservableObject {
 		case exec
 		case args
 		case okayCodes
+		case defaultOrder
 	}
 
 	let title: String
@@ -28,6 +29,9 @@ class ExecutableStep: Decodable, ObservableObject {
 
 	private let args: [String]
 	private let okayCodes: [Int]
+	private let defaultOrder: Int
+
+	var order: Int
 
 	@Published var isActive: Bool
 	@Published var configOriginal: URL?
@@ -36,12 +40,14 @@ class ExecutableStep: Decodable, ObservableObject {
 
 	private let activeSettingName: String = "ACTIVE"
 	private let configSettingName: String = "CONFIG"
+	private let orderSettingName: String = "ORDER"
 
 	private let filepathPlaceholder: String = "FILE"
 	private let configPlaceholder: String = "CONFIG"
 
 	private let keyActive: String
 	private let keyConfig: String
+	private let keyOrder: String
 
 	private let appGroupId: String = "9TVGLBSJNB.swift-fixer"
 
@@ -71,17 +77,26 @@ class ExecutableStep: Decodable, ObservableObject {
 		self.exec = try! container.decode(String.self, forKey: .exec)
 		self.args = try! container.decode([String].self, forKey: .args)
 		self.okayCodes = try! container.decode([Int].self, forKey: .okayCodes)
+		self.defaultOrder = try! container.decode(Int.self, forKey: .defaultOrder)
 		// Assign linked config path
 		self.configLinked = linksDirectory
 			.appendingPathComponent(exec)
 		// Set key paths
 		self.keyActive = "\(self.exec).\(activeSettingName)"
 		self.keyConfig = "\(self.exec).\(configSettingName)"
+		self.keyOrder = "\(self.exec).\(orderSettingName)"
 		// Read or initialize data
 		self.isActive = (settings.value(forKey: keyActive) as? Bool) ?? false
 		self.configOriginal = settings.value(forKey: keyConfig) == nil
 			? nil
 			: URL(fileURLWithPath: settings.value(forKey: keyConfig) as! String)
+		if settings.value(forKey: keyOrder) == nil {
+			order = defaultOrder
+			setOrder(defaultOrder)
+		} else {
+			order = settings.value(forKey: keyOrder) as! Int
+		}
+		self.order = (settings.value(forKey: keyOrder) as? Int) ?? defaultOrder
 		// Make sure either both or neither config settings are nil
 		if !fm.fileExists(atPath: configLinked.path) {
 			configOriginal = nil
@@ -126,6 +141,11 @@ class ExecutableStep: Decodable, ObservableObject {
 		try! fm.linkItem(at: panel.url!, to: configLinked)
 		// Update settings
 		settings.setValue(panel.url!.path, forKey: keyConfig)
+	}
+
+	func setOrder(_ order: Int) {
+		self.order = order
+		settings.setValue(order, forKey: keyOrder)
 	}
 
 	func execute(on file: URL) -> (
