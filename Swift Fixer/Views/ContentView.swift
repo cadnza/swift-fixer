@@ -25,8 +25,8 @@ struct ContentView: View {
 					ForEach(ds.contents) {
 						ConfigRow(exec: $0.exec, ds: ds)
 					}
-					.onMove { indeces, new in
-						let old: Int = Array(indeces)[0]
+					.onMove { indecesOld, new in
+						let old: Int = Array(indecesOld)[0]
 						ds.moveStep(from: old, to: new)
 					}
 				}
