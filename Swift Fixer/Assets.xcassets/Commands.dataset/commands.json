@@ -6,8 +6,7 @@
 		"description": "",
 		"exec": "swift-format",
 		"args": ["--configuration", "CONFIG", "-i", "FILE"],
-		"okayCodes": [0],
-		"defaultOrder": 0
+		"okayCodes": [0]
 	},
 	{
 		"title": "SwiftLint",
@@ -16,8 +15,7 @@
 		"description": "",
 		"exec": "swiftlint",
 		"args": ["--config", "CONFIG", "--fix", "FILE"],
-		"okayCodes": [4],
-		"defaultOrder": 1
+		"okayCodes": [4]
 	},
 	{
 		"title": "SwiftFormat",
@@ -26,7 +24,6 @@
 		"description": "",
 		"exec": "swiftformat",
 		"args": ["--config", "CONFIG", "FILE"],
-		"okayCodes": [0],
-		"defaultOrder": 2
+		"okayCodes": [0]
 	}
 ]

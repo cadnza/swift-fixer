@@ -24,7 +24,9 @@ class DataSource {
 		// Assemble contents
 		self.contents = try! JSONDecoder().decode([ExecutableStep].self, from: dataCommands)
 		// Decorrupt order data if needed
-		if Array(Set(contents.map { $0.order })).count != contents.count {
+		if Array(Set(contents.map { $0.order })).count != contents.count
+			|| contents.map({ $0.order }).contains(nil)
+		{
 			for i in 0..<contents.count {
 				contents[i].setOrder(i)
 			}
@@ -47,18 +49,18 @@ class DataSource {
 		let stepToMove = contents.first { $0.order == old }!
 		if new < old {
 			contents.filter {
-				$0.order >= new && $0.order < old
+				$0.order! >= new && $0.order! < old
 			}
 			.forEach {
-				$0.setOrder($0.order + 1)
+				$0.setOrder($0.order! + 1)
 			}
 		}
 		if new > old {
 			contents.filter {
-				$0.order > old && $0.order <= new
+				$0.order! > old && $0.order! <= new
 			}
 			.forEach {
-				$0.setOrder($0.order - 1)
+				$0.setOrder($0.order! - 1)
 			}
 		}
 		stepToMove.setOrder(new)
@@ -66,7 +68,7 @@ class DataSource {
 	}
 
 	func orderSteps() {
-		contents = contents.sorted { $0.order < $1.order }
+		contents = contents.sorted { $0.order! < $1.order! }
 		for i in 1..<contents.count {
 			contents[i].setOrder(i)
 		}

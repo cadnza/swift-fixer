@@ -17,7 +17,6 @@ class ExecutableStep: Decodable, ObservableObject {
 		case exec
 		case args
 		case okayCodes
-		case defaultOrder
 	}
 
 	let title: String
@@ -29,12 +28,11 @@ class ExecutableStep: Decodable, ObservableObject {
 
 	private let args: [String]
 	private let okayCodes: [Int]
-	private let defaultOrder: Int
 
 	@Published var isActive: Bool
 	@Published var configOriginal: URL?
 
-	var order: Int
+	var order: Int?
 
 	let configLinked: URL
 
@@ -77,7 +75,6 @@ class ExecutableStep: Decodable, ObservableObject {
 		self.exec = try! container.decode(String.self, forKey: .exec)
 		self.args = try! container.decode([String].self, forKey: .args)
 		self.okayCodes = try! container.decode([Int].self, forKey: .okayCodes)
-		self.defaultOrder = try! container.decode(Int.self, forKey: .defaultOrder)
 		// Assign linked config path
 		self.configLinked = linksDirectory
 			.appendingPathComponent(exec)
@@ -90,13 +87,7 @@ class ExecutableStep: Decodable, ObservableObject {
 		self.configOriginal = settings.value(forKey: keyConfig) == nil
 			? nil
 			: URL(fileURLWithPath: settings.value(forKey: keyConfig) as! String)
-		if settings.value(forKey: keyOrder) == nil {
-			order = defaultOrder
-			setOrder(defaultOrder)
-		} else {
-			order = settings.value(forKey: keyOrder) as! Int
-		}
-		self.order = (settings.value(forKey: keyOrder) as? Int) ?? defaultOrder
+		order = settings.value(forKey: keyOrder) as? Int
 		// Make sure either both or neither config settings are nil
 		if !fm.fileExists(atPath: configLinked.path) {
 			configOriginal = nil
@@ -143,9 +134,9 @@ class ExecutableStep: Decodable, ObservableObject {
 		settings.setValue(panel.url!.path, forKey: keyConfig)
 	}
 
-	func setOrder(_ order: Int) {
-		self.order = order
-		settings.setValue(order, forKey: keyOrder)
+	func setOrder(_ x: Int) {
+		self.order = x
+		settings.setValue(x, forKey: keyOrder)
 	}
 
 	func execute(on file: URL) -> (
