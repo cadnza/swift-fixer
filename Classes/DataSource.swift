@@ -25,8 +25,7 @@ class DataSource {
 		self.contents = try! JSONDecoder().decode([ExecutableStep].self, from: dataCommands)
 		// Decorrupt or initialize order data if needed
 		if Array(Set(contents.map { $0.order })).count != contents.count
-			|| contents.map({ $0.order }).contains(nil)
-		{
+			|| contents.map({ $0.order }).contains(nil) {
 			for i in 0..<contents.count {
 				contents[i].setOrder(i)
 			}
