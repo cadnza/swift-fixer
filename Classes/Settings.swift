@@ -24,4 +24,8 @@ struct Settings {
 		defaults.setValue(value, forKey: key)
 	}
 
+	func removeObject(forKey defaultName: String) {
+		defaults.removeObject(forKey: defaultName)
+	}
+
 }

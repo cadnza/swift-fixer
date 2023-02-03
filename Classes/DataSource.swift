@@ -16,6 +16,10 @@ class DataSource {
 
 	var contents: [ExecutableStep]
 
+	let settings = Settings()
+
+	let orderSettingName = "ORDER"
+
 	init() {
 		// Parse commands
 		let dataCommands = NSDataAsset(name: "Commands")!.data
@@ -23,6 +27,17 @@ class DataSource {
 		let dataVersions = NSDataAsset(name: "Versions")!.data
 		// Assemble contents
 		self.contents = try! JSONDecoder().decode([ExecutableStep].self, from: dataCommands)
+		// Order from settings if possible
+		let setOrder = settings.value(forKey: orderSettingName) as? [String]
+		if setOrder != nil {
+			if setOrder!.count == contents.count && setOrder!.sorted() == contents.map({ $0.exec }).sorted() {
+				contents = setOrder!.map { x in
+					contents.first { $0.exec == x }!
+				}
+			} else {
+				settings.removeObject(forKey: orderSettingName)
+			}
+		}
 		// Add versions
 		let versions = try! JSONDecoder().decode([Version].self, from: dataVersions)
 		self.contents.forEach { e in
@@ -34,6 +49,10 @@ class DataSource {
 
 	func move(fromOffsets source: IndexSet, toOffset destination: Int) {
 		contents.move(fromOffsets: source, toOffset: destination)
+		settings.setValue(
+			contents.map { $0.exec },
+			forKey: orderSettingName
+		)
 	}
 
 }
