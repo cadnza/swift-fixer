@@ -41,7 +41,7 @@ struct DataSource {
 				$0.order >= new && $0.order < old
 			}
 			.forEach {
-				$0.order += 1
+				$0.setOrder($0.order + 1)
 			}
 		}
 		if new > old {
@@ -49,7 +49,7 @@ struct DataSource {
 				$0.order > old && $0.order <= new
 			}
 			.forEach {
-				$0.order -= 1
+				$0.setOrder($0.order - 1)
 			}
 		}
 	}
