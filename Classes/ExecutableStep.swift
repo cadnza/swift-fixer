@@ -49,7 +49,7 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable {
 	private let keyConfig: String
 	private let keyOrder: String
 
-	private let appGroupId: String = "9TVGLBSJNB.swift-fixer"
+	private let appGroupId: String = "9TVGLBSJNB.group.com.cadnza.swift-fixer"
 
 	private var settings: UserDefaults
 
