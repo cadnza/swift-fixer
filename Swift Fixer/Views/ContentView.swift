@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-	private var ds = DataSource()
+	@StateObject private var ds = DataSource()
 
 	var body: some View {
 		ZStack {

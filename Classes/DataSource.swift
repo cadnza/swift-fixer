@@ -8,13 +8,13 @@
 import Foundation
 import AppKit
 
-class DataSource {
+class DataSource: ObservableObject {
 
 	enum ValidationError: Error {
 		case InvalidInput
 	}
 
-	var contents: [ExecutableStep]
+	@Published var contents: [ExecutableStep]
 
 	private let settings = Settings()
 
