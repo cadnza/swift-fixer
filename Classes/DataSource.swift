@@ -16,9 +16,9 @@ class DataSource {
 
 	var contents: [ExecutableStep]
 
-	let settings = Settings()
+	private let settings = Settings()
 
-	let orderSettingName = "ORDER"
+	private let orderSettingName = "ORDER"
 
 	init() {
 		// Parse commands

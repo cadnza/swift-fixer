@@ -47,16 +47,14 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable {
 
 	private let appGroupId: String = "9TVGLBSJNB.group.com.cadnza.swift-fixer"
 
-	private var settings = Settings()
+	private let settings = Settings()
 
 	private var linksDirectory: URL
 
-	private var fm: FileManager
+	private let fm = FileManager.default
 
 	required init(from decoder: Decoder) {
 		let container = try! decoder.container(keyedBy: Keys.self)
-		// Initilize file manager
-		self.fm = FileManager.default
 		// Create links directory
 		self.linksDirectory = fm
 			.containerURL(forSecurityApplicationGroupIdentifier: appGroupId)!
