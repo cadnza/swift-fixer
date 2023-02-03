@@ -23,7 +23,7 @@ class DataSource {
 		let dataVersions = NSDataAsset(name: "Versions")!.data
 		// Assemble contents
 		self.contents = try! JSONDecoder().decode([ExecutableStep].self, from: dataCommands)
-		// Decorrupt order data if needed
+		// Decorrupt or initialize order data if needed
 		if Array(Set(contents.map { $0.order })).count != contents.count
 			|| contents.map({ $0.order }).contains(nil)
 		{
