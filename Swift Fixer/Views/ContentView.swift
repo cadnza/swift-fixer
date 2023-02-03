@@ -25,10 +25,7 @@ struct ContentView: View {
 					ForEach(ds.contents) {
 						ConfigRow(exec: $0.exec, ds: ds)
 					}
-					.onMove { indecesOld, new in
-						let old: Int = Array(indecesOld)[0]
-						ds.moveStep(from: old, to: new)
-					}
+					.onMove(perform: ds.move)
 				}
 			}
 			.padding()

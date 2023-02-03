@@ -31,7 +31,7 @@ class DataSource {
 			}
 		}
 		// Order steps
-		orderSteps()
+		contents = contents.sorted { $0.order! < $1.order! }
 		// Add versions
 		let versions = try! JSONDecoder().decode([Version].self, from: dataVersions)
 		self.contents.forEach { e in
@@ -41,33 +41,8 @@ class DataSource {
 		}
 	}
 
-	func moveStep(from old: Int, to new: Int) {
-		if new == old {
-			return
-		}
-		let stepToMove = contents.first { $0.order == old }!
-		if new < old {
-			contents.filter {
-				$0.order! >= new && $0.order! < old
-			}
-			.forEach {
-				$0.setOrder($0.order! + 1)
-			}
-		}
-		if new > old {
-			contents.filter {
-				$0.order! > old && $0.order! <= new
-			}
-			.forEach {
-				$0.setOrder($0.order! - 1)
-			}
-		}
-		stepToMove.setOrder(new)
-		orderSteps()
-	}
-
-	func orderSteps() {
-		contents = contents.sorted { $0.order! < $1.order! }
+	func move(fromOffsets source: IndexSet, toOffset destination: Int) {
+		contents.move(fromOffsets: source, toOffset: destination)
 		for i in 1..<contents.count {
 			contents[i].setOrder(i)
 		}
