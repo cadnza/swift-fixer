@@ -44,7 +44,6 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable {
 
 	private let keyActive: String
 	private let keyConfig: String
-	private let keyOrder: String
 
 	private let appGroupId: String = "9TVGLBSJNB.group.com.cadnza.swift-fixer"
 
@@ -78,7 +77,6 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable {
 		// Set key paths
 		self.keyActive = "\(self.exec).\(activeSettingName)"
 		self.keyConfig = "\(self.exec).\(configSettingName)"
-		self.keyOrder = "\(self.exec).\(orderSettingName)"
 		// Read or initialize data
 		self.isActive = (settings.value(forKey: keyActive) as? Bool) ?? false
 		self.configOriginal = settings.value(forKey: keyConfig) == nil
