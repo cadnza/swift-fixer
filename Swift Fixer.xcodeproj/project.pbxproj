@@ -31,6 +31,8 @@
 		196BF44E297F39DC00D04A4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196BF44D297F39DC00D04A4B /* Preview Assets.xcassets */; };
 		1972388E298B18F9003DAC36 /* NSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1972388D298B18F9003DAC36 /* NSTableView.swift */; };
 		1972388F298B18F9003DAC36 /* NSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1972388D298B18F9003DAC36 /* NSTableView.swift */; };
+		19805A36298DA5F5000A1660 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19805A35298DA5F5000A1660 /* Settings.swift */; };
+		19805A37298DA5F5000A1660 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19805A35298DA5F5000A1660 /* Settings.swift */; };
 		19BC1A292985978F00BAFD63 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194790272982B56B0059EA5E /* DataSource.swift */; };
 		19BC1A2A2985978F00BAFD63 /* ExecutableStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194790252981D8FD0059EA5E /* ExecutableStep.swift */; };
 		19EC2F632981B5510083BA1A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196BF448297F39DB00D04A4B /* ContentView.swift */; };
@@ -95,6 +97,7 @@
 		196BF44D297F39DC00D04A4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		196BF44F297F39DC00D04A4B /* Swift_Fixer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Swift_Fixer.entitlements; sourceTree = "<group>"; };
 		1972388D298B18F9003DAC36 /* NSTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTableView.swift; sourceTree = "<group>"; };
+		19805A35298DA5F5000A1660 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +164,7 @@
 				194790252981D8FD0059EA5E /* ExecutableStep.swift */,
 				194790272982B56B0059EA5E /* DataSource.swift */,
 				193D9F5F298ADE5700194638 /* Version.swift */,
+				19805A35298DA5F5000A1660 /* Settings.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -362,6 +366,7 @@
 				19BC1A2A2985978F00BAFD63 /* ExecutableStep.swift in Sources */,
 				193E70F1297F3AA40053A733 /* SourceEditorExtension.swift in Sources */,
 				19BC1A292985978F00BAFD63 /* DataSource.swift in Sources */,
+				19805A37298DA5F5000A1660 /* Settings.swift in Sources */,
 				193D9F61298ADE5700194638 /* Version.swift in Sources */,
 				193E70F3297F3AA40053A733 /* FormatSwiftCode.swift in Sources */,
 			);
@@ -373,6 +378,7 @@
 			files = (
 				1972388E298B18F9003DAC36 /* NSTableView.swift in Sources */,
 				19EC2F632981B5510083BA1A /* ContentView.swift in Sources */,
+				19805A36298DA5F5000A1660 /* Settings.swift in Sources */,
 				194790262981D8FD0059EA5E /* ExecutableStep.swift in Sources */,
 				196BF447297F39DB00D04A4B /* SwiftFixerApp.swift in Sources */,
 				194790282982B56B0059EA5E /* DataSource.swift in Sources */,

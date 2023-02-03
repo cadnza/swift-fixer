@@ -34,13 +34,10 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable {
 	@Published var isActive: Bool
 	@Published var configOriginal: URL?
 
-	var order: Int?
-
 	let configLinked: URL
 
 	private let activeSettingName: String = "ACTIVE"
 	private let configSettingName: String = "CONFIG"
-	private let orderSettingName: String = "ORDER"
 
 	private let filepathPlaceholder: String = "FILE"
 	private let configPlaceholder: String = "CONFIG"
@@ -51,7 +48,7 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable {
 
 	private let appGroupId: String = "9TVGLBSJNB.group.com.cadnza.swift-fixer"
 
-	private var settings: UserDefaults
+	private var settings = Settings()
 
 	private var linksDirectory: URL
 
@@ -59,8 +56,6 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable {
 
 	required init(from decoder: Decoder) {
 		let container = try! decoder.container(keyedBy: Keys.self)
-		// Initialize settings
-		self.settings = UserDefaults(suiteName: appGroupId)!
 		// Initilize file manager
 		self.fm = FileManager.default
 		// Create links directory
@@ -89,7 +84,6 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable {
 		self.configOriginal = settings.value(forKey: keyConfig) == nil
 			? nil
 			: URL(fileURLWithPath: settings.value(forKey: keyConfig) as! String)
-		order = settings.value(forKey: keyOrder) as? Int
 		// Make sure either both or neither config settings are nil
 		if !fm.fileExists(atPath: configLinked.path) {
 			configOriginal = nil
@@ -134,11 +128,6 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable {
 		try! fm.linkItem(at: panel.url!, to: configLinked)
 		// Update settings
 		settings.setValue(panel.url!.path, forKey: keyConfig)
-	}
-
-	func setOrder(_ x: Int) {
-		self.order = x
-		settings.setValue(x, forKey: keyOrder)
 	}
 
 	func execute(on file: URL) -> (
