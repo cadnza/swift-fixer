@@ -32,9 +32,9 @@ struct DataSource {
 		}
 	}
 
-	func moveStep(from old: Int, to new: Int) throws {
+	func moveStep(from old: Int, to new: Int) {
 		if new == old {
-			throw ValidationError.InvalidInput
+			return
 		}
 		if new < old {
 			contents.filter {

@@ -26,7 +26,7 @@ struct ContentView: View {
 						ConfigRow(exec: $0.exec, ds: ds)
 					}.onMove { indeces, new in
 						let old: Int = Array(indeces)[0]
-						try! ds.moveStep(from: old, to: new)
+						ds.moveStep(from: old, to: new)
 					}
 				}
 			}
