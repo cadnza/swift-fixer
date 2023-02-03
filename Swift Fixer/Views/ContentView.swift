@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-	private let ds = DataSource()
+	private var ds = DataSource()
 
 	var body: some View {
 		ZStack {
@@ -24,7 +24,8 @@ struct ContentView: View {
 				List {
 					ForEach(ds.contents, id: \.exec) {
 						ConfigRow(exec: $0.exec, ds: ds)
-					}.onMove { indeces, new in
+					}
+					.onMove { indeces, new in
 						let old: Int = Array(indeces)[0]
 						ds.moveStep(from: old, to: new)
 					}

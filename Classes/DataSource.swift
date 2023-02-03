@@ -8,13 +8,13 @@
 import Foundation
 import AppKit
 
-struct DataSource {
+class DataSource {
 
 	enum ValidationError: Error {
 		case InvalidInput
 	}
 
-	let contents: [ExecutableStep]
+	var contents: [ExecutableStep]
 
 	init() {
 		// Parse commands
@@ -23,6 +23,14 @@ struct DataSource {
 		let dataVersions = NSDataAsset(name: "Versions")!.data
 		// Assemble contents
 		self.contents = try! JSONDecoder().decode([ExecutableStep].self, from: dataCommands)
+		// Decorrupt order data if needed
+		if Array(Set(contents.map { $0.order })).count != contents.count {
+			for i in 0..<contents.count {
+				contents[i].setOrder(i)
+			}
+		}
+		// Order steps
+		orderSteps()
 		// Add versions
 		let versions = try! JSONDecoder().decode([Version].self, from: dataVersions)
 		self.contents.forEach { e in
@@ -36,6 +44,7 @@ struct DataSource {
 		if new == old {
 			return
 		}
+		let stepToMove = contents.first { $0.order == old }!
 		if new < old {
 			contents.filter {
 				$0.order >= new && $0.order < old
@@ -51,6 +60,15 @@ struct DataSource {
 			.forEach {
 				$0.setOrder($0.order - 1)
 			}
+		}
+		stepToMove.setOrder(new)
+		orderSteps()
+	}
+
+	func orderSteps() {
+		contents = contents.sorted { $0.order < $1.order }
+		for i in 1..<contents.count {
+			contents[i].setOrder(i)
 		}
 	}
 
