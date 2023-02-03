@@ -22,7 +22,7 @@ struct ContentView: View {
 					.frame(height: 45.0)
 				Text("Hello, world!")
 				List {
-					ForEach(ds.contents, id: \.exec) {
+					ForEach(ds.contents) {
 						ConfigRow(exec: $0.exec, ds: ds)
 					}
 					.onMove { indeces, new in

@@ -8,7 +8,9 @@
 import AppKit
 import Foundation
 
-class ExecutableStep: Decodable, ObservableObject {
+class ExecutableStep: Decodable, ObservableObject, Identifiable {
+
+	let id = UUID()
 
 	private enum Keys: CodingKey {
 		case title
