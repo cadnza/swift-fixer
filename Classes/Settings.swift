@@ -9,7 +9,8 @@ import Foundation
 
 struct Settings {
 
-	private let appGroupId = "9TVGLBSJNB.group.com.cadnza.swift-fixer"
+	let appGroupId = "9TVGLBSJNB.com.cadnza.swift-fixer"
+
 	private let defaults: UserDefaults
 
 	init() {

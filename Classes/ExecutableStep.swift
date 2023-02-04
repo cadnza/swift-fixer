@@ -45,8 +45,6 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable {
 	private let keyActive: String
 	private let keyConfig: String
 
-	private let appGroupId: String = "9TVGLBSJNB.group.com.cadnza.swift-fixer"
-
 	private let settings = Settings()
 
 	private var linksDirectory: URL
@@ -57,7 +55,9 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable {
 		let container = try! decoder.container(keyedBy: Keys.self)
 		// Create links directory
 		self.linksDirectory = fm
-			.containerURL(forSecurityApplicationGroupIdentifier: appGroupId)!
+			.containerURL(forSecurityApplicationGroupIdentifier: settings.appGroupId)!
+			.appendingPathComponent("Library")
+			.appendingPathComponent("Application Support")
 			.appendingPathComponent("Links")
 		if !fm.fileExists(atPath: linksDirectory.path) {
 			try! fm.createDirectory(at: linksDirectory, withIntermediateDirectories: true)
@@ -80,7 +80,7 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable {
 		self.configOriginal = settings.value(forKey: keyConfig) == nil
 			? nil
 			: URL(fileURLWithPath: settings.value(forKey: keyConfig) as! String)
-		// Make sure either both or neither config settings are nil
+		// Validate hard link to config
 		if !fm.fileExists(atPath: configLinked.path) {
 			configOriginal = nil
 			settings.setValue(configOriginal, forKey: keyConfig)
