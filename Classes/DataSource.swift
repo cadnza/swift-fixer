@@ -1,10 +1,3 @@
-//
-//  DataSource.swift
-//  Swift Fixer
-//
-//  Created by Jonathan Dayley on 1/26/23.
-//
-
 import Foundation
 import AppKit
 

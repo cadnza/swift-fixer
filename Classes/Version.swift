@@ -1,10 +1,3 @@
-//
-//  Version.swift
-//  Swift Fixer
-//
-//  Created by Jonathan Dayley on 2/1/23.
-//
-
 import Foundation
 
 struct Version: Decodable {

@@ -1,10 +1,3 @@
-//
-//  SourceEditorCommand.swift
-//  swift-format-xcode-extension
-//
-//  Created by Jonathan Dayley on 1/20/23.
-//
-
 import Foundation
 import System
 import XcodeKit

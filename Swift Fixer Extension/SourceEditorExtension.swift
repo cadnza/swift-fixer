@@ -1,10 +1,3 @@
-//
-//  SourceEditorExtension.swift
-//  Swift Fixer Extension
-//
-//  Created by Jonathan Dayley on 1/23/23.
-//
-
 import Foundation
 import XcodeKit
 

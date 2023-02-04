@@ -1,10 +1,3 @@
-//
-//  SwiftFixerApp.swift
-//  Swift Fixer
-//
-//  Created by Jonathan Dayley on 1/23/23.
-//
-
 import SwiftUI
 
 @main

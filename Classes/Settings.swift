@@ -1,10 +1,3 @@
-//
-//  Settings.swift
-//  Swift Fixer
-//
-//  Created by Jonathan Dayley on 2/3/23.
-//
-
 import Foundation
 
 struct Settings {

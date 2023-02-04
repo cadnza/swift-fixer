@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  Swift Fixer
-//
-//  Created by Jonathan Dayley on 1/25/23.
-//
-
 import AppKit
 import Foundation
 

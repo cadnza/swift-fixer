@@ -1,10 +1,3 @@
-//
-//  ConfigRow.swift
-//  Swift Fixer
-//
-//  Created by Jonathan Dayley on 1/25/23.
-//
-
 import SwiftUI
 
 struct ConfigRow: View {
