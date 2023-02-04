@@ -23,25 +23,41 @@ struct ConfigRow: View {
 			}
 		)
 		HStack {
-			Link(currentData.title, destination: URL(string: currentData.website)!)
-				.frame(width: 82.0)
-				.font(.body)
-				.foregroundColor(/*@START_MENU_TOKEN@*/Color("AccentColor")/*@END_MENU_TOKEN@*/)
+			Link(
+				currentData.title, destination: URL(string: currentData.website)!
+			)
+			.font(.title)
+			.foregroundColor(Color("AccentColor"))
+			if currentData.subcommand != nil {
+				Text(verbatim: currentData.subcommand!)
+					.font(.title)
+			}
+			Spacer()
+		}
+		HStack {
+			Link(
+				currentData.author, destination: URL(string: currentData.authorSite)!
+			)
+			.foregroundColor(Color("AccentColor"))
+			Spacer()
+		}
+		TextField(
+			"",
+			text: Binding(
+				get: {
+					currentData.configOriginal?.path ?? ""
+				},
+				set: {_, _ in
+				}
+			)
+		)
+		.textFieldStyle(.plain)
+		.disabled(true)
+		HStack {
 			Toggle(isOn: bndIsActive) {
 				Text(verbatim: "Enable")
 			}
-			TextField(
-				"",
-				text: Binding(
-					get: {
-						currentData.configOriginal?.path ?? ""
-					},
-					set: {_, _ in
-					}
-				)
-			)
-			.textFieldStyle(.plain)
-			.disabled(true)
+			Spacer()
 			Button(
 				action: {
 					currentData.setConfig()
@@ -49,14 +65,14 @@ struct ConfigRow: View {
 					Text(verbatim: "Config...")
 				}
 			)
-			.disabled(!currentData.isActive)
 		}
+		.disabled(!currentData.isActive)
 	}
 }
 
 struct ConfigRow_Previews: PreviewProvider {
 	static var previews: some View {
 		ContentView() // TODO: Reset view
-		//		ConfigRow(exec: "swift-format", ds: DataSource())
+		//		ConfigRow(exec: "swiftlint", ds: DataSource())
 	}
 }

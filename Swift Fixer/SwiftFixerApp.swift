@@ -3,8 +3,8 @@ import SwiftUI
 @main
 struct SwiftFixerApp: App {
 
-	let width: CGFloat = 600
-	let height: CGFloat = 300
+	let width: CGFloat = 400
+	let height: CGFloat = 500
 
     var body: some Scene {
         WindowGroup {
