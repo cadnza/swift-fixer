@@ -12,12 +12,17 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable {
 		case exec
 		case args
 		case okayCodes
+		case author
+		case authorSite
 	}
 
 	let title: String
 	let website: String
 	let description: String
 	let exec: String
+
+	let author: String
+	let authorSite: String
 
 	var version: String?
 
@@ -62,6 +67,8 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable {
 		self.exec = try! container.decode(String.self, forKey: .exec)
 		self.args = try! container.decode([String].self, forKey: .args)
 		self.okayCodes = try! container.decode([Int].self, forKey: .okayCodes)
+		self.author = try! container.decode(String.self, forKey: .author)
+		self.authorSite = try! container.decode(String.self, forKey: .authorSite)
 		// Assign linked config path
 		self.configLinked = linksDirectory
 			.appendingPathComponent(exec)

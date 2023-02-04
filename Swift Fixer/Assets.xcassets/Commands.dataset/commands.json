@@ -6,7 +6,9 @@
 		"description": "",
 		"exec": "swift-format",
 		"args": ["--configuration", "CONFIG", "-i", "FILE"],
-		"okayCodes": [0]
+		"okayCodes": [0],
+		"author": "Apple",
+		"authorSite": "https://www.apple.com/"
 	},
 	{
 		"title": "SwiftLint",
@@ -15,7 +17,9 @@
 		"description": "",
 		"exec": "swiftlint",
 		"args": ["--config", "CONFIG", "--fix", "FILE"],
-		"okayCodes": [4]
+		"okayCodes": [4],
+		"author": "Realm",
+		"authorSite": "https://realm.io/"
 	},
 	{
 		"title": "SwiftFormat",
@@ -24,6 +28,8 @@
 		"description": "",
 		"exec": "swiftformat",
 		"args": ["--config", "CONFIG", "FILE"],
-		"okayCodes": [0]
+		"okayCodes": [0],
+		"author": "Nick Lockwood",
+		"authorSite": "https://github.com/nicklockwood"
 	}
 ]
