@@ -7,6 +7,7 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable {
 
 	private enum Keys: CodingKey {
 		case title
+		case subcommand
 		case website
 		case description
 		case exec
@@ -17,6 +18,7 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable {
 	}
 
 	let title: String
+	let subcommand: String?
 	let website: String
 	let description: String
 	let exec: String
@@ -62,6 +64,7 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable {
 		}
 		// Read properties
 		self.title = try! container.decode(String.self, forKey: .title)
+		self.subcommand = try? container.decode(String.self, forKey: .subcommand)
 		self.website = try! container.decode(String.self, forKey: .website)
 		self.description = try! container.decode(String.self, forKey: .description)
 		self.exec = try! container.decode(String.self, forKey: .exec)

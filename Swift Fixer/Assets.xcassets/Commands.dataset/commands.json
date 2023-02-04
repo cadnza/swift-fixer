@@ -1,6 +1,7 @@
 [
 	{
 		"title": "swift-format",
+		"subcommand": null,
 		"location": "/usr/local/bin",
 		"website": "https://github.com/apple/swift-format",
 		"description": "",
@@ -12,6 +13,7 @@
 	},
 	{
 		"title": "SwiftLint",
+		"subcommand": "--fix",
 		"location": "/usr/local/bin",
 		"website": "https://realm.github.io/SwiftLint/",
 		"description": "",
@@ -23,6 +25,7 @@
 	},
 	{
 		"title": "SwiftFormat",
+		"subcommand": null,
 		"location": "/usr/local/bin",
 		"website": "https://github.com/nicklockwood/SwiftFormat",
 		"description": "",
