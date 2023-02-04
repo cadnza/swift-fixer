@@ -22,51 +22,58 @@ struct ConfigRow: View {
 				currentData.setActive($0)
 			}
 		)
-		HStack {
-			Link(
-				currentData.title, destination: URL(string: currentData.website)!
-			)
-			.font(.title)
-			.foregroundColor(Color("AccentColor"))
-			if currentData.subcommand != nil {
-				Text(verbatim: currentData.subcommand!)
-					.font(.title)
-			}
-			Spacer()
-		}
-		HStack {
-			Link(
-				currentData.author, destination: URL(string: currentData.authorSite)!
-			)
-			.foregroundColor(Color("AccentColor"))
-			Spacer()
-		}
-		TextField(
-			"",
-			text: Binding(
-				get: {
-					currentData.configOriginal?.path ?? ""
-				},
-				set: {_, _ in
+		VStack {
+			HStack {
+				Link(
+					currentData.title, destination: URL(string: currentData.website)!
+				)
+				.font(.title.bold())
+				.foregroundColor(Color("AccentColor"))
+				if currentData.subcommand != nil {
+					Text(verbatim: currentData.subcommand!)
+						.font(.title)
 				}
+				Spacer()
+			}
+			HStack {
+				Link(
+					currentData.author, destination: URL(string: currentData.authorSite)!
+				)
+				.foregroundColor(Color("AccentColor"))
+				Spacer()
+			}
+			TextField(
+				"",
+				text: Binding(
+					get: {
+						currentData.configOriginal?.path ?? ""
+					},
+					set: {_, _ in
+					}
+				)
 			)
+			.textFieldStyle(.plain)
+			.disabled(true)
+			HStack {
+				Toggle(isOn: bndIsActive) {
+					Text(verbatim: "Enable")
+				}
+				Spacer()
+				Button(
+					action: {
+						currentData.setConfig()
+					}, label: {
+						Text(verbatim: "Config...")
+					}
+				)
+				.disabled(!currentData.isActive)
+			}
+		}
+		.padding()
+		.overlay(
+			RoundedRectangle(cornerRadius: 5)
+				.stroke(Color.white, lineWidth: 1)
 		)
-		.textFieldStyle(.plain)
-		.disabled(true)
-		HStack {
-			Toggle(isOn: bndIsActive) {
-				Text(verbatim: "Enable")
-			}
-			Spacer()
-			Button(
-				action: {
-					currentData.setConfig()
-				}, label: {
-					Text(verbatim: "Config...")
-				}
-			)
-		}
-		.disabled(!currentData.isActive)
 	}
 }
 
