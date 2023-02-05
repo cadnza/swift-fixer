@@ -7,7 +7,7 @@ struct SwiftFixerApp: App {
 	let height: CGFloat = 600
 
     var body: some Scene {
-        WindowGroup {
+        WindowGroup { // FIXME: Make this into a Window instead (requires macOS 13+)
             ContentView()
 				.frame(
 					minWidth: width,
