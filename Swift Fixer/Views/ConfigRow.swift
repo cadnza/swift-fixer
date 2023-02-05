@@ -51,8 +51,15 @@ struct ConfigRow: View {
 				Spacer()
 			}
 			HStack {
-				Text(verbatim: currentData.configOriginal?.path ?? "Unset") // FIXME: Make this a link
-					.foregroundColor(colorChangesToAccent)
+				if currentData.configOriginal == nil {
+					Text(verbatim: "Config file not set")
+						.foregroundColor(Color("InactiveColor"))
+						.italic()
+				} else {
+					Text(verbatim: currentData.configOriginal!.path)
+						.foregroundColor(colorChangesToDefault)
+						.truncationMode(.middle)
+				}
 				Spacer()
 			}
 			HStack {
