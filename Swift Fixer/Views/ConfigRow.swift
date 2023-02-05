@@ -14,6 +14,10 @@ struct ConfigRow: View {
 	}
 
 	var body: some View {
+
+		var colorChangesToAccent = Color(currentData.isActive ? "AccentColor" : "InactiveColor")
+		var colorChangesToDefault = currentData.isActive ? nil : Color("InactiveColor")
+
 		let bndIsActive: Binding<Bool> = Binding(
 			get: {
 				currentData.isActive
@@ -22,19 +26,21 @@ struct ConfigRow: View {
 				currentData.setActive($0)
 			}
 		)
+
 		VStack {
 			HStack {
 				Link(
 					currentData.title, destination: URL(string: currentData.website)!
 				)
 				.font(.title.bold())
-				.foregroundColor(Color("AccentColor"))
+				.foregroundColor(colorChangesToAccent)
 				if currentData.subcommand != nil {
 					Text(verbatim: currentData.subcommand!)
 						.font(.title)
 				}
 				Spacer()
 				Text(verbatim: "v\(currentData.version!)")
+					.foregroundColor(colorChangesToDefault)
 			}
 			HStack {
 				Link(
@@ -44,7 +50,7 @@ struct ConfigRow: View {
 				Spacer()
 			}
 			HStack {
-				Text(verbatim: currentData.configOriginal?.path ?? "")
+				Text(verbatim: currentData.configOriginal?.path ?? "Unset")
 					.foregroundColor(Color("AccentColor")) // FIXME: Make this a link
 				Spacer()
 			}
@@ -66,7 +72,10 @@ struct ConfigRow: View {
 		.padding()
 		.overlay(
 			RoundedRectangle(cornerRadius: 5)
-				.stroke(Color("AccentColor"), lineWidth: 1)
+				.stroke(
+					colorChangesToAccent,
+					lineWidth: 1
+				)
 		)
 	}
 }
