@@ -16,7 +16,7 @@ struct ConfigRow: View {
 	var body: some View {
 
 		let colorChangesToAccent = Color(currentData.isActive ? "AccentColor" : "AccentColorInactive")
-		let colorChangesToDefault = currentData.isActive ? nil : Color("InactiveColor")
+		let colorChangesToDefault = currentData.isActive ? Color.primary : Color("InactiveColor")
 
 		let bndIsActive: Binding<Bool> = Binding(
 			get: {
@@ -33,21 +33,29 @@ struct ConfigRow: View {
 					currentData.title, destination: URL(string: currentData.website)!
 				)
 				.font(.title.bold())
-				.foregroundColor(colorChangesToAccent)
+				.foregroundColor(Color.white)
+				.colorMultiply(colorChangesToAccent)
+				.animation(.default, value: currentData.isActive)
 				if currentData.subcommand != nil {
 					Text(verbatim: currentData.subcommand!)
 						.font(.title3.monospaced())
-						.foregroundColor(colorChangesToDefault)
+						.foregroundColor(Color.white)
+						.colorMultiply(colorChangesToDefault)
+						.animation(.default, value: currentData.isActive)
 				}
 				Spacer()
 				Text(verbatim: "v\(currentData.version!)")
-					.foregroundColor(colorChangesToDefault)
+					.foregroundColor(Color.white)
+					.colorMultiply(colorChangesToDefault)
+					.animation(.default, value: currentData.isActive)
 			}
 			HStack {
 				Link(
 					currentData.author, destination: URL(string: currentData.authorSite)!
 				)
-				.foregroundColor(colorChangesToAccent)
+				.foregroundColor(Color.white)
+				.colorMultiply(colorChangesToAccent)
+				.animation(.default, value: currentData.isActive)
 				Spacer()
 			}
 			HStack {
@@ -57,7 +65,9 @@ struct ConfigRow: View {
 						.italic()
 				} else {
 					Text(verbatim: currentData.configOriginal!.path)
-						.foregroundColor(colorChangesToDefault)
+						.foregroundColor(Color.white)
+						.colorMultiply(colorChangesToDefault)
+						.animation(.default, value: currentData.isActive)
 						.truncationMode(.middle)
 				}
 				Spacer()
@@ -75,6 +85,7 @@ struct ConfigRow: View {
 					}
 				)
 				.disabled(!currentData.isActive)
+				.animation(.default, value: currentData.isActive)
 			}
 		}
 		.padding()
@@ -85,6 +96,7 @@ struct ConfigRow: View {
 					lineWidth: 1
 				)
 		)
+		.animation(.default, value: currentData.isActive)
 	}
 }
 
