@@ -42,18 +42,11 @@ struct ConfigRow: View {
 				.foregroundColor(Color("AccentColor"))
 				Spacer()
 			}
-			TextField(
-				"",
-				text: Binding(
-					get: {
-						currentData.configOriginal?.path ?? ""
-					},
-					set: {_, _ in
-					}
-				)
-			)
-			.textFieldStyle(.plain)
-			.disabled(true)
+			HStack {
+				Text(verbatim: currentData.configOriginal?.path ?? "")
+					.foregroundColor(Color("AccentColor")) // FIXME: Make this a link
+				Spacer()
+			}
 			HStack {
 				Toggle(isOn: bndIsActive) {
 					Text(verbatim: "Enable")
@@ -72,7 +65,7 @@ struct ConfigRow: View {
 		.padding()
 		.overlay(
 			RoundedRectangle(cornerRadius: 5)
-				.stroke(Color.white, lineWidth: 1)
+				.stroke(Color("AccentColor"), lineWidth: 1)
 		)
 	}
 }
