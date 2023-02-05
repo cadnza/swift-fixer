@@ -36,7 +36,7 @@ struct ConfigRow: View {
 				.foregroundColor(colorChangesToAccent)
 				if currentData.subcommand != nil {
 					Text(verbatim: currentData.subcommand!)
-						.font(.title)
+						.font(.title3.monospaced())
 						.foregroundColor(colorChangesToDefault)
 				}
 				Spacer()
