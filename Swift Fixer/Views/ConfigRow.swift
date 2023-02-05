@@ -5,6 +5,8 @@ struct ConfigRow: View {
 	private let exec: String
 	private let ds: DataSource
 
+	private let colorAnimationDuration: Double = 0.15
+
 	@ObservedObject private var currentData: ExecutableStep
 
 	init(exec: String, ds: DataSource) {
@@ -27,6 +29,8 @@ struct ConfigRow: View {
 			}
 		)
 
+		let colorAnimation = Animation.easeInOut(duration: colorAnimationDuration)
+
 		VStack {
 			HStack {
 				Link(
@@ -35,19 +39,19 @@ struct ConfigRow: View {
 				.font(.title.bold())
 				.foregroundColor(Color.white)
 				.colorMultiply(colorChangesToAccent)
-				.animation(.default, value: currentData.isActive)
+				.animation(colorAnimation, value: currentData.isActive)
 				if currentData.subcommand != nil {
 					Text(verbatim: currentData.subcommand!)
 						.font(.title3.monospaced())
 						.foregroundColor(Color.white)
 						.colorMultiply(colorChangesToDefault)
-						.animation(.default, value: currentData.isActive)
+						.animation(colorAnimation, value: currentData.isActive)
 				}
 				Spacer()
 				Text(verbatim: "v\(currentData.version!)")
 					.foregroundColor(Color.white)
 					.colorMultiply(colorChangesToDefault)
-					.animation(.default, value: currentData.isActive)
+					.animation(colorAnimation, value: currentData.isActive)
 			}
 			HStack {
 				Link(
@@ -55,7 +59,7 @@ struct ConfigRow: View {
 				)
 				.foregroundColor(Color.white)
 				.colorMultiply(colorChangesToAccent)
-				.animation(.default, value: currentData.isActive)
+				.animation(colorAnimation, value: currentData.isActive)
 				Spacer()
 			}
 			HStack {
@@ -67,7 +71,7 @@ struct ConfigRow: View {
 					Text(verbatim: currentData.configOriginal!.path)
 						.foregroundColor(Color.white)
 						.colorMultiply(colorChangesToDefault)
-						.animation(.default, value: currentData.isActive)
+						.animation(colorAnimation, value: currentData.isActive)
 						.truncationMode(.middle)
 				}
 				Spacer()
@@ -85,7 +89,7 @@ struct ConfigRow: View {
 					}
 				)
 				.disabled(!currentData.isActive)
-				.animation(.default, value: currentData.isActive)
+				.animation(colorAnimation, value: currentData.isActive)
 			}
 		}
 		.padding()
@@ -96,7 +100,7 @@ struct ConfigRow: View {
 					lineWidth: 1
 				)
 		)
-		.animation(.default, value: currentData.isActive)
+		.animation(colorAnimation, value: currentData.isActive)
 	}
 }
 
