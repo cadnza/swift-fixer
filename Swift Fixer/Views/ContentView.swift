@@ -17,12 +17,10 @@ struct ContentView: View {
 					.aspectRatio(contentMode: .fit)
 					.frame(height: 45.0)
 				Text("Hello, world!")
-				List {
-					ForEach(ds.contents) {
-						ConfigRow(exec: $0.exec, ds: ds)
-					}
-					.onMove(perform: ds.move)
+				ForEach(ds.contents) {
+					ConfigRow(exec: $0.exec, ds: ds)
 				}
+				.onMove(perform: ds.move)
 			}
 			.padding()
 		}
