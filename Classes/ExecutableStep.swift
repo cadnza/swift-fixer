@@ -1,7 +1,7 @@
 import AppKit
 import Foundation
 
-class ExecutableStep: Decodable, ObservableObject, Identifiable {
+class ExecutableStep: Decodable, ObservableObject, Identifiable, Equatable {
 
 	let id = UUID()
 
@@ -50,6 +50,10 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable {
 	private var linksDirectory: URL
 
 	private let fm = FileManager.default
+
+	static func == (lhs: ExecutableStep, rhs: ExecutableStep) -> Bool {
+		lhs.id == rhs.id
+	}
 
 	required init(from decoder: Decoder) {
 		let container = try! decoder.container(keyedBy: Keys.self)

@@ -23,6 +23,7 @@ struct ContentView: View {
 					}
 					.onMove(perform: ds.move)
 				}
+				.animation(.default, value: ds.contents)
 			}
 			.padding()
 		}
