@@ -8,15 +8,30 @@ struct ContentView: View {
 	let width: CGFloat = 400
 	let height: CGFloat = 600
 
+	let appName = "Swift Fixer"
+	let authorName = "cadnza"
+	let authorSite = URL(string: "https://github.com/cadnza")!
+
 	var body: some View {
 		ZStack {
 			Color("BackgroundColor").ignoresSafeArea()
 			VStack {
-				Image("Logo")
-					.resizable()
-					.aspectRatio(contentMode: .fit)
-					.frame(height: 45.0)
-				Text("Hello, world!")
+				HStack {
+					Image("Logo")
+						.resizable()
+						.aspectRatio(contentMode: .fit)
+						.frame(height: 50.0)
+					Spacer()
+					VStack(alignment: .trailing) {
+						Text(appName)
+							.font(.title)
+						.fontWeight(.black)
+						Link(authorName, destination: authorSite)
+							.font(.title2)
+							.foregroundColor(.accentColor)
+					}
+				}
+				.padding(.horizontal, 17.0)
 				List {
 					ForEach(ds.contents) {
 						ConfigRow(exec: $0.exec, ds: ds)
