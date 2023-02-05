@@ -5,6 +5,9 @@ struct ContentView: View {
 
 	@StateObject private var ds = DataSource()
 
+	let width: CGFloat = 400
+	let height: CGFloat = 600
+
 	var body: some View {
 		ZStack {
 			Color("BackgroundColor").ignoresSafeArea()
@@ -23,6 +26,12 @@ struct ContentView: View {
 			}
 			.padding()
 		}
+		.frame(
+			minWidth: width,
+			maxWidth: width,
+			minHeight: height,
+			maxHeight: height
+		)
 	}
 }
 
