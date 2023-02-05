@@ -34,6 +34,7 @@ struct ConfigRow: View {
 						.font(.title)
 				}
 				Spacer()
+				Text(verbatim: "v\(currentData.version!)")
 			}
 			HStack {
 				Link(
