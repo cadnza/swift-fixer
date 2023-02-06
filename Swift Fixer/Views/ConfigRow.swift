@@ -2,17 +2,15 @@ import SwiftUI
 
 struct ConfigRow: View {
 
-	private let exec: String
 	private let ds: DataSource
 
 	private let colorAnimationDuration: Double = 0.15
 
 	@ObservedObject private var currentData: ExecutableStep
 
-	init(exec: String, ds: DataSource) {
-		self.exec = exec
+	init(id: UUID, ds: DataSource) {
 		self.ds = ds
-		self.currentData = ds.contents.first { $0.exec == exec }!
+		self.currentData = ds.contents.first { $0.id == id }!
 	}
 
 	var body: some View {

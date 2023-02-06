@@ -34,7 +34,7 @@ struct ContentView: View {
 				.padding(.horizontal, 17.0)
 				List {
 					ForEach(ds.contents) {
-						ConfigRow(exec: $0.exec, ds: ds)
+						ConfigRow(id: $0.id, ds: ds)
 					}
 					.onMove(perform: ds.move)
 				}
