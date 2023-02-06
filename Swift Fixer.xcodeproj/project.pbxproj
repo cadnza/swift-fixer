@@ -80,7 +80,7 @@
 		191C1E3A2985E99A003C8BFE /* swiftformat */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = swiftformat; sourceTree = "<group>"; };
 		191C1E3E2985EC5D003C8BFE /* swiftlint.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = swiftlint.sh; sourceTree = "<group>"; };
 		193D9F5F298ADE5700194638 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
-		193E70E9297F3AA40053A733 /* Swift Fixer.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; name = "Swift Fixer.appex"; path = "Swift Fixer .appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		193E70E9297F3AA40053A733 /* Swift Fixer.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Swift Fixer.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		193E70EB297F3AA40053A733 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		193E70ED297F3AA40053A733 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
 		193E70F0297F3AA40053A733 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
@@ -232,9 +232,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		193E70E8297F3AA40053A733 /* Swift Fixer Extension */ = {
+		193E70E8297F3AA40053A733 /* Swift Fixer  */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 193E70FC297F3AA40053A733 /* Build configuration list for PBXNativeTarget "Swift Fixer Extension" */;
+			buildConfigurationList = 193E70FC297F3AA40053A733 /* Build configuration list for PBXNativeTarget "Swift Fixer " */;
 			buildPhases = (
 				193E70E5297F3AA40053A733 /* Sources */,
 				193E70E6297F3AA40053A733 /* Frameworks */,
@@ -245,7 +245,7 @@
 			);
 			dependencies = (
 			);
-			name = "Swift Fixer Extension";
+			name = "Swift Fixer ";
 			productName = "Swift Fixer Extension";
 			productReference = 193E70E9297F3AA40053A733 /* Swift Fixer.appex */;
 			productType = "com.apple.product-type.xcode-extension";
@@ -302,7 +302,7 @@
 			projectRoot = "";
 			targets = (
 				196BF442297F39DB00D04A4B /* Swift Fixer */,
-				193E70E8297F3AA40053A733 /* Swift Fixer Extension */,
+				193E70E8297F3AA40053A733 /* Swift Fixer  */,
 			);
 		};
 /* End PBXProject section */
@@ -392,7 +392,7 @@
 /* Begin PBXTargetDependency section */
 		193E70F7297F3AA40053A733 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 193E70E8297F3AA40053A733 /* Swift Fixer Extension */;
+			target = 193E70E8297F3AA40053A733 /* Swift Fixer  */;
 			targetProxy = 193E70F6297F3AA40053A733 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -624,7 +624,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		193E70FC297F3AA40053A733 /* Build configuration list for PBXNativeTarget "Swift Fixer Extension" */ = {
+		193E70FC297F3AA40053A733 /* Build configuration list for PBXNativeTarget "Swift Fixer " */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				193E70FA297F3AA40053A733 /* Debug */,
