@@ -2,7 +2,7 @@ import Foundation
 
 struct Settings {
 
-	let appGroupId = "9TVGLBSJNB.com.cadnza.swift-fixer"
+	let appGroupId = "9TVGLBSJNB.com.cadnza.swift-fixer" // FIXME: Make programmatic
 
 	private let defaults: UserDefaults
 
