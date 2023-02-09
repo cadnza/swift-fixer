@@ -99,7 +99,7 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable, Equatable {
 	func setActive(_ value: Bool) {
 		if value && configOriginal == nil {
 			setConfig()
-			if configOriginal == nil {
+			guard configOriginal != nil else {
 				return
 			}
 		}
@@ -119,7 +119,7 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable, Equatable {
 		panel.message = "Please select a config file for \(title)."
 		panel.runModal()
 		// Return on no input
-		if panel.url == nil {
+		guard panel.url != nil else {
 			return
 		}
 		// Update variable
@@ -145,7 +145,7 @@ class ExecutableStep: Decodable, ObservableObject, Identifiable, Equatable {
 		task.standardOutput = pipe
 		task.standardError = pipe
 		// Make sure config file still exists
-		if !fm.fileExists(atPath: configOriginal!.path) {
+		guard fm.fileExists(atPath: configOriginal!.path) else {
 			return (false, 1, "Could not find \(configOriginal!.path)")
 		}
 		// Parse and set arguments
