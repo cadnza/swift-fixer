@@ -38,8 +38,8 @@ struct ConfigRow: View {
 				.foregroundColor(Color.white)
 				.colorMultiply(colorChangesToAccent)
 				.animation(colorAnimation, value: currentData.isActive)
-				if currentData.subcommand != nil {
-					Text(verbatim: currentData.subcommand!)
+				if let subcommandU = currentData.subcommand {
+					Text(verbatim: subcommandU)
 						.font(.title3.monospaced())
 						.foregroundColor(Color.white)
 						.colorMultiply(colorChangesToDefault)
@@ -61,16 +61,16 @@ struct ConfigRow: View {
 				Spacer()
 			}
 			HStack {
-				if currentData.configOriginal == nil {
-					Text(verbatim: "Config file not set")
-						.foregroundColor(Color("InactiveColor"))
-						.italic()
-				} else {
-					Text(verbatim: currentData.configOriginal!.path)
+				if let configOriginalU = currentData.configOriginal {
+					Text(verbatim: configOriginalU.path)
 						.foregroundColor(Color.white)
 						.colorMultiply(colorChangesToDefault)
 						.animation(colorAnimation, value: currentData.isActive)
 						.truncationMode(.middle)
+				} else {
+					Text(verbatim: "Config file not set")
+						.foregroundColor(Color("InactiveColor"))
+						.italic()
 				}
 				Spacer()
 			}
