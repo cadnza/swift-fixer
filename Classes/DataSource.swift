@@ -22,9 +22,9 @@ class DataSource: ObservableObject {
 		self.contents = try! JSONDecoder().decode([ExecutableStep].self, from: dataCommands)
 		// Order from settings if possible
 		let setOrder = settings.value(forKey: orderSettingName) as? [String]
-		if setOrder != nil {
-			if setOrder!.count == contents.count && setOrder!.sorted() == contents.map({ $0.exec }).sorted() {
-				contents = setOrder!.map { x in
+		if let setOrderU = setOrder {
+			if setOrderU.count == contents.count && setOrderU.sorted() == contents.map({ $0.exec }).sorted() {
+				contents = setOrderU.map { x in
 					contents.first { $0.exec == x }!
 				}
 			} else {
