@@ -15,13 +15,14 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 		// Make sure buffer is type Swift
 		let uti: String = bfr.contentUTI
 		let utiSwift: String = "public.swift-source"
-		if uti != utiSwift {
+		guard uti == utiSwift else {
 			completionHandler(
 				NSError(
 					domain: "This is not Swift code.",
 					code: 0
 				)
 			)
+			return
 		}
 
 		// Get current selection
@@ -65,7 +66,7 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 
 		// Run commands and catch errors
 		let cmds = ds.contents.filter { $0.isActive }
-		if cmds.isEmpty {
+		guard !cmds.isEmpty else {
 			completeErr(
 				domain: "No commands active.",
 				code: 0
@@ -74,7 +75,7 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 		}
 		for cmd in cmds {
 			let codeReturn = cmd.execute(on: fTemp)
-			if !codeReturn.success {
+			guard codeReturn.success else {
 				completeErr(
 					domain: codeReturn.message,
 					code: codeReturn.status
