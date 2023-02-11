@@ -80,7 +80,7 @@
 		191C1E3A2985E99A003C8BFE /* swiftformat */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = swiftformat; sourceTree = "<group>"; };
 		191C1E3E2985EC5D003C8BFE /* swiftlint.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = swiftlint.sh; sourceTree = "<group>"; };
 		193D9F5F298ADE5700194638 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
-		193E70E9297F3AA40053A733 /* Swift Fixer.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Swift Fixer.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		193E70E9297F3AA40053A733 /* Swift Fixer.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; name = "Swift Fixer.appex"; path = "Swift Fixer .appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		193E70EB297F3AA40053A733 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		193E70ED297F3AA40053A733 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
 		193E70F0297F3AA40053A733 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
