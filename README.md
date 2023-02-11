@@ -12,4 +12,6 @@ Swift formatter extension for Xcode 🔨
 
 ## Setup
 
-![](https://github.com/cadnza/swift-fixer/blob/main/Swift%20Fixer/Assets.xcassets/Screenshots.imageset/light.png?raw=true) ![](https://github.com/cadnza/swift-fixer/blob/main/Swift%20Fixer/Assets.xcassets/Screenshots.imageset/dark.png?raw=true)
+|                                                                                                                            |                                                                                                                           |
+| :------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+| ![](https://github.com/cadnza/swift-fixer/blob/main/Swift%20Fixer/Assets.xcassets/Screenshots.imageset/light.png?raw=true) | ![](https://github.com/cadnza/swift-fixer/blob/main/Swift%20Fixer/Assets.xcassets/Screenshots.imageset/dark.png?raw=true) |
