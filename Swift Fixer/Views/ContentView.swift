@@ -41,7 +41,7 @@ struct ContentView: View {
 				.animation(.default, value: ds.contents)
 				Link(
 					"Help",
-					destination: URL(string: "https://github.com/cadnza/swift-fixer")! // FIXME: Point this to README file
+					destination: URL(string: "https://github.com/cadnza/swift-fixer/blob/main/README.md")!
 				)
 				.foregroundColor(Color.accentColor)
 			}
