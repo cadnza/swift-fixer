@@ -12,7 +12,7 @@ Swift formatter extension for Xcode 🔨
 
 ## Installation
 
-[Download](https://github.com/cadnza/swift-fixer/releases/download/Swift_Fixer.app.zip) the [latest release](https://github.com/cadnza/swift-fixer/releases).
+Download the [latest release](https://github.com/cadnza/swift-fixer/releases).
 
 ## Setup
 
