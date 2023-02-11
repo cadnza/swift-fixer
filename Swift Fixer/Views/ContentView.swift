@@ -25,7 +25,7 @@ struct ContentView: View {
 					VStack(alignment: .trailing) {
 						Text(appName)
 							.font(.title)
-						.fontWeight(.black)
+							.fontWeight(.black)
 						Link(authorName, destination: authorSite)
 							.font(.title2)
 							.foregroundColor(.accentColor)
