@@ -39,52 +39,11 @@ struct ContentView: View {
 					.onMove(perform: ds.move)
 				}
 				.animation(.default, value: ds.contents)
-				VStack {
-					Text(verbatim: "Setup").font(.title)
-					VStack {
-						HStack {
-							Text(verbatim: "Open ") + Text(verbatim: "System Preferences").bold()
-							Spacer()
-						}
-						HStack {
-							Text(verbatim: "Navigate to ") + Text(verbatim: "Extensions").bold()
-							Spacer()
-						}
-						HStack {
-							Text(verbatim: "Open ") + Text(verbatim: "Xcode Source Editor").bold()
-							Spacer()
-						}
-						HStack {
-							Text(verbatim: "Enable ") + Text(verbatim: "Swift Fixer Extension").bold()
-							Spacer()
-						}
-					}
-					.padding()
-					Text(verbatim: "Use")
-						.font(.title)
-					VStack {
-						HStack {
-							Text(verbatim: "Enable").bold()
-							Spacer()
-							Text(verbatim: "Enable a formatter")
-						}
-						HStack {
-							Text(verbatim: "Config...").bold()
-							Spacer()
-							Text(verbatim: "Link a configuration file")
-						}
-						HStack {
-							Text(verbatim: "Drag / Drop").bold()
-							Spacer()
-							Text(verbatim: "Assign execution order in Xcode")
-						}
-					}
-					.padding()
-					HStack {
-						Text(verbatim: "XCode → Editor → Swift Fixer → Format Swift Code")
-					}
-					.padding()
-				}
+				Link(
+					"Help",
+					destination: URL(string: "https://github.com/cadnza/swift-fixer")! // FIXME: Point this to README file
+				)
+				.foregroundColor(Color.accentColor)
 			}
 			.padding()
 		}
