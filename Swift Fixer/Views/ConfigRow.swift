@@ -104,7 +104,7 @@ struct ConfigRow: View {
 
 struct ConfigRow_Previews: PreviewProvider {
 	static var previews: some View {
-		ContentView() // TODO: Reset view
+		ContentView()
 		//		ConfigRow(exec: "swiftlint", ds: DataSource())
 	}
 }
