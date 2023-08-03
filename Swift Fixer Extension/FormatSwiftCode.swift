@@ -67,7 +67,8 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 		// Open banner for non-blocking issue (holds only one)
 		struct nonBlockingIssue {
 			let code: Int
-			let message: String
+			let messageMain: String
+			let messageElaboration: String
 		}
 		var nbiCurrent: nonBlockingIssue?
 
@@ -98,7 +99,8 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 			if triggeredOther && nbiCurrent == nil {
 				nbiCurrent = nonBlockingIssue.init(
 					code: codeReturn.status,
-					message: otherAcceptableCodesAndMessages[codeReturn.status]!
+					messageMain: otherAcceptableCodesAndMessages[codeReturn.status]!,
+					messageElaboration: "Skipped \(cmd.title)"
 				)
 			}
 		}
@@ -119,7 +121,11 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 
 		// Return
 		if let nbiCurrentU = nbiCurrent {
-			// FIXME: This is where we use the data contained in nbiCurrentU to let the user know that one of the steps was skipped and why. We need to find a way to do that.
+			let notification = NSUserNotification()
+			notification.title = nbiCurrentU.messageElaboration
+			notification.subtitle = nbiCurrentU.messageMain
+			notification.soundName = NSUserNotificationDefaultSoundName
+			NSUserNotificationCenter.default.deliver(notification)
 		}
 		completionHandler(nil)
 	}
