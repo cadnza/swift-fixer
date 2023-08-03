@@ -1,6 +1,7 @@
 import Foundation
 import System
 import XcodeKit
+import UserNotifications
 
 class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 
@@ -119,14 +120,29 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 		// Delete temp file
 		removeTempFile()
 
-		// Return
+		// Notify if something didn't work
 		if let nbiCurrentU = nbiCurrent {
-			let notification = NSUserNotification()
-			notification.title = nbiCurrentU.messageElaboration
-			notification.subtitle = nbiCurrentU.messageMain
-			notification.soundName = NSUserNotificationDefaultSoundName
-			NSUserNotificationCenter.default.deliver(notification)
+			let nCenter = UNUserNotificationCenter.current()
+			nCenter.requestAuthorization(options: [.alert,.sound]) { granted, error in
+				// This is where we adjust settings based on the user's response to our request.
+				completionHandler(nil) // Just return if the user doesn't want notifications
+			}
+			nCenter.getNotificationSettings { settings in
+				if settings.authorizationStatus == .authorized {
+					let nContent = UNMutableNotificationContent()
+					nContent.title = nbiCurrentU.messageElaboration
+					nContent.body = nbiCurrentU.messageMain
+					let nRequest = UNNotificationRequest(
+						identifier: UUID().uuidString,
+						content: nContent,
+						trigger: nil
+					)
+					nCenter.add(nRequest)
+				}
+			}
 		}
+
+		// Return
 		completionHandler(nil)
 	}
 
