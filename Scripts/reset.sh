@@ -17,16 +17,19 @@ versions="[]"
 
 # Copy binaries and note versions
 cat "$dest/Swift Fixer/Assets.xcassets/Commands.dataset/commands.json" \
-	| /usr/local/bin/jq -r '.[] | .location+"/"+.exec' \
+	| /opt/homebrew/bin/jq -r '.[] | .location+"/"+.exec' \
 	| while read -r src
 do
 	cp "$src" "$binaries"
 	version=$($src --version)
 	versions=$(
-		echo $versions | /usr/local/bin/jq -rc \
+		echo $versions | /opt/homebrew/bin/jq -rc \
 			--arg exec $(basename $src) \
 			--arg version $version \
 			'. += [{"exec": $exec, "version": $version}]'
 	)
 	echo $versions > $fVersions
 done
+
+# Exit
+exit 0

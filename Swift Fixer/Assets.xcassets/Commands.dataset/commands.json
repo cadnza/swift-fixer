@@ -2,7 +2,7 @@
 	{
 		"title": "swift-format",
 		"subcommand": null,
-		"location": "/usr/local/bin",
+		"location": "/opt/homebrew/bin",
 		"website": "https://github.com/apple/swift-format",
 		"description": "",
 		"exec": "swift-format",
@@ -14,7 +14,7 @@
 	{
 		"title": "SwiftLint",
 		"subcommand": "--fix",
-		"location": "/usr/local/bin",
+		"location": "/opt/homebrew/bin",
 		"website": "https://realm.github.io/SwiftLint/",
 		"description": "",
 		"exec": "swiftlint",
@@ -26,7 +26,7 @@
 	{
 		"title": "SwiftFormat",
 		"subcommand": null,
-		"location": "/usr/local/bin",
+		"location": "/opt/homebrew/bin",
 		"website": "https://github.com/nicklockwood/SwiftFormat",
 		"description": "",
 		"exec": "swiftformat",
