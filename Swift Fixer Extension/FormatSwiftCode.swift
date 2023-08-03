@@ -64,7 +64,14 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 			encoding: .utf8
 		)
 
-		// Run commands and catch errors
+		// Open banner for non-blocking issue (holds only one)
+		struct nonBlockingIssue {
+			let code: Int
+			let message: String
+		}
+		var nbiCurrent: nonBlockingIssue?
+
+		// Run commands and catch errors and non-blocking issues
 		let cmds = ds.contents.filter { $0.isActive }
 		guard !cmds.isEmpty else {
 			completeErr(
@@ -75,12 +82,24 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 		}
 		for cmd in cmds {
 			let codeReturn = cmd.execute(on: fTemp)
-			guard codeReturn.success else {
+			let otherAcceptableCodesAndMessages = [
+				5: "\(cmd.title) was skipped due to a sandbox issue."
+			]
+			let triggeredOther = otherAcceptableCodesAndMessages
+				.keys
+				.contains(codeReturn.status)
+			guard codeReturn.success || triggeredOther else {
 				completeErr(
 					domain: cmd.title,
 					code: codeReturn.status
 				)
 				return
+			}
+			if triggeredOther && nbiCurrent == nil {
+				nbiCurrent = nonBlockingIssue.init(
+					code: codeReturn.status,
+					message: otherAcceptableCodesAndMessages[codeReturn.status]!
+				)
 			}
 		}
 
@@ -99,7 +118,11 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 		removeTempFile()
 
 		// Return
-		completionHandler(nil)
+		if let nbiCurrentU = nbiCurrent {
+			// FIXME: This is where we use the data contained in nbiCurrentU to let the user know that one of the steps was skipped and why.
+		} else {
+			completionHandler(nil)
+		}
 	}
 
 }
