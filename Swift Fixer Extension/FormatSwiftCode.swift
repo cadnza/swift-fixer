@@ -120,9 +120,8 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 		// Return
 		if let nbiCurrentU = nbiCurrent {
 			// FIXME: This is where we use the data contained in nbiCurrentU to let the user know that one of the steps was skipped and why.
-		} else {
-			completionHandler(nil)
 		}
+		completionHandler(nil)
 	}
 
 }
