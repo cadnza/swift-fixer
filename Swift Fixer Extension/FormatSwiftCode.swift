@@ -1,7 +1,7 @@
 import Foundation
 import System
-import XcodeKit
 import UserNotifications
+import XcodeKit
 
 class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 
@@ -28,8 +28,8 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 
 		// Get current selection
 		let currentSelFirst: XCSourceTextRange =
-		(bfr.selections[0] as! XCSourceTextRange).copy()
-		as! XCSourceTextRange
+			(bfr.selections[0] as! XCSourceTextRange).copy()
+			as! XCSourceTextRange
 
 		// Open data source
 		let ds = DataSource()
@@ -100,7 +100,9 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 			if triggeredOther && nbiCurrent == nil {
 				nbiCurrent = nonBlockingIssue.init(
 					code: codeReturn.status,
-					messageMain: otherAcceptableCodesAndMessages[codeReturn.status]!,
+					messageMain: otherAcceptableCodesAndMessages[
+						codeReturn.status
+					]!,
 					messageElaboration: "Skipped \(cmd.title)"
 				)
 			}
@@ -123,9 +125,11 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 		// Notify if something didn't work
 		if let nbiCurrentU = nbiCurrent {
 			let nCenter = UNUserNotificationCenter.current()
-			nCenter.requestAuthorization(options: [.alert,.sound]) { granted, error in
+			nCenter.requestAuthorization(options: [.alert, .sound]) {
+				granted,
+				error in
 				// This is where we adjust settings based on the user's response to our request.
-				completionHandler(nil) // Just return if the user doesn't want notifications
+				completionHandler(nil)  // Just return if the user doesn't want notifications
 			}
 			nCenter.getNotificationSettings { settings in
 				if settings.authorizationStatus == .authorized {
