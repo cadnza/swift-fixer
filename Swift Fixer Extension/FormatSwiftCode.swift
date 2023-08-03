@@ -77,7 +77,7 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 			let codeReturn = cmd.execute(on: fTemp)
 			guard codeReturn.success else {
 				completeErr(
-					domain: codeReturn.message,
+					domain: cmd.title,
 					code: codeReturn.status
 				)
 				return
