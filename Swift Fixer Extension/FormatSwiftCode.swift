@@ -65,13 +65,13 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 			encoding: .utf8
 		)
 
-		// Open banner for non-blocking issue (holds only one)
+		// Open list of non-blocking issues (holds only one)
 		struct nonBlockingIssue {
 			let code: Int
 			let messageMain: String
 			let messageElaboration: String
 		}
-		var nbiCurrent: nonBlockingIssue?
+		var NBIs: [nonBlockingIssue] = []
 
 		// Run commands and catch errors and non-blocking issues
 		let cmds = ds.contents.filter { $0.isActive }
@@ -97,13 +97,15 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 				)
 				return
 			}
-			if triggeredOther && nbiCurrent == nil {
-				nbiCurrent = nonBlockingIssue.init(
-					code: codeReturn.status,
-					messageMain: otherAcceptableCodesAndMessages[
-						codeReturn.status
-					]!,
-					messageElaboration: "Skipped \(cmd.title)"
+			if triggeredOther {
+				NBIs.append(
+					nonBlockingIssue.init(
+						code: codeReturn.status,
+						messageMain: otherAcceptableCodesAndMessages[
+							codeReturn.status
+						]!,
+						messageElaboration: "Skipped \(cmd.title)"
+					)
 				)
 			}
 		}
@@ -123,7 +125,7 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 		removeTempFile()
 
 		// Notify if something didn't work
-		if let nbiCurrentU = nbiCurrent {
+		NBIs.forEach { nbiCurrent in
 			let nCenter = UNUserNotificationCenter.current()
 			nCenter.requestAuthorization(options: [.alert, .sound]) {
 				granted,
@@ -135,8 +137,8 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 				}
 				let nContent = UNMutableNotificationContent()
 				if settings.alertSetting == .enabled {
-					nContent.title = nbiCurrentU.messageElaboration
-					nContent.body = nbiCurrentU.messageMain
+					nContent.title = nbiCurrent.messageElaboration
+					nContent.body = nbiCurrent.messageMain
 				}
 				if settings.soundSetting == .enabled {
 					nContent.sound = .default
