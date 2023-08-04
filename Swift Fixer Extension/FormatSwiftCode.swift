@@ -128,21 +128,25 @@ class FormatSwiftCode: NSObject, XCSourceEditorCommand {
 			nCenter.requestAuthorization(options: [.alert, .sound]) {
 				granted,
 				error in
-				// This is where we adjust settings based on the user's response to our request.
-				completionHandler(nil)  // Just return if the user doesn't want notifications
 			}
 			nCenter.getNotificationSettings { settings in
-				if settings.authorizationStatus == .authorized {
-					let nContent = UNMutableNotificationContent()
+				guard settings.authorizationStatus == .authorized else {
+					return
+				}
+				let nContent = UNMutableNotificationContent()
+				if settings.alertSetting == .enabled {
 					nContent.title = nbiCurrentU.messageElaboration
 					nContent.body = nbiCurrentU.messageMain
-					let nRequest = UNNotificationRequest(
-						identifier: UUID().uuidString,
-						content: nContent,
-						trigger: nil
-					)
-					nCenter.add(nRequest)
 				}
+				if settings.soundSetting == .enabled {
+					nContent.sound = .default
+				}
+				let nRequest = UNNotificationRequest(
+					identifier: UUID().uuidString,
+					content: nContent,
+					trigger: nil
+				)
+				nCenter.add(nRequest)
 			}
 		}
 
